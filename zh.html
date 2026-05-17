@@ -1,0 +1,2624 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>北京 · 八日帝都之旅 · 2026年5月24日-31日</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@200;300;400;500;600;700&family=Amiri:wght@400;700&family=Cinzel:wght@400;500;600&family=Noto+Serif+SC:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet" />
+<style>
+  /* ============================================
+     RESET & BASE
+     ============================================ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; scroll-snap-type: y mandatory; }
+  body {
+    background: #0B0A0E;
+    color: rgba(242, 234, 213, 0.92);
+    font-family: 'Noto Sans SC', 'Inter', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  :root {
+    --bg: #0B0A0E;
+    --bg-2: #15131B;
+    --bg-3: #1E1A26;
+    --gold: #C9A961;
+    --gold-bright: #E6C77E;
+    --gold-deep: #8B7340;
+    --gold-soft: rgba(201, 169, 97, 0.15);
+    --cream: #F2EAD5;
+    --jade: #2C5F5A;
+    --crimson: #8B2C2C;
+    --text: rgba(242, 234, 213, 0.92);
+    --text-dim: rgba(242, 234, 213, 0.55);
+    --text-faint: rgba(242, 234, 213, 0.35);
+    --border: rgba(201, 169, 97, 0.18);
+    --border-bright: rgba(201, 169, 97, 0.4);
+  }
+
+  ::selection { background: var(--gold); color: var(--bg); }
+
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--gold-deep); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--gold); }
+
+  /* ============================================
+     TYPOGRAPHY
+     ============================================ */
+  .display { font-family: 'Noto Serif SC', 'Cormorant Garamond', 'Times New Roman', serif; font-weight: 300; letter-spacing: 0.02em; line-height: 1.05; }
+  .cinzel { font-family: 'Cinzel', serif; letter-spacing: 0.18em; text-transform: uppercase; }
+  .arabic { font-family: 'Amiri', serif; direction: rtl; letter-spacing: 0; }
+  .eyebrow {
+    font-family: 'Noto Sans SC', 'Inter', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+  .gold-text {
+    background: linear-gradient(135deg, var(--gold-bright) 0%, var(--gold) 50%, var(--gold-deep) 100%);
+    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+  }
+
+  /* ============================================
+     SECTIONS
+     ============================================ */
+  section {
+    min-height: 100vh;
+    width: 100%;
+    padding: 6rem 5vw;
+    position: relative;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .container { max-width: 1400px; width: 100%; margin: 0 auto; position: relative; z-index: 3; }
+
+  /* ============================================
+     BACKGROUND TEXTURE & PHOTO OVERLAY
+     ============================================ */
+  .grain {
+    position: absolute; inset: 0; pointer-events: none; opacity: 0.04; z-index: 2;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  .photo-bg {
+    position: absolute; inset: 0;
+    background-size: cover; background-position: center;
+    opacity: 0; transition: opacity 2s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 0;
+  }
+  .photo-bg.loaded { opacity: 0.55; }
+  .photo-bg::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(11,10,14,0.6) 0%, rgba(11,10,14,0.85) 100%);
+  }
+  .pattern-overlay {
+    position: absolute; inset: 0; pointer-events: none; opacity: 0.05; z-index: 1;
+    background-image:
+      radial-gradient(circle at 25% 25%, var(--gold) 0%, transparent 50%),
+      radial-gradient(circle at 75% 75%, var(--gold) 0%, transparent 50%);
+  }
+
+  /* ============================================
+     PROGRESS BAR & NAV
+     ============================================ */
+  .progress-bar {
+    position: fixed; top: 0; left: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--gold-bright), var(--gold));
+    z-index: 1000; width: 0%;
+    transition: width 0.1s ease-out;
+    box-shadow: 0 0 12px rgba(201, 169, 97, 0.6);
+  }
+  .side-nav {
+    position: fixed; right: 2rem; top: 50%; transform: translateY(-50%);
+    z-index: 100; display: flex; flex-direction: column; gap: 0.7rem;
+  }
+  .side-nav a {
+    position: relative; display: block; width: 8px; height: 8px; border-radius: 50%;
+    background: transparent; border: 1px solid var(--gold-deep);
+    transition: all 0.3s ease;
+  }
+  .side-nav a:hover { border-color: var(--gold-bright); transform: scale(1.4); }
+  .side-nav a.active {
+    background: var(--gold); border-color: var(--gold);
+    box-shadow: 0 0 12px rgba(201, 169, 97, 0.7);
+  }
+  .side-nav a::after {
+    content: attr(data-label); position: absolute; right: 22px; top: 50%;
+    transform: translateY(-50%); font-size: 0.62rem; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--gold); white-space: nowrap;
+    opacity: 0; transition: opacity 0.3s; pointer-events: none;
+    background: rgba(11,10,14,0.85); padding: 4px 10px; border-radius: 2px;
+    border: 1px solid var(--border);
+  }
+  .side-nav a:hover::after { opacity: 1; }
+
+  /* ============================================
+     REVEAL
+     ============================================ */
+  .reveal {
+    opacity: 0; transform: translateY(40px);
+    transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal.delay-1 { transition-delay: 0.12s; }
+  .reveal.delay-2 { transition-delay: 0.24s; }
+  .reveal.delay-3 { transition-delay: 0.36s; }
+  .reveal.delay-4 { transition-delay: 0.48s; }
+  .reveal.delay-5 { transition-delay: 0.6s; }
+
+  /* ============================================
+     HERO
+     ============================================ */
+  .hero {
+    background:
+      radial-gradient(ellipse at 50% 100%, rgba(139, 44, 44, 0.18) 0%, transparent 60%),
+      radial-gradient(ellipse at 30% 30%, rgba(201, 169, 97, 0.1) 0%, transparent 50%),
+      linear-gradient(180deg, #0B0A0E 0%, #15131B 100%);
+    align-items: center; text-align: center;
+  }
+  .hero-arabic {
+    font-family: 'Amiri', serif; font-size: 2.2rem;
+    color: var(--gold); margin-bottom: 2rem; opacity: 0.85;
+  }
+  .hero-title {
+    font-family: 'Noto Serif SC', 'Cormorant Garamond', serif; font-weight: 300;
+    font-size: clamp(4rem, 14vw, 11rem); line-height: 0.92;
+    letter-spacing: 0.05em; margin-bottom: 0.5rem;
+  }
+  .hero-title .first { display: block; font-style: italic; font-weight: 300; }
+  .hero-divider {
+    display: flex; align-items: center; justify-content: center;
+    gap: 1.2rem; margin: 2rem 0;
+  }
+  .hero-divider .line {
+    height: 1px; width: 80px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+  .hero-divider .ornament { color: var(--gold); font-size: 1.2rem; }
+  .hero-subtitle {
+    font-family: 'Cinzel', serif; font-size: clamp(0.85rem, 1.4vw, 1.1rem);
+    letter-spacing: 0.5em; text-transform: uppercase; color: var(--cream);
+    margin-bottom: 1.2rem; text-indent: 0.5em;
+  }
+  .hero-dates {
+    font-family: 'Noto Serif SC', 'Cormorant Garamond', serif; font-style: italic;
+    font-size: 1.3rem; color: var(--gold); margin-bottom: 2.5rem;
+    letter-spacing: 0.1em;
+  }
+  .hero-dedication {
+    font-family: 'Noto Serif SC', 'Cormorant Garamond', serif; font-style: italic;
+    font-size: 1.15rem; color: var(--text-dim);
+    max-width: 600px; margin: 0 auto;
+  }
+  .hero-scroll {
+    position: absolute; bottom: 3rem; left: 50%; transform: translateX(-50%);
+    text-align: center; color: var(--gold); opacity: 0.7;
+    animation: bounce 2.5s ease-in-out infinite; z-index: 5;
+  }
+  .hero-scroll .label {
+    font-size: 0.65rem; letter-spacing: 0.4em; text-transform: uppercase;
+    margin-bottom: 0.7rem;
+  }
+  .hero-scroll .arrow {
+    width: 1px; height: 40px;
+    background: linear-gradient(180deg, var(--gold), transparent);
+    margin: 0 auto;
+  }
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(10px); }
+  }
+  .hero-skyline {
+    position: absolute; bottom: 0; left: 0; width: 100%; height: 30vh;
+    opacity: 0.35; pointer-events: none; z-index: 1;
+  }
+
+  /* ============================================
+     SECTION HEAD
+     ============================================ */
+  .section-head { margin-bottom: 4rem; text-align: center; }
+  .section-head .eyebrow { margin-bottom: 1rem; display: block; }
+  .section-head h2 {
+    font-family: 'Noto Serif SC', 'Cormorant Garamond', serif; font-weight: 300;
+    font-size: clamp(2.5rem, 5vw, 4.5rem); line-height: 1.05;
+    letter-spacing: 0.01em; margin-bottom: 1.2rem;
+  }
+  .section-head h2 em { font-style: italic; color: var(--gold); }
+  .section-head .lede {
+    font-family: 'Noto Serif SC', 'Cormorant Garamond', serif; font-style: italic;
+    font-size: 1.25rem; color: var(--text-dim);
+    max-width: 720px; margin: 0 auto; line-height: 1.5;
+  }
+
+  /* ============================================
+     WELCOME
+     ============================================ */
+  .welcome { text-align: center; }
+  .welcome-arabic {
+    font-family: 'Amiri', serif; font-size: 3rem;
+    color: var(--gold); margin-bottom: 1rem;
+  }
+  .welcome-text {
+    max-width: 780px; margin: 2rem auto 4rem;
+    font-family: 'Noto Serif SC', 'Cormorant Garamond', serif;
+    font-size: 1.4rem; line-height: 1.7; font-weight: 300; color: var(--text);
+  }
+  .welcome-text em { color: var(--gold); font-style: italic; }
+  .stats {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem;
+    max-width: 1100px; margin: 0 auto;
+  }
+  .stat {
+    padding: 2rem 1rem;
+    border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+    text-align: center;
+  }
+  .stat .num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.5rem; font-weight: 300; line-height: 1; margin-bottom: 0.5rem;
+  }
+  .stat .label {
+    font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--text-dim);
+  }
+
+  /* ============================================
+     OVERVIEW
+     ============================================ */
+  .days-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem;
+    margin-top: 3rem;
+  }
+  .day-card {
+    position: relative; padding: 1.8rem 1.4rem;
+    background: linear-gradient(135deg, rgba(30, 26, 38, 0.8) 0%, rgba(21, 19, 27, 0.9) 100%);
+    border: 1px solid var(--border); border-radius: 2px;
+    overflow: hidden; transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    min-height: 230px; display: flex; flex-direction: column; justify-content: space-between;
+  }
+  .day-card:hover {
+    border-color: var(--gold); transform: translateY(-4px);
+    box-shadow: 0 20px 60px -20px rgba(201, 169, 97, 0.3);
+  }
+  .day-card::before {
+    content: ''; position: absolute; top: 0; left: 0;
+    width: 100%; height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    transform: translateX(-100%); transition: transform 0.7s ease;
+  }
+  .day-card:hover::before { transform: translateX(0); }
+  .day-card .num {
+    font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.35em;
+    color: var(--gold); margin-bottom: 0.4rem;
+  }
+  .day-card .date {
+    font-family: 'Noto Serif SC', 'Cormorant Garamond', serif; font-style: italic;
+    font-size: 0.85rem; color: var(--text-faint); margin-bottom: 0.8rem;
+  }
+  .day-card h3 {
+    font-family: 'Noto Serif SC', 'Cormorant Garamond', serif; font-weight: 400;
+    font-size: 1.5rem; line-height: 1.1; margin-bottom: 0.8rem;
+  }
+  .day-card p { font-size: 0.85rem; color: var(--text-dim); line-height: 1.55; }
+  .day-card .meta {
+    margin-top: 1.2rem; font-size: 0.65rem; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--text-faint);
+  }
+
+  /* ============================================
+     CULTURAL CARE
+     ============================================ */
+  .care-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem;
+    margin-top: 4rem;
+  }
+  .care-item { text-align: center; padding: 2rem 1rem; }
+  .care-item .icon {
+    width: 70px; height: 70px; margin: 0 auto 1.5rem;
+    display: flex; align-items: center; justify-content: center;
+    border: 1px solid var(--gold); border-radius: 50%; color: var(--gold);
+  }
+  .care-item h4 {
+    font-family: 'Noto Serif SC', 'Cormorant Garamond', serif;
+    font-size: 1.6rem; font-weight: 400; margin-bottom: 1rem; color: var(--cream);
+  }
+  .care-item p { font-size: 0.95rem; color: var(--text-dim); line-height: 1.7; }
+
+  /* ============================================
+     VEHICLE SLIDE
+     ============================================ */
+  .vehicle {
+    background:
+      radial-gradient(ellipse at 70% 50%, rgba(201, 169, 97, 0.08) 0%, transparent 60%),
+      var(--bg);
+  }
+  .vehicle-grid {
+    display: grid; grid-template-columns: 1.1fr 1fr; gap: 4rem;
+    align-items: center; margin-top: 3rem;
+  }
+  .vehicle-visual {
+    position: relative;
+    width: 100%; min-height: 480px; height: 480px;
+    background: linear-gradient(135deg, rgba(30,26,38,0.9), rgba(11,10,14,0.95));
+    border: 1px solid var(--border); border-radius: 4px; overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .vehicle-visual .v-photo {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: center;
+    background-size: cover; background-position: center;
+    opacity: 0; transition: opacity 2s ease;
+    display: block;
+  }
+  .vehicle-visual .v-photo.loaded { opacity: 1; }
+  .vehicle-visual svg { position: relative; z-index: 2; width: 80%; height: auto; opacity: 0.9; transition: opacity 1.5s ease; }
+  .vehicle-visual.has-photo svg { opacity: 0; }
+  .vehicle-visual::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(180deg, transparent 50%, rgba(11,10,14,0.6) 100%);
+    pointer-events: none;
+  }
+  .vehicle-content h3 {
+    font-family: 'Noto Serif SC', 'Cormorant Garamond', serif; font-weight: 300;
+    font-size: 3rem; line-height: 1.05; margin-bottom: 0.5rem;
+  }
+  .vehicle-content h3 em { font-style: italic; color: var(--gold); }
+  .vehicle-content .model {
+    font-family: 'Cinzel', serif; font-size: 0.8rem; letter-spacing: 0.3em;
+    text-transform: uppercase; color: var(--gold); margin-bottom: 2rem;
+  }
+  .vehicle-content .desc {
+    font-family: 'Noto Serif SC', 'Cormorant Garamond', serif; font-style: italic;
+    font-size: 1.2rem; color: var(--text); margin-bottom: 2rem;
+  }
+  .vehicle-specs {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem;
+    margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--border);
+  }
+  .vehicle-specs .spec .label {
+    font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 0.3rem;
+  }
+  .vehicle-specs .spec .value { font-size: 1rem; color: var(--cream); }
+  .service-list {
+    margin-top: 4rem; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+  }
+  .service-item {
+    padding: 1.5rem; border: 1px solid var(--border);
+    background: rgba(21,19,27,0.5);
+  }
+  .service-item .icon-sm {
+    width: 28px; height: 28px; color: var(--gold); margin-bottom: 1rem;
+  }
+  .service-item h5 {
+    font-family: 'Noto Serif SC', 'Cormorant Garamond', serif; font-size: 1.15rem;
+    font-weight: 500; margin-bottom: 0.4rem; color: var(--cream);
+  }
+  .service-item p { font-size: 0.85rem; color: var(--text-dim); line-height: 1.5; }
+
+  /* ============================================
+     DAY DETAIL SECTIONS
+     ============================================ */
+  .day-section { padding: 6rem 5vw; position: relative; }
+  .day-section.bg-1 { background: linear-gradient(180deg, #0B0A0E, #15131B); }
+  .day-section.bg-2 { background: linear-gradient(180deg, #15131B, #1E1A26); }
+  .day-section.bg-3 { background: linear-gradient(180deg, #1E1A26, #15131B); }
+  .day-section.bg-4 { background: linear-gradient(180deg, #15131B, #0B0A0E); }
+
+  .day-header {
+    display: grid; grid-template-columns: auto 1fr auto;
+    gap: 3rem; align-items: center;
+    margin-bottom: 4rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border);
+  }
+  .day-number {
+    font-family: 'Cormorant Garamond', serif; font-weight: 300; font-style: italic;
+    font-size: 8rem; line-height: 1; color: var(--gold); opacity: 0.4;
+  }
+  .day-title-block .eyebrow { margin-bottom: 0.8rem; display: block; }
+  .day-title-block h2 {
+    font-family: 'Noto Serif SC', 'Cormorant Garamond', serif; font-weight: 300;
+    font-size: clamp(2.5rem, 5vw, 4.2rem); line-height: 1.05; margin-bottom: 0.8rem;
+  }
+  .day-title-block h2 em { font-style: italic; color: var(--gold); }
+  .day-title-block .subtitle {
+    font-family: 'Noto Serif SC', 'Cormorant Garamond', serif; font-style: italic;
+    font-size: 1.15rem; color: var(--text-dim);
+  }
+  .day-title-block .date-badge {
+    display: inline-block; margin-top: 0.7rem; padding: 0.3rem 1rem;
+    border: 1px solid var(--border-bright); border-radius: 2px;
+    font-family: 'Cinzel', serif; font-size: 0.7rem; letter-spacing: 0.3em;
+    text-transform: uppercase; color: var(--gold); background: var(--gold-soft);
+  }
+  .day-arabic {
+    text-align: right; font-family: 'Amiri', serif;
+    font-size: 1.8rem; color: var(--gold); opacity: 0.7;
+    direction: rtl; line-height: 1.4;
+  }
+
+  .day-visual {
+    height: 380px; margin: 0 -5vw 4rem; position: relative; overflow: hidden;
+    background: var(--bg-2);
+  }
+  .day-visual .scene {
+    position: absolute; inset: 0; z-index: 2;
+    display: flex; align-items: center; justify-content: center;
+    opacity: 1; transition: opacity 1.5s ease;
+  }
+  .day-visual.has-photo .scene { opacity: 0; }
+  .day-visual .photo {
+    position: absolute; inset: 0; background-size: cover; background-position: center;
+    opacity: 0; transition: opacity 2s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 1;
+  }
+  .day-visual .photo.loaded { opacity: 1; }
+  .day-visual::after {
+    content: ''; position: absolute; inset: 0; z-index: 3;
+    background: linear-gradient(180deg, rgba(11,10,14,0.2) 0%, transparent 40%, var(--bg) 100%);
+    pointer-events: none;
+  }
+  .day-visual .caption {
+    position: absolute; bottom: 1.5rem; left: 5vw; z-index: 4;
+    font-family: 'Noto Serif SC', 'Cormorant Garamond', serif; font-style: italic;
+    font-size: 1.1rem; color: var(--gold);
+    text-shadow: 0 2px 12px rgba(0,0,0,0.8);
+  }
+
+  /* Timeline */
+  .timeline {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
+    margin-bottom: 4rem; position: relative;
+  }
+  .timeline::before {
+    content: ''; position: absolute; top: 28px; left: 5%; right: 5%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold-deep) 10%, var(--gold-deep) 90%, transparent);
+  }
+  .time-slot { padding: 0 1.5rem; text-align: center; position: relative; }
+  .time-slot .marker {
+    width: 14px; height: 14px; border-radius: 50%;
+    background: var(--gold); border: 1px solid var(--gold);
+    margin: 0 auto 1rem; position: relative; z-index: 2;
+    transition: all 0.3s; box-shadow: 0 0 0 4px var(--bg);
+  }
+  .time-slot:hover .marker { box-shadow: 0 0 0 4px var(--bg), 0 0 16px rgba(201, 169, 97, 0.7); }
+  .time-slot .time {
+    font-family: 'Cinzel', serif; font-size: 0.72rem;
+    letter-spacing: 0.3em; color: var(--gold); margin-bottom: 0.5rem;
+  }
+  .time-slot .activity {
+    font-family: 'Noto Serif SC', 'Cormorant Garamond', serif; font-size: 1.35rem;
+    font-weight: 400; line-height: 1.2; margin-bottom: 0.5rem; color: var(--cream);
+  }
+  .time-slot .place {
+    font-size: 0.82rem; color: var(--text-dim); line-height: 1.5;
+  }
+
+  .day-cards {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem;
+  }
+  .info-card {
+    padding: 1.8rem;
+    background: rgba(30, 26, 38, 0.5);
+    border: 1px solid var(--border); border-radius: 2px;
+    backdrop-filter: blur(10px);
+    transition: all 0.4s ease; position: relative; overflow: hidden;
+  }
+  .info-card:hover {
+    border-color: var(--gold); background: rgba(30, 26, 38, 0.85);
+  }
+  .info-card .label {
+    font-size: 0.62rem; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 0.8rem;
+  }
+  .info-card h5 {
+    font-family: 'Noto Serif SC', 'Cormorant Garamond', serif; font-size: 1.25rem;
+    font-weight: 500; margin-bottom: 0.5rem; color: var(--cream); line-height: 1.2;
+  }
+  .info-card p { font-size: 0.85rem; color: var(--text-dim); line-height: 1.6; }
+
+  /* ============================================
+     QUOTE
+     ============================================ */
+  .quote-section { text-align: center; }
+  .quote-mark {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 8rem; line-height: 1;
+    color: var(--gold); opacity: 0.3; margin-bottom: -2rem;
+  }
+  .quote-text {
+    font-family: 'Noto Serif SC', 'Cormorant Garamond', serif; font-style: italic;
+    font-weight: 300; font-size: clamp(1.5rem, 3vw, 2.4rem); line-height: 1.4;
+    max-width: 900px; margin: 0 auto 2rem; color: var(--cream);
+  }
+  .quote-author {
+    font-family: 'Cinzel', serif; font-size: 0.8rem;
+    letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold);
+  }
+
+  /* ============================================
+     HALAL GUIDE
+     ============================================ */
+  .halal-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem; margin-top: 3rem;
+  }
+  .restaurant-card {
+    padding: 2rem; border: 1px solid var(--border);
+    background: linear-gradient(135deg, rgba(44, 95, 90, 0.05) 0%, rgba(21, 19, 27, 0.5) 100%);
+    transition: all 0.4s ease; position: relative;
+  }
+  .restaurant-card:hover { border-color: var(--gold); transform: translateY(-4px); }
+  .restaurant-card .cert {
+    display: inline-block; padding: 0.25rem 0.7rem;
+    font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--jade); background: rgba(44, 95, 90, 0.15);
+    border: 1px solid var(--jade); border-radius: 2px; margin-bottom: 1.2rem;
+  }
+  .restaurant-card h4 {
+    font-family: 'Noto Serif SC', 'Cormorant Garamond', serif;
+    font-size: 1.55rem; font-weight: 500;
+    margin-bottom: 0.3rem; color: var(--cream);
+  }
+  .restaurant-card .cuisine {
+    font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 1rem;
+  }
+  .restaurant-card .desc {
+    font-size: 0.9rem; color: var(--text-dim); line-height: 1.6; margin-bottom: 1.2rem;
+  }
+  .restaurant-card .details {
+    display: flex; flex-direction: column; gap: 0.4rem;
+    font-size: 0.78rem; color: var(--text-faint);
+    border-top: 1px solid var(--border); padding-top: 1rem;
+  }
+  .restaurant-card .details span { display: flex; gap: 0.5rem; align-items: flex-start; }
+  .restaurant-card .details strong {
+    color: var(--gold); font-weight: 400; min-width: 70px;
+  }
+
+  /* ============================================
+     MOSQUES
+     ============================================ */
+  .mosques-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 3rem;
+  }
+  .mosque-card {
+    padding: 2.5rem 2rem; text-align: center;
+    border: 1px solid var(--border);
+    background: linear-gradient(180deg, rgba(30, 26, 38, 0.6) 0%, rgba(11, 10, 14, 0.8) 100%);
+    transition: all 0.4s ease;
+  }
+  .mosque-card:hover { border-color: var(--gold); }
+  .mosque-icon {
+    width: 60px; height: 60px; margin: 0 auto 1.5rem; color: var(--gold);
+  }
+  .mosque-card h4 {
+    font-family: 'Noto Serif SC', 'Cormorant Garamond', serif;
+    font-size: 1.7rem; font-weight: 400;
+    color: var(--cream); margin-bottom: 0.3rem;
+  }
+  .mosque-card .arabic-name {
+    font-family: 'Amiri', serif; font-size: 1.4rem;
+    color: var(--gold); margin-bottom: 1rem;
+  }
+  .mosque-card .est {
+    font-size: 0.68rem; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--text-faint); margin-bottom: 1.2rem;
+  }
+  .mosque-card .desc {
+    font-size: 0.88rem; color: var(--text-dim); line-height: 1.6; margin-bottom: 1.5rem;
+  }
+  .mosque-card .address {
+    font-size: 0.78rem; color: var(--gold);
+    border-top: 1px solid var(--border); padding-top: 1rem;
+  }
+
+  /* ============================================
+     PRACTICAL
+     ============================================ */
+  .practical-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 2.5rem; margin-top: 3rem;
+  }
+  .practical-card {
+    padding: 2.5rem; border: 1px solid var(--border);
+    background: rgba(21, 19, 27, 0.7); backdrop-filter: blur(10px);
+  }
+  .practical-card .head {
+    display: flex; align-items: center; gap: 1rem;
+    margin-bottom: 1.5rem; padding-bottom: 1.2rem; border-bottom: 1px solid var(--border);
+  }
+  .practical-card .head svg { width: 32px; height: 32px; color: var(--gold); }
+  .practical-card .head h4 {
+    font-family: 'Noto Serif SC', 'Cormorant Garamond', serif; font-size: 1.55rem; font-weight: 500;
+  }
+  .practical-card ul { list-style: none; }
+  .practical-card li {
+    padding: 0.7rem 0; border-bottom: 1px solid rgba(201, 169, 97, 0.08);
+    display: grid; grid-template-columns: 140px 1fr; gap: 1rem; font-size: 0.92rem;
+  }
+  .practical-card li:last-child { border: none; }
+  .practical-card li strong {
+    color: var(--gold); font-weight: 400; font-family: 'Cinzel', serif;
+    font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; padding-top: 3px;
+  }
+  .practical-card li span { color: var(--text); }
+
+  /* ============================================
+     FAREWELL
+     ============================================ */
+  .farewell {
+    background:
+      radial-gradient(ellipse at 50% 50%, rgba(139, 44, 44, 0.12) 0%, transparent 60%),
+      radial-gradient(ellipse at 50% 100%, rgba(201, 169, 97, 0.1) 0%, transparent 60%),
+      linear-gradient(180deg, #15131B 0%, #0B0A0E 100%);
+    text-align: center; align-items: center;
+  }
+  .farewell-arabic {
+    font-family: 'Amiri', serif; font-size: 4rem;
+    color: var(--gold); margin-bottom: 1.5rem; line-height: 1.3;
+  }
+  .farewell h2 {
+    font-family: 'Noto Serif SC', 'Cormorant Garamond', serif; font-weight: 300; font-style: italic;
+    font-size: clamp(3rem, 6vw, 5rem); line-height: 1.1; margin-bottom: 2rem;
+  }
+  .farewell .closing {
+    font-family: 'Noto Serif SC', 'Cormorant Garamond', serif; font-style: italic;
+    font-size: 1.3rem; color: var(--text-dim);
+    max-width: 700px; margin: 0 auto 4rem; line-height: 1.6;
+  }
+  .signature {
+    border-top: 1px solid var(--border); padding-top: 2rem;
+    max-width: 400px; margin: 0 auto;
+  }
+  .signature .name {
+    font-family: 'Noto Serif SC', 'Cormorant Garamond', serif;
+    font-size: 1.4rem; color: var(--cream); margin-bottom: 0.3rem;
+  }
+  .signature .title {
+    font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold);
+  }
+
+  /* ============================================
+     GALLERY (3-photo row per day)
+     ============================================ */
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin: -2rem -5vw 4rem;
+    padding: 0 5vw;
+  }
+  .gallery-item {
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    position: relative;
+    background: linear-gradient(135deg, rgba(30,26,38,0.9), rgba(11,10,14,0.95));
+    border: 1px solid var(--border);
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .gallery-item:hover {
+    border-color: var(--gold);
+    transform: translateY(-4px);
+    box-shadow: 0 25px 60px -25px rgba(201, 169, 97, 0.45);
+  }
+  .gallery-photo {
+    position: absolute; inset: 0;
+    background-size: cover; background-position: center;
+    opacity: 0;
+    transition: opacity 1.5s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .gallery-photo.loaded { opacity: 1; }
+  .gallery-item:hover .gallery-photo { transform: scale(1.06); }
+  .gallery-item::after {
+    content: ''; position: absolute; inset: 0; pointer-events: none;
+    background: linear-gradient(180deg, transparent 45%, rgba(11,10,14,0.92));
+  }
+  .gallery-caption {
+    position: absolute; bottom: 1.2rem; left: 1.2rem; right: 1.2rem;
+    z-index: 2;
+    font-family: 'Noto Serif SC', 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--cream);
+    text-shadow: 0 2px 10px rgba(0,0,0,0.95);
+    line-height: 1.3;
+  }
+  .gallery-item::before {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(201,169,97,0.05), transparent);
+    transform: translateX(-100%);
+    animation: shimmer 2.5s infinite;
+    pointer-events: none;
+  }
+  .gallery-item.loaded::before { display: none; }
+  @keyframes shimmer { 100% { transform: translateX(100%); } }
+
+  /* ============================================
+     RESPONSIVE
+     ============================================ */
+  @media (max-width: 1024px) {
+    .days-grid { grid-template-columns: repeat(2, 1fr); }
+    .care-grid { grid-template-columns: 1fr; }
+    .halal-grid { grid-template-columns: repeat(2, 1fr); }
+    .mosques-grid { grid-template-columns: 1fr; }
+    .practical-grid { grid-template-columns: 1fr; }
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .timeline { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+    .timeline::before { display: none; }
+    .day-cards { grid-template-columns: repeat(2, 1fr); }
+    .day-header { grid-template-columns: 1fr; gap: 1.5rem; text-align: center; }
+    .day-arabic { text-align: center; }
+    .day-number { font-size: 5rem; }
+    .side-nav { display: none; }
+    .vehicle-grid { grid-template-columns: 1fr; }
+    .service-list { grid-template-columns: 1fr; }
+    .gallery { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 640px) {
+    section { padding: 4rem 5vw; }
+    .days-grid { grid-template-columns: 1fr; }
+    .halal-grid { grid-template-columns: 1fr; }
+    .day-cards { grid-template-columns: 1fr; }
+    .timeline { grid-template-columns: 1fr; }
+    .vehicle-specs { grid-template-columns: 1fr; }
+    .gallery { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<nav class="side-nav" id="sideNav">
+  <a href="#hero" data-label="欢迎" class="active"></a>
+  <a href="#welcome" data-label="问候"></a>
+  <a href="#overview" data-label="行程概览"></a>
+  <a href="#care" data-label="文化关怀"></a>
+  <a href="#vehicle" data-label="专属车辆"></a>
+  <a href="#day1" data-label="第一日 · 抵达"></a>
+  <a href="#day2" data-label="第二日 · 长城"></a>
+  <a href="#day3" data-label="第三日 · 紫禁城"></a>
+  <a href="#day4" data-label="第四日 · 环球影城"></a>
+  <a href="#day5" data-label="第五日 · 天坛"></a>
+  <a href="#day6" data-label="第六日 · 穆斯林北京"></a>
+  <a href="#day7" data-label="第七日 · 颐和园"></a>
+  <a href="#day8" data-label="第八日 · 离别"></a>
+  <a href="#halal" data-label="清真餐饮指南"></a>
+  <a href="#mosques" data-label="清真寺"></a>
+  <a href="#practical" data-label="实用信息"></a>
+  <a href="#farewell" data-label="送别"></a>
+</nav>
+
+<!-- ============================================
+     HERO
+     ============================================ -->
+<section class="hero" id="hero">
+  <div class="photo-bg" data-photo="photos/hero-beijing.jpg"></div>
+  <div class="grain"></div>
+  <div class="pattern-overlay"></div>
+
+  <svg class="hero-skyline" viewBox="0 0 1600 400" preserveAspectRatio="xMidYEnd slice">
+    <defs>
+      <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#C9A961" stop-opacity="0"/>
+        <stop offset="100%" stop-color="#C9A961" stop-opacity="0.4"/>
+      </linearGradient>
+    </defs>
+    <path d="M0,300 L150,180 L280,220 L420,150 L550,200 L700,140 L850,180 L1000,160 L1180,200 L1320,170 L1450,210 L1600,180 L1600,400 L0,400 Z" fill="url(#skyGrad)" opacity="0.5"/>
+    <path d="M0,400 L0,320 L80,320 L100,300 L180,300 L200,320 L240,320 L240,280 L260,260 L340,260 L360,280 L360,320 L420,320 L420,290 L440,270 L520,270 L540,290 L540,320 L600,320 L620,300 L700,300 L720,320 L780,320 L780,280 L800,260 L880,260 L900,280 L900,320 L960,320 L960,290 L980,270 L1060,270 L1080,290 L1080,320 L1140,320 L1160,300 L1240,300 L1260,320 L1320,320 L1320,290 L1340,270 L1420,270 L1440,290 L1440,320 L1500,320 L1500,310 L1600,310 L1600,400 Z" fill="#C9A961" opacity="0.6"/>
+    <g fill="#C9A961" opacity="0.7">
+      <polygon points="190,300 200,280 210,300"/>
+      <polygon points="700,300 715,275 730,300"/>
+      <polygon points="1150,300 1165,275 1180,300"/>
+    </g>
+  </svg>
+
+  <div class="container">
+    <div class="reveal visible">
+      <div class="hero-arabic">أهلاً وسهلاً بكم في بكين</div>
+    </div>
+    <h1 class="hero-title reveal delay-1 visible">
+      <span class="first">北京</span>
+    </h1>
+    <div class="hero-divider reveal delay-2 visible">
+      <div class="line"></div>
+      <div class="ornament">◆</div>
+      <div class="line"></div>
+    </div>
+    <div class="hero-subtitle reveal delay-3 visible">八日帝都之旅</div>
+    <div class="hero-dates reveal delay-3 visible">2026年5月24日 — 31日</div>
+    <div class="hero-dedication reveal delay-4 visible">
+      为来自沙特阿拉伯王国的<br />
+      尊贵四口之家精心策划
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <div class="label">开启旅程</div>
+    <div class="arrow"></div>
+  </div>
+</section>
+
+<!-- ============================================
+     WELCOME
+     ============================================ -->
+<section class="welcome" id="welcome">
+  <div class="grain"></div>
+  <div class="container">
+    <div class="reveal">
+      <div class="welcome-arabic">السلام عليكم ورحمة الله</div>
+      <div class="eyebrow">愿平安归于您</div>
+    </div>
+    <div class="welcome-text reveal delay-1">
+      我们至感荣幸,能够欢迎贵宾一家莅临<em>中华帝国之都</em>。
+      在接下来的八天里,我们为您精心准备了一段私人定制旅程,将古老王朝的恢弘气象、神圣殿堂的宁谧氛围,
+      以及为您孩子准备的欢乐时光融为一体 &mdash;
+      同时全程尊重您一家的信仰准则、饮食需求与礼拜时间。
+    </div>
+    <div class="stats reveal delay-2">
+      <div class="stat"><div class="num gold-text">VIII</div><div class="label">奇妙八日</div></div>
+      <div class="stat"><div class="num gold-text">16</div><div class="label">标志性景点</div></div>
+      <div class="stat"><div class="num gold-text">100%</div><div class="label">清真认证</div></div>
+      <div class="stat"><div class="num gold-text">24/7</div><div class="label">专属车辆</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     OVERVIEW — 8 days
+     ============================================ -->
+<section id="overview">
+  <div class="grain"></div>
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">行程概览</span>
+      <h2>八日,<em>八种境界</em></h2>
+      <p class="lede">从航班降落大兴的那一刻,直至最后的告别 &mdash; 每一日都经过深思熟虑、节奏把控、周全准备。</p>
+    </div>
+
+    <div class="days-grid">
+      <div class="day-card reveal">
+        <div>
+          <div class="num">第一日</div>
+          <div class="date">周日 · 5月24日</div>
+          <h3>抵达与欢迎</h3>
+          <p>大兴机场 VIP 接机、转送至华尔道夫酒店,长途飞行后的休整之夜。</p>
+        </div>
+        <div class="meta">◆ 华尔道夫酒店 · PKX</div>
+      </div>
+
+      <div class="day-card reveal delay-1">
+        <div>
+          <div class="num">第二日</div>
+          <div class="date">周一 · 5月25日</div>
+          <h3>长城</h3>
+          <p>慕田峪 — 缆车上山,沿城墙漫步,滑道下山。最壮观的家庭日。</p>
+        </div>
+        <div class="meta">◆ 慕田峪</div>
+      </div>
+
+      <div class="day-card reveal delay-2">
+        <div>
+          <div class="num">第三日</div>
+          <div class="date">周二 · 5月26日</div>
+          <h3>紫禁城</h3>
+          <p>天安门广场、二十四位帝王的皇宫、景山公园观赏黄金时刻全景。</p>
+        </div>
+        <div class="meta">◆ 联合国教科文组织世界遗产</div>
+      </div>
+
+      <div class="day-card reveal delay-3">
+        <div>
+          <div class="num">第四日</div>
+          <div class="date">周三 · 5月27日</div>
+          <h3>环球影城</h3>
+          <p>专为孩子准备的一整天 — VIP 快速通行证、功夫熊猫盖世之地、变形金刚、清真餐饮。</p>
+        </div>
+        <div class="meta">◆ 为孩子而设</div>
+      </div>
+
+      <div class="day-card reveal">
+        <div>
+          <div class="num">第五日</div>
+          <div class="date">周四 · 5月28日</div>
+          <h3>天坛与恐龙</h3>
+          <p>清晨游天坛、中国自然博物馆霸王龙特展、前门大街漫步。</p>
+        </div>
+        <div class="meta">◆ 霸王龙特展</div>
+      </div>
+
+      <div class="day-card reveal delay-1" style="border-color: var(--gold); background: linear-gradient(135deg, rgba(44, 95, 90, 0.15) 0%, rgba(21, 19, 27, 0.9) 100%);">
+        <div>
+          <div class="num" style="color: var(--gold-bright);">第六日 · 周五</div>
+          <div class="date">周五 · 5月29日</div>
+          <h3>穆斯林北京</h3>
+          <p>东四清真寺主麻日礼拜、牛街穆斯林街区、清真美食街、胡同、什刹海。</p>
+        </div>
+        <div class="meta" style="color: var(--gold);">◆ 主麻日</div>
+      </div>
+
+      <div class="day-card reveal delay-2">
+        <div>
+          <div class="num">第七日</div>
+          <div class="date">周六 · 5月30日</div>
+          <h3>颐和园</h3>
+          <p>昆明湖畔的皇家园林、乘船游湖、高端购物、清真版北京烤鸭告别晚宴。</p>
+        </div>
+        <div class="meta">◆ 告别晚宴</div>
+      </div>
+
+      <div class="day-card reveal delay-3">
+        <div>
+          <div class="num">第八日</div>
+          <div class="date">周日 · 5月31日</div>
+          <h3>潘家园与离别</h3>
+          <p>古玩市场(仅周末开放)、最后一顿午餐、前往大兴机场搭乘 20:05 回程航班。</p>
+        </div>
+        <div class="meta">◆ 周日市场</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     CULTURAL CARE
+     ============================================ -->
+<section id="care">
+  <div class="grain"></div>
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">为贵宾家庭量身打造</span>
+      <h2>以<em>关怀与尊重</em>之心定制</h2>
+      <p class="lede">每一处细节均经过深思熟虑,以尊崇贵家信仰传统,并确保家人的舒适与安心。</p>
+    </div>
+
+    <div class="care-grid">
+      <div class="care-item reveal">
+        <div class="icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        <h4>100% 清真餐饮</h4>
+        <p>每一餐皆采自具有清真认证的餐厅。从牛街穆斯林街区的老字号,到豪华版清真北京烤鸭 — 均经亲自考察确认。</p>
+      </div>
+      <div class="care-item reveal delay-1">
+        <div class="icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+            <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+          </svg>
+        </div>
+        <h4>兼顾礼拜时间</h4>
+        <p>行程兼顾每日五番礼拜。每一天的清真寺与适宜礼拜的空间均已事先勘察确认。主麻日恰好落在 5 月 29 日(周五)。</p>
+      </div>
+      <div class="care-item reveal delay-2">
+        <div class="icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+        </div>
+        <h4>以家庭为先的节奏</h4>
+        <p>清晨从容不迫,午后安排休息时段。最具体力挑战的行程,皆安排在 8 岁和 13 岁的孩子精神最饱满的时段。</p>
+      </div>
+    </div>
+
+    <div class="care-grid" style="margin-top: 2rem;">
+      <div class="care-item reveal delay-3">
+        <div class="icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+          </svg>
+        </div>
+        <h4>阿拉伯语礼宾服务</h4>
+        <p>会讲阿拉伯语或英语的礼宾团队全天候 24 小时通过 WhatsApp 待命 — 无论是餐厅预订、医疗需求、礼拜咨询,还是想听一句来自家乡的熟悉问候。</p>
+      </div>
+      <div class="care-item reveal delay-4">
+        <div class="icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+          </svg>
+        </div>
+        <h4>隐私与端庄</h4>
+        <p>专属车辆、专属导游;若条件许可 — 在景点享有私人观赏时段。行程中任一段如有需要,均可加派女性导游随行。</p>
+      </div>
+      <div class="care-item reveal delay-5">
+        <div class="icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+          </svg>
+        </div>
+        <h4>为孩子量身打造</h4>
+        <p>为 8 岁的儿子 — 大熊猫、长城滑道、环球影城。为 13 岁的女儿 — 珍珠串饰工坊、霸王龙特展、胡同摄影漫步。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     VEHICLE
+     ============================================ -->
+<section class="vehicle" id="vehicle">
+  <div class="grain"></div>
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">您的专属车辆 · 全天候 24 小时</span>
+      <h2><em>Mercedes-Benz V-Class</em></h2>
+      <p class="lede">一辆典雅尊贵的座驾 — 八日全程为您独家专享。空间宽敞足以容纳全家与全部行李,品质精致足以应对任何场合。</p>
+    </div>
+
+    <div class="vehicle-grid">
+      <div class="vehicle-visual reveal">
+        <img class="v-photo" data-photo="photos/vclass.jpg" alt="Mercedes-Benz V-Class" />
+        <svg viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="vbody" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#2A2628" stop-opacity="0.9"/>
+              <stop offset="100%" stop-color="#15131B" stop-opacity="1"/>
+            </linearGradient>
+          </defs>
+          <!-- V-Class silhouette -->
+          <path d="M40,160 L60,110 L120,90 L320,90 L360,110 L370,160 L350,170 L320,170 Q310,185 290,185 Q270,185 260,170 L140,170 Q130,185 110,185 Q90,185 80,170 L50,170 Z"
+                fill="url(#vbody)" stroke="#C9A961" stroke-width="1.2" opacity="0.95"/>
+          <!-- Windows -->
+          <path d="M75,108 L115,95 L195,95 L195,135 L75,135 Z" fill="#0B0A0E" opacity="0.7" stroke="#C9A961" stroke-width="0.5"/>
+          <path d="M205,95 L290,95 L290,135 L205,135 Z" fill="#0B0A0E" opacity="0.7" stroke="#C9A961" stroke-width="0.5"/>
+          <path d="M300,95 L340,108 L340,135 L300,135 Z" fill="#0B0A0E" opacity="0.7" stroke="#C9A961" stroke-width="0.5"/>
+          <!-- Wheels -->
+          <circle cx="110" cy="180" r="22" fill="#15131B" stroke="#C9A961" stroke-width="1.5"/>
+          <circle cx="110" cy="180" r="13" fill="none" stroke="#C9A961" stroke-width="0.8"/>
+          <circle cx="290" cy="180" r="22" fill="#15131B" stroke="#C9A961" stroke-width="1.5"/>
+          <circle cx="290" cy="180" r="13" fill="none" stroke="#C9A961" stroke-width="0.8"/>
+          <!-- Mercedes star -->
+          <circle cx="200" cy="115" r="6" fill="none" stroke="#C9A961" stroke-width="0.8"/>
+          <path d="M200,109 L200,121 M194.5,118 L205.5,112 M194.5,112 L205.5,118" stroke="#C9A961" stroke-width="0.6" fill="none"/>
+        </svg>
+      </div>
+
+      <div class="vehicle-content reveal delay-1">
+        <h3>V-Class <em>V260L</em></h3>
+        <div class="model">加长轴距 · 尊贵版</div>
+        <div class="desc">"中国市场旗舰级豪华 MPV — 接待来访国家元首、海湾国家王室家庭以及北京外交使节的首选座驾。"</div>
+
+        <div class="vehicle-specs">
+          <div class="spec">
+            <div class="label">座位</div>
+            <div class="value">7 座 · 4 张航空头等舱座椅</div>
+          </div>
+          <div class="spec">
+            <div class="label">行李</div>
+            <div class="value">可容纳全部 4 件大号行李箱</div>
+          </div>
+          <div class="spec">
+            <div class="label">内饰</div>
+            <div class="value">Nappa 真皮 · Alcantara 顶棚</div>
+          </div>
+          <div class="spec">
+            <div class="label">舒适配置</div>
+            <div class="value">折叠桌 · 车载娱乐系统</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="service-list">
+      <div class="service-item reveal">
+        <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+        </svg>
+        <h5>全天候 24 小时待命</h5>
+        <p>司机当值时间为 06:00&ndash;23:00;夜间随时待命,30 分钟内响应。长行程日配备替班司机。</p>
+      </div>
+      <div class="service-item reveal delay-1">
+        <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+        </svg>
+        <h5>随时准备就绪</h5>
+        <p>礼拜毯 4 张、朝向罗盘、冰镇瓶装水、清新香巾、儿童零食、轻便毛毯。</p>
+      </div>
+      <div class="service-item reveal delay-2">
+        <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/>
+        </svg>
+        <h5>随时保持联络</h5>
+        <p>WhatsApp 群组直通司机及阿拉伯语礼宾团队。全日实时灵活调整路线安排。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     DAY I — ARRIVAL · 24 May
+     ============================================ -->
+<section class="day-section bg-1" id="day1">
+  <div class="grain"></div>
+  <div class="container">
+    <div class="day-header reveal">
+      <div class="day-number">I</div>
+      <div class="day-title-block">
+        <span class="eyebrow">第一日 · 抵达</span>
+        <h2><em>从容着陆</em></h2>
+        <div class="subtitle">Saudia 航空 17:05 抵达大兴 · 转送至华尔道夫酒店</div>
+        <div class="date-badge">周日 · 2026年5月24日</div>
+      </div>
+      <div class="day-arabic">يوم الوصول<br/><span style="font-size: 1rem; opacity: 0.7;">抵达日</span></div>
+    </div>
+
+    <div class="day-visual" data-photo="photos/waldorf.jpg">
+      <div class="photo"></div>
+      <div class="scene">
+        <svg viewBox="0 0 1200 320" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+          <defs>
+            <linearGradient id="d1grad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#8B2C2C" stop-opacity="0.3"/>
+              <stop offset="100%" stop-color="#0B0A0E" stop-opacity="1"/>
+            </linearGradient>
+            <radialGradient id="lantern1" cx="0.5" cy="0.5" r="0.5">
+              <stop offset="0%" stop-color="#E6C77E" stop-opacity="1"/>
+              <stop offset="60%" stop-color="#C9A961" stop-opacity="0.7"/>
+              <stop offset="100%" stop-color="#8B2C2C" stop-opacity="0.3"/>
+            </radialGradient>
+          </defs>
+          <rect width="1200" height="320" fill="url(#d1grad)"/>
+          <g opacity="0.85">
+            <ellipse cx="200" cy="80" rx="22" ry="28" fill="url(#lantern1)"/><line x1="200" y1="52" x2="200" y2="20" stroke="#C9A961" stroke-width="1"/>
+            <ellipse cx="380" cy="140" rx="18" ry="24" fill="url(#lantern1)"/><line x1="380" y1="116" x2="380" y2="85" stroke="#C9A961" stroke-width="1"/>
+            <ellipse cx="600" cy="60" rx="25" ry="32" fill="url(#lantern1)"/><line x1="600" y1="28" x2="600" y2="0" stroke="#C9A961" stroke-width="1"/>
+            <ellipse cx="820" cy="120" rx="20" ry="26" fill="url(#lantern1)"/><line x1="820" y1="94" x2="820" y2="60" stroke="#C9A961" stroke-width="1"/>
+            <ellipse cx="1020" cy="90" rx="22" ry="28" fill="url(#lantern1)"/><line x1="1020" y1="62" x2="1020" y2="30" stroke="#C9A961" stroke-width="1"/>
+          </g>
+          <g>
+            <circle cx="200" cy="80" r="50" fill="#C9A961" opacity="0.15"/>
+            <circle cx="600" cy="60" r="60" fill="#C9A961" opacity="0.2"/>
+            <circle cx="1020" cy="90" r="50" fill="#C9A961" opacity="0.15"/>
+          </g>
+        </svg>
+      </div>
+      <div class="caption">"北京华尔道夫酒店 · 王府井 · 本周的家"</div>
+    </div>
+
+    <div class="gallery reveal">
+      <div class="gallery-item" data-photo="photos/waldorf-2.jpg">
+        <div class="gallery-photo"></div>
+        <div class="gallery-caption">华尔道夫 · 金鱼胡同</div>
+      </div>
+      <div class="gallery-item" data-photo="photos/wangfujing.jpg">
+        <div class="gallery-photo"></div>
+        <div class="gallery-caption">王府井步行街</div>
+      </div>
+      <div class="gallery-item" data-photo="photos/daxing-airport.jpg">
+        <div class="gallery-photo"></div>
+        <div class="gallery-caption">大兴国际机场 (PKX)</div>
+      </div>
+    </div>
+
+    <div class="timeline reveal">
+      <div class="time-slot">
+        <div class="marker"></div>
+        <div class="time">17:05</div>
+        <div class="activity">抵达 PKX</div>
+        <div class="place">Saudia 航空抵达 · VIP 快速通关 · 行李员协助 · 代表在登机口迎接</div>
+      </div>
+      <div class="time-slot">
+        <div class="marker"></div>
+        <div class="time">18:00</div>
+        <div class="activity">豪华接送</div>
+        <div class="place">Mercedes V-Class · 大兴至王府井 75 分钟车程 · 车内备有茶饮点心</div>
+      </div>
+      <div class="time-slot">
+        <div class="marker"></div>
+        <div class="time">19:30</div>
+        <div class="activity">华尔道夫入住</div>
+        <div class="place">套房已备妥 · 舒适完成昏礼(19:35) · 稍作梳洗</div>
+      </div>
+      <div class="time-slot">
+        <div class="marker"></div>
+        <div class="time">20:30</div>
+        <div class="activity">欢迎晚餐</div>
+        <div class="place">轻量清真欢迎晚餐 — 可于套房用餐或于华尔道夫餐厅用餐 · 早早歇息恢复体力</div>
+      </div>
+    </div>
+
+    <div class="day-cards reveal delay-1">
+      <div class="info-card">
+        <div class="label">欢迎晚餐</div>
+        <h5>Brian McKenna @ The Courtyard</h5>
+        <p>位于华尔道夫酒店内。精致典雅,可按要求提供清真菜单。如长途飞行后偏好套房内用餐,也可由那家小馆送餐至套房。</p>
+      </div>
+      <div class="info-card">
+        <div class="label">最近的清真寺</div>
+        <h5>东四清真寺</h5>
+        <p>距华尔道夫仅 8 分钟车程。始建于公元 1356 年。整周接待昏礼,环境祥和宁静。</p>
+      </div>
+      <div class="info-card">
+        <div class="label">为孩子安排</div>
+        <h5>王府井灯影</h5>
+        <p>若体力允许,可在王府井步行街短暂漫步 — 酒店门外便可欣赏丝绸灯笼展示,氛围温馨怡人。</p>
+      </div>
+      <div class="info-card">
+        <div class="label">礼宾备注</div>
+        <h5>刻意安排的轻松首日</h5>
+        <p>10 小时飞行之后,第一日节奏从容。我们刻意不将日程排满。养精蓄锐,才能真正开启接下来的旅程。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     DAY II — GREAT WALL · 25 May
+     ============================================ -->
+<section class="day-section bg-2" id="day2">
+  <div class="grain"></div>
+  <div class="container">
+    <div class="day-header reveal">
+      <div class="day-number">II</div>
+      <div class="day-title-block">
+        <span class="eyebrow">第二日 · 长城</span>
+        <h2><em>巨龙之脊</em></h2>
+        <div class="subtitle">慕田峪 — 缆车上山、沿城墙漫步、滑道下山</div>
+        <div class="date-badge">周一 · 2026年5月25日</div>
+      </div>
+      <div class="day-arabic">سور الصين العظيم<br/><span style="font-size: 1rem; opacity: 0.7;">长城</span></div>
+    </div>
+
+    <div class="day-visual" data-photo="photos/mutianyu.jpg">
+      <div class="photo"></div>
+      <div class="scene">
+        <svg viewBox="0 0 1200 320" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+          <defs>
+            <linearGradient id="d3sky" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#2C5F5A" stop-opacity="0.3"/>
+              <stop offset="100%" stop-color="#0B0A0E" stop-opacity="1"/>
+            </linearGradient>
+          </defs>
+          <rect width="1200" height="320" fill="url(#d3sky)"/>
+          <path d="M0,220 L80,180 L160,200 L240,150 L320,170 L400,130 L480,150 L560,110 L640,130 L720,100 L800,120 L880,90 L960,110 L1040,80 L1120,100 L1200,90 L1200,320 L0,320 Z" fill="#1E1A26" opacity="0.9"/>
+          <path d="M0,260 L100,230 L200,250 L300,200 L400,220 L500,180 L600,200 L700,170 L800,190 L900,160 L1000,180 L1100,150 L1200,170 L1200,320 L0,320 Z" fill="#15131B" opacity="0.95"/>
+          <g fill="#C9A961" opacity="0.85">
+            <path d="M0,225 L80,185 L160,205 L240,155 L320,175 L400,135 L480,155 L560,115 L640,135 L720,105 L800,125 L880,95 L960,115 L1040,85 L1120,105 L1200,95 L1200,108 L1120,118 L1040,98 L960,128 L880,108 L800,138 L720,118 L640,148 L560,128 L480,168 L400,148 L320,188 L240,168 L160,218 L80,198 L0,238 Z" />
+            <rect x="156" y="195" width="12" height="20"/>
+            <rect x="318" y="165" width="12" height="20"/>
+            <rect x="478" y="145" width="12" height="20"/>
+            <rect x="638" y="125" width="12" height="20"/>
+            <rect x="798" y="115" width="12" height="20"/>
+            <rect x="958" y="105" width="12" height="20"/>
+            <rect x="1118" y="95" width="12" height="20"/>
+          </g>
+        </svg>
+      </div>
+      <div class="caption">"慕田峪 — 长城在山脊之上翩然起舞"</div>
+    </div>
+
+    <div class="gallery reveal">
+      <div class="gallery-item" data-photo="photos/great-wall.jpg">
+        <div class="gallery-photo"></div>
+        <div class="gallery-caption">长城在群山间蜿蜒</div>
+      </div>
+      <div class="gallery-item" data-photo="photos/mutianyu.jpg">
+        <div class="gallery-photo"></div>
+        <div class="gallery-caption">明代复原段长城</div>
+      </div>
+      <div class="gallery-item" data-photo="photos/huairou.jpg">
+        <div class="gallery-photo"></div>
+        <div class="gallery-caption">怀柔 · 长城门户</div>
+      </div>
+    </div>
+
+    <div class="timeline reveal">
+      <div class="time-slot">
+        <div class="marker"></div>
+        <div class="time">08:30</div>
+        <div class="activity">北行观景之路</div>
+        <div class="place">私人 Mercedes V-Class 穿越怀柔山区 — 90 分钟车程</div>
+      </div>
+      <div class="time-slot">
+        <div class="marker"></div>
+        <div class="time">10:00</div>
+        <div class="activity">缆车与漫步</div>
+        <div class="place">平稳缆车直达 14 号敌楼 · 沿 14-20 号敌楼漫步 · 拍摄全景照片</div>
+      </div>
+      <div class="time-slot">
+        <div class="marker"></div>
+        <div class="time">12:30</div>
+        <div class="activity">滑道下山</div>
+        <div class="place">孩子们最期待的项目 — 1580 米不锈钢滑道顺山而下,速度可控,完全安全</div>
+      </div>
+      <div class="time-slot">
+        <div class="marker"></div>
+        <div class="time">13:30</div>
+        <div class="activity">山间清真午餐</div>
+        <div class="place">山脚下村中家庭经营的回族餐厅,品尝传统回族盛宴</div>
+      </div>
+    </div>
+
+    <div class="day-cards reveal delay-1">
+      <div class="info-card">
+        <div class="label">清真午餐</div>
+        <h5>小卢清真餐厅</h5>
+        <p>长城脚下村内,回族家庭经营。手工拉面、羊肉串、传统大饼。</p>
+      </div>
+      <div class="info-card">
+        <div class="label">礼拜安排</div>
+        <h5>车内备有礼拜毯</h5>
+        <p>V-Class 车内常备礼拜毯与朝向罗盘。司机熟悉沿途适合做晌礼的安静洁净地点。</p>
+      </div>
+      <div class="info-card">
+        <div class="label">为孩子安排</div>
+        <h5>滑道项目</h5>
+        <p>从 6 号敌楼下行至山脚,可选单人或双人车款。配有安全带,速度可控。两个孩子都会喜欢。</p>
+      </div>
+      <div class="info-card">
+        <div class="label">礼宾备注</div>
+        <h5>山间需备御寒衣物</h5>
+        <p>山顶气温较市区低 5-8°C。车内已为您备好轻便外套。须穿舒适的步行鞋。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     DAY III — FORBIDDEN CITY · 26 May
+     ============================================ -->
+<section class="day-section bg-3" id="day3">
+  <div class="grain"></div>
+  <div class="container">
+    <div class="day-header reveal">
+      <div class="day-number">III</div>
+      <div class="day-title-block">
+        <span class="eyebrow">第三日 · 帝都之心</span>
+        <h2><em>紫禁城</em></h2>
+        <div class="subtitle">二十四位帝王曾在金顶之下行走的地方</div>
+        <div class="date-badge">周二 · 2026年5月26日</div>
+      </div>
+      <div class="day-arabic">المدينة المحرمة<br/><span style="font-size: 1rem; opacity: 0.7;">紫禁城</span></div>
+    </div>
+
+    <div class="day-visual" data-photo="photos/forbidden-city.jpg">
+      <div class="photo"></div>
+      <div class="scene">
+        <svg viewBox="0 0 1200 320" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+          <defs>
+            <linearGradient id="d2sky" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#8B2C2C" stop-opacity="0.4"/>
+              <stop offset="100%" stop-color="#15131B" stop-opacity="1"/>
+            </linearGradient>
+          </defs>
+          <rect width="1200" height="320" fill="url(#d2sky)"/>
+          <g fill="#C9A961" opacity="0.9">
+            <rect x="450" y="200" width="300" height="80" />
+            <polygon points="430,200 770,200 740,160 460,160" />
+            <polygon points="460,160 740,160 720,130 480,130" />
+            <polygon points="480,130 720,130 700,105 500,105" />
+            <polygon points="590,105 610,105 600,85" />
+            <rect x="200" y="220" width="180" height="60"/>
+            <polygon points="180,220 400,220 380,190 200,190" />
+            <polygon points="200,190 380,190 360,165 220,165" />
+            <rect x="820" y="220" width="180" height="60"/>
+            <polygon points="800,220 1020,220 1000,190 820,190" />
+            <polygon points="820,190 1000,190 980,165 840,165" />
+            <polygon points="380,280 820,280 880,300 320,300" opacity="0.6"/>
+          </g>
+          <g fill="#8B2C2C" opacity="0.8">
+            <rect x="470" y="210" width="6" height="65"/><rect x="500" y="210" width="6" height="65"/>
+            <rect x="540" y="210" width="6" height="65"/><rect x="580" y="210" width="6" height="65"/>
+            <rect x="620" y="210" width="6" height="65"/><rect x="660" y="210" width="6" height="65"/>
+            <rect x="700" y="210" width="6" height="65"/><rect x="730" y="210" width="6" height="65"/>
+          </g>
+        </svg>
+      </div>
+      <div class="caption">"九千间殿宇,六个世纪的帝王记忆"</div>
+    </div>
+
+    <div class="gallery reveal">
+      <div class="gallery-item" data-photo="photos/tiananmen.jpg">
+        <div class="gallery-photo"></div>
+        <div class="gallery-caption">黎明的天安门广场</div>
+      </div>
+      <div class="gallery-item" data-photo="photos/supreme-harmony.jpg">
+        <div class="gallery-photo"></div>
+        <div class="gallery-caption">太和殿</div>
+      </div>
+      <div class="gallery-item" data-photo="photos/jingshan.jpg">
+        <div class="gallery-photo"></div>
+        <div class="gallery-caption">景山公园全景</div>
+      </div>
+    </div>
+
+    <div class="timeline reveal">
+      <div class="time-slot">
+        <div class="marker"></div>
+        <div class="time">09:00</div>
+        <div class="activity">天安门广场</div>
+        <div class="place">世界最大的公共广场 — 一段沉思静默的开场 · 距酒店步行可达</div>
+      </div>
+      <div class="time-slot">
+        <div class="marker"></div>
+        <div class="time">10:00</div>
+        <div class="activity">紫禁城</div>
+        <div class="place">3 小时导览 · 太和殿 · 御花园 · 珍宝馆</div>
+      </div>
+      <div class="time-slot">
+        <div class="marker"></div>
+        <div class="time">13:30</div>
+        <div class="activity">皇家清真午餐</div>
+        <div class="place">满福楼 — 皇家风格清真火锅,安静的私人包间 · 距紫禁城 10 分钟车程</div>
+      </div>
+      <div class="time-slot">
+        <div class="marker"></div>
+        <div class="time">15:30</div>
+        <div class="activity">景山公园</div>
+        <div class="place">平缓登山,饱览紫禁城最经典的全景视角 · 黄金时刻拍摄</div>
+      </div>
+    </div>
+
+    <div class="day-cards reveal delay-1">
+      <div class="info-card">
+        <div class="label">清真午餐</div>
+        <h5>满福楼清真火锅</h5>
+        <p>皇家风格清真火锅 · 安静的私人包间 · 孩子喜欢看着食材在桌上现涮现吃。北京经典老店,创于 1985 年。</p>
+      </div>
+      <div class="info-card">
+        <div class="label">礼拜时间</div>
+        <h5>晌礼 — 御花园</h5>
+        <p>御花园中有僻静凉亭,适合午时礼拜 · 也可在用餐前于餐厅完成。</p>
+      </div>
+      <div class="info-card">
+        <div class="label">为孩子安排</div>
+        <h5>寻龙游戏</h5>
+        <p>导游为孩子设计"数龙"小游戏 — 整座皇宫中描绘的龙形图案逾千幅。</p>
+      </div>
+      <div class="info-card">
+        <div class="label">礼宾备注</div>
+        <h5>舒适鞋履至关重要</h5>
+        <p>紫禁城内步行距离较长 — 超过 4 公里。今日舒适重于风度。请带好饮用水,务必涂抹防晒霜。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     QUOTE — Hadith
+     ============================================ -->
+<section class="quote-section" id="quote1">
+  <div class="grain"></div>
+  <div class="container">
+    <div class="reveal">
+      <div class="quote-mark">"</div>
+      <div class="quote-text">求知,<br/>虽远在中国。</div>
+      <div class="quote-author">— 先知穆罕默德ﷺ的圣训</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     DAY IV — UNIVERSAL STUDIOS · 27 May
+     ============================================ -->
+<section class="day-section bg-4" id="day4">
+  <div class="grain"></div>
+  <div class="container">
+    <div class="day-header reveal">
+      <div class="day-number">IV</div>
+      <div class="day-title-block">
+        <span class="eyebrow">第四日 · 家庭日</span>
+        <h2>专为<em>孩子</em>而设</h2>
+        <div class="subtitle">北京环球影城 · VIP 快速通行证 · 园内清真餐饮</div>
+        <div class="date-badge">周三 · 2026年5月27日</div>
+      </div>
+      <div class="day-arabic">يوم العائلة<br/><span style="font-size: 1rem; opacity: 0.7;">家庭日</span></div>
+    </div>
+
+    <div class="day-visual" data-photo="photos/universal-transformers-arch.jpg">
+      <div class="photo"></div>
+      <div class="scene">
+        <svg viewBox="0 0 1200 320" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+          <defs>
+            <linearGradient id="d6sky" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#C9A961" stop-opacity="0.2"/>
+              <stop offset="100%" stop-color="#15131B" stop-opacity="1"/>
+            </linearGradient>
+          </defs>
+          <rect width="1200" height="320" fill="url(#d6sky)"/>
+          <!-- Universal-style globe arch on left -->
+          <g transform="translate(150,160)" stroke="#C9A961" stroke-width="2" fill="none" opacity="0.8">
+            <circle cx="60" cy="60" r="55"/>
+            <ellipse cx="60" cy="60" rx="55" ry="20"/>
+            <ellipse cx="60" cy="60" rx="55" ry="35"/>
+            <ellipse cx="60" cy="60" rx="20" ry="55"/>
+            <ellipse cx="60" cy="60" rx="35" ry="55"/>
+          </g>
+          <!-- Park silhouette -->
+          <g fill="#C9A961" opacity="0.7">
+            <!-- Castle / themed buildings -->
+            <polygon points="500,200 540,160 580,200"/>
+            <rect x="500" y="200" width="80" height="80"/>
+            <polygon points="495,170 545,170 540,160 500,160"/>
+            <!-- Tower -->
+            <rect x="620" y="150" width="20" height="130"/>
+            <polygon points="615,150 645,150 630,120"/>
+            <circle cx="630" cy="115" r="3"/>
+            <!-- Roller coaster loops -->
+            <path d="M700,250 Q750,170 800,250 Q850,330 900,250 Q950,170 1000,250" stroke="#C9A961" stroke-width="2" fill="none"/>
+            <line x1="700" y1="250" x2="700" y2="280"/>
+            <line x1="800" y1="250" x2="800" y2="280"/>
+            <line x1="900" y1="250" x2="900" y2="280"/>
+            <line x1="1000" y1="250" x2="1000" y2="280"/>
+          </g>
+          <!-- Stars -->
+          <g fill="#E6C77E" opacity="0.5">
+            <circle cx="200" cy="60" r="1.5"/><circle cx="300" cy="40" r="1"/>
+            <circle cx="400" cy="80" r="1.5"/><circle cx="850" cy="50" r="1"/>
+            <circle cx="950" cy="70" r="1.5"/><circle cx="1050" cy="40" r="1"/>
+          </g>
+        </svg>
+      </div>
+      <div class="caption">"功夫熊猫盖世之地 · 变形金刚 · 小黄人乐园 — 纯粹欢乐的一天"</div>
+    </div>
+
+    <div class="gallery reveal">
+      <div class="gallery-item" data-photo="photos/universal-entrance.jpg">
+        <div class="gallery-photo"></div>
+        <div class="gallery-caption">北京环球影城</div>
+      </div>
+      <div class="gallery-item" data-photo="photos/giant-panda.jpg">
+        <div class="gallery-photo"></div>
+        <div class="gallery-caption">功夫熊猫盖世之地</div>
+      </div>
+      <div class="gallery-item" data-photo="photos/universal-transformers-optimus.jpg">
+        <div class="gallery-photo"></div>
+        <div class="gallery-caption">变形金刚基地</div>
+      </div>
+    </div>
+
+    <div class="timeline reveal">
+      <div class="time-slot">
+        <div class="marker"></div>
+        <div class="time">09:30</div>
+        <div class="activity">VIP 入园</div>
+        <div class="place">北京环球影城 · VIP 快速通行证 · 专人陪同,无需排队</div>
+      </div>
+      <div class="time-slot">
+        <div class="marker"></div>
+        <div class="time">11:00</div>
+        <div class="activity">功夫熊猫盖世之地</div>
+        <div class="place">全球首座功夫熊猫主题园区 — 适合 8 岁孩子 · 温和刺激,梦幻氛围</div>
+      </div>
+      <div class="time-slot">
+        <div class="marker"></div>
+        <div class="time">14:30</div>
+        <div class="activity">变形金刚与侏罗纪</div>
+        <div class="place">变形金刚基地与侏罗纪世界探险 — 适合 13 岁孩子 · 沉浸式 3D 体验</div>
+      </div>
+      <div class="time-slot">
+        <div class="marker"></div>
+        <div class="time">19:30</div>
+        <div class="activity">园内晚餐</div>
+        <div class="place">环球影城内的清真餐饮店家 · 已预订 · 晚餐后观赏未来水世界表演</div>
+      </div>
+    </div>
+
+    <div class="day-cards reveal delay-1">
+      <div class="info-card">
+        <div class="label">清真午餐</div>
+        <h5>环球影城清真餐厅</h5>
+        <p>北京环球影城园内设有清真认证餐厅 · 已预订家庭包桌 · 园外亦有长营清真餐厅作为备选。</p>
+      </div>
+      <div class="info-card">
+        <div class="label">礼拜安排</div>
+        <h5>多信仰礼拜室</h5>
+        <p>环球影城在各园区附近均设有洁净的多信仰礼拜室 · 导游会提前确认地点。</p>
+      </div>
+      <div class="info-card">
+        <div class="label">为儿子(8岁)</div>
+        <h5>功夫熊猫</h5>
+        <p>项目身高门槛恰好契合他的年龄 · 阿宝、虎妞和师傅的见面会 · "无极掌击"!</p>
+      </div>
+      <div class="info-card">
+        <div class="label">为女儿(13岁)</div>
+        <h5>变形金刚基地</h5>
+        <p>完整的变形金刚体验 · 她的年龄正适合体验高能 3D 刺激项目。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     DAY V — TEMPLE OF HEAVEN + T-REX · 28 May
+     ============================================ -->
+<section class="day-section bg-1" id="day5">
+  <div class="grain"></div>
+  <div class="container">
+    <div class="day-header reveal">
+      <div class="day-number">V</div>
+      <div class="day-title-block">
+        <span class="eyebrow">第五日 · 天坛与恐龙</span>
+        <h2>天、地<em>与霸王龙</em></h2>
+        <div class="subtitle">天坛 · 霸王龙特展 · 前门夜游</div>
+        <div class="date-badge">周四 · 2026年5月28日</div>
+      </div>
+      <div class="day-arabic">معبد السماء<br/><span style="font-size: 1rem; opacity: 0.7;">天坛</span></div>
+    </div>
+
+    <div class="day-visual" data-photo="photos/temple-of-heaven.jpg">
+      <div class="photo"></div>
+      <div class="scene">
+        <svg viewBox="0 0 1200 320" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+          <defs>
+            <linearGradient id="d4sky" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#2C5F5A" stop-opacity="0.4"/>
+              <stop offset="100%" stop-color="#15131B" stop-opacity="1"/>
+            </linearGradient>
+          </defs>
+          <rect width="1200" height="320" fill="url(#d4sky)"/>
+          <g fill="#C9A961" opacity="0.9">
+            <ellipse cx="600" cy="290" rx="350" ry="30" opacity="0.5"/>
+            <ellipse cx="600" cy="270" rx="280" ry="22"/>
+            <ellipse cx="600" cy="255" rx="220" ry="18"/>
+            <rect x="450" y="230" width="300" height="30"/>
+            <ellipse cx="600" cy="225" rx="160" ry="20"/>
+            <polygon points="440,225 760,225 720,195 480,195"/>
+            <rect x="500" y="170" width="200" height="25"/>
+            <ellipse cx="600" cy="170" rx="120" ry="15"/>
+            <polygon points="490,170 710,170 680,145 520,145"/>
+            <rect x="540" y="125" width="120" height="20"/>
+            <ellipse cx="600" cy="125" rx="80" ry="10"/>
+            <polygon points="540,125 660,125 640,95 560,95"/>
+            <circle cx="600" cy="80" r="8" fill="#E6C77E"/>
+            <polygon points="595,80 605,80 600,55" fill="#E6C77E"/>
+          </g>
+          <g fill="#E6C77E" opacity="0.6">
+            <circle cx="200" cy="60" r="1.5"/><circle cx="300" cy="40" r="1"/>
+            <circle cx="400" cy="80" r="1.5"/><circle cx="850" cy="50" r="1"/>
+            <circle cx="950" cy="70" r="1.5"/><circle cx="1050" cy="40" r="1"/>
+          </g>
+        </svg>
+      </div>
+      <div class="caption">"天坛 — 帝王祈求五谷丰登之地"</div>
+    </div>
+
+    <div class="gallery reveal">
+      <div class="gallery-item" data-photo="photos/temple-of-heaven.jpg">
+        <div class="gallery-photo"></div>
+        <div class="gallery-caption">祈年殿</div>
+      </div>
+      <div class="gallery-item" data-photo="photos/trex.jpg">
+        <div class="gallery-photo"></div>
+        <div class="gallery-caption">霸王龙 · 恐龙之王</div>
+      </div>
+      <div class="gallery-item" data-photo="photos/qianmen.jpg">
+        <div class="gallery-photo"></div>
+        <div class="gallery-caption">前门大街 · 老北京</div>
+      </div>
+    </div>
+
+    <div class="timeline reveal">
+      <div class="time-slot">
+        <div class="marker"></div>
+        <div class="time">09:00</div>
+        <div class="activity">天坛</div>
+        <div class="place">清晨与北京老人一同打太极 · 圆形祈年殿</div>
+      </div>
+      <div class="time-slot">
+        <div class="marker"></div>
+        <div class="time">11:30</div>
+        <div class="activity">清真午餐</div>
+        <div class="place">北京海碗居清真版 — 传统炸酱面清真做法</div>
+      </div>
+      <div class="time-slot">
+        <div class="marker"></div>
+        <div class="time">13:15</div>
+        <div class="activity">霸王龙特展</div>
+        <div class="place">中国自然博物馆 · "霸王龙:恐龙之王特别展" · 2026年4月28日 - 10月11日</div>
+      </div>
+      <div class="time-slot">
+        <div class="marker"></div>
+        <div class="time">16:00</div>
+        <div class="activity">前门漫步</div>
+        <div class="place">氛围浓郁的老商业街 · 悠闲漫步 · 经典北京铛铛车 · 不做购物马拉松</div>
+      </div>
+    </div>
+
+    <div class="day-cards reveal delay-1">
+      <div class="info-card">
+        <div class="label">清真午餐</div>
+        <h5>海碗居清真版</h5>
+        <p>北京人钟爱的老字号,以清真做法呈现炸酱面(咸香酱料拌面)。传统氛围,地道服务。</p>
+      </div>
+      <div class="info-card">
+        <div class="label">清真晚餐</div>
+        <h5>吐鲁番餐厅</h5>
+        <p>地道的维吾尔族清真餐 · 炭烤羊肉 · 丝绸之路香料 · 口味接近阿拉伯人喜好 · 晚间现场音乐表演。</p>
+      </div>
+      <div class="info-card">
+        <div class="label">为孩子安排</div>
+        <h5>霸王龙特展</h5>
+        <p>今日的重头戏 · 上午沉浸文化之后,午后看恐龙正是孩子们释放能量的时刻。已预约定时入场。</p>
+      </div>
+      <div class="info-card">
+        <div class="label">礼宾备注</div>
+        <h5>备选方案</h5>
+        <p>若霸王龙特展售罄:可改往中国国家博物馆 — 同样令人惊叹,但更偏成人取向。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     DAY VI — MUSLIM BEIJING · FRIDAY 29 May
+     ============================================ -->
+<section class="day-section bg-2" id="day6">
+  <div class="grain"></div>
+  <div class="container">
+    <div class="day-header reveal">
+      <div class="day-number">VI</div>
+      <div class="day-title-block">
+        <span class="eyebrow">第六日 · 穆斯林北京 · 主麻日</span>
+        <h2><em>信仰之心</em></h2>
+        <div class="subtitle">东四清真寺主麻日礼拜 · 牛街穆斯林街区 · 胡同 · 什刹海</div>
+        <div class="date-badge">周五 · 2026年5月29日</div>
+      </div>
+      <div class="day-arabic">يوم الجمعة<br/><span style="font-size: 1rem; opacity: 0.7;">主麻日</span></div>
+    </div>
+
+    <div class="day-visual" data-photo="photos/niujie-mosque.jpg">
+      <div class="photo"></div>
+      <div class="scene">
+        <svg viewBox="0 0 1200 320" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+          <defs>
+            <linearGradient id="d6mosque" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#2C5F5A" stop-opacity="0.4"/>
+              <stop offset="100%" stop-color="#0B0A0E" stop-opacity="1"/>
+            </linearGradient>
+          </defs>
+          <rect width="1200" height="320" fill="url(#d6mosque)"/>
+          <!-- Mosque with minaret and dome (Chinese-style) -->
+          <g fill="#C9A961" opacity="0.85">
+            <!-- Main hall with Chinese pagoda style -->
+            <rect x="400" y="200" width="400" height="100"/>
+            <polygon points="380,200 820,200 790,160 410,160"/>
+            <polygon points="410,160 790,160 770,130 430,130"/>
+            <!-- Crescent at top -->
+            <circle cx="600" cy="105" r="4" fill="none" stroke="#E6C77E" stroke-width="1.5"/>
+            <path d="M597,103 Q594,108 597,113" fill="none" stroke="#E6C77E" stroke-width="1.5"/>
+            <!-- Side minaret -->
+            <rect x="280" y="180" width="30" height="120"/>
+            <polygon points="275,180 315,180 295,150"/>
+            <circle cx="295" cy="150" r="3" fill="none" stroke="#E6C77E"/>
+            <rect x="880" y="180" width="30" height="120"/>
+            <polygon points="875,180 915,180 895,150"/>
+            <circle cx="895" cy="150" r="3" fill="none" stroke="#E6C77E"/>
+            <!-- Doorways -->
+            <path d="M540,300 L540,250 Q540,235 555,235 L595,235 Q610,235 610,250 L610,300 Z" fill="#0B0A0E" opacity="0.7"/>
+            <path d="M620,300 L620,250 Q620,235 635,235 L675,235 Q690,235 690,250 L690,300 Z" fill="#0B0A0E" opacity="0.7"/>
+            <!-- Windows -->
+            <circle cx="450" cy="240" r="12" fill="none" stroke="#C9A961"/>
+            <circle cx="450" cy="240" r="6" fill="#0B0A0E" opacity="0.7"/>
+            <circle cx="750" cy="240" r="12" fill="none" stroke="#C9A961"/>
+            <circle cx="750" cy="240" r="6" fill="#0B0A0E" opacity="0.7"/>
+          </g>
+          <!-- Arabic calligraphy-style accent -->
+          <text x="600" y="60" text-anchor="middle" font-family="Amiri, serif" font-size="36" fill="#C9A961" opacity="0.5">بسم الله</text>
+        </svg>
+      </div>
+      <div class="caption">"牛街清真寺 · 自公元 996 年起便是穆斯林北京的核心"</div>
+    </div>
+
+    <div class="gallery reveal">
+      <div class="gallery-item" data-photo="photos/dongsi-mosque.jpg">
+        <div class="gallery-photo"></div>
+        <div class="gallery-caption">东四清真寺 · 主麻日礼拜</div>
+      </div>
+      <div class="gallery-item" data-photo="photos/hutong.jpg">
+        <div class="gallery-photo"></div>
+        <div class="gallery-caption">古老的胡同小巷</div>
+      </div>
+      <div class="gallery-item" data-photo="photos/beihai-park.jpg">
+        <div class="gallery-photo"></div>
+        <div class="gallery-caption">什刹海 · 湖畔黄昏</div>
+      </div>
+    </div>
+
+    <div class="timeline reveal">
+      <div class="time-slot">
+        <div class="marker"></div>
+        <div class="time">10:00</div>
+        <div class="activity">文化背景介绍</div>
+        <div class="place">从容的上午 · 伊斯兰教在中国的历史 · 回族的故事 · 丝绸之路的传承</div>
+      </div>
+      <div class="time-slot">
+        <div class="marker"></div>
+        <div class="time">12:30</div>
+        <div class="activity">主麻日礼拜</div>
+        <div class="place">东四清真寺(首选) · 若确认开放,亦可选牛街清真寺 · 已预先安排女士礼拜区</div>
+      </div>
+      <div class="time-slot">
+        <div class="marker"></div>
+        <div class="time">14:00</div>
+        <div class="activity">牛街清真盛宴</div>
+        <div class="place">洪顺轩 — 自 1948 年起便是牛街老字号 · 羊肉饺子 · 手工拉面</div>
+      </div>
+      <div class="time-slot">
+        <div class="marker"></div>
+        <div class="time">16:00</div>
+        <div class="activity">胡同与什刹海</div>
+        <div class="place">牛街美食街 · 清真小吃 · 之后乘三轮车穿行胡同 · 后海湖畔轻松散步</div>
+      </div>
+    </div>
+
+    <div class="day-cards reveal delay-1">
+      <div class="info-card">
+        <div class="label">清真午餐</div>
+        <h5>洪顺轩</h5>
+        <p>牛街老字号,创立于 1948 年 · 三代相传的回族家传菜 · 羊肉饺子、手工拉面、芝麻烧饼。</p>
+      </div>
+      <div class="info-card">
+        <div class="label">主麻日礼拜</div>
+        <h5>东四清真寺(首选)</h5>
+        <p>开放可靠的元代清真寺 · 距华尔道夫 10 分钟车程 · 已提前确认女士礼拜区 · 安排与阿訇见面问候。</p>
+      </div>
+      <div class="info-card">
+        <div class="label">文化洞察</div>
+        <h5>回族</h5>
+        <p>中国 56 个民族之一 · 中国的穆斯林族群,其祖先一千多年前沿丝绸之路而来。</p>
+      </div>
+      <div class="info-card">
+        <div class="label">礼宾备注</div>
+        <h5>三轮车路线</h5>
+        <p>胡同三轮车路线特别避开了后海酒吧街区 · 全程选用适合家庭出游的路线。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     QUOTE
+     ============================================ -->
+<section class="quote-section" id="quote2">
+  <div class="grain"></div>
+  <div class="container">
+    <div class="reveal">
+      <div class="quote-mark">"</div>
+      <div class="quote-text">不到长城非好汉。</div>
+      <div class="quote-author">— 毛泽东</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     DAY VII — SUMMER PALACE · 30 May
+     ============================================ -->
+<section class="day-section bg-3" id="day7">
+  <div class="grain"></div>
+  <div class="container">
+    <div class="day-header reveal">
+      <div class="day-number">VII</div>
+      <div class="day-title-block">
+        <span class="eyebrow">第七日 · 皇家园林</span>
+        <h2><em>颐和园</em></h2>
+        <div class="subtitle">昆明湖 · 长廊 · 高端购物 · 清真版北京烤鸭告别晚宴</div>
+        <div class="date-badge">周六 · 2026年5月30日</div>
+      </div>
+      <div class="day-arabic">قصر الصيف<br/><span style="font-size: 1rem; opacity: 0.7;">颐和园</span></div>
+    </div>
+
+    <div class="day-visual" data-photo="photos/summer-palace.jpg">
+      <div class="photo"></div>
+      <div class="scene">
+        <svg viewBox="0 0 1200 320" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+          <defs>
+            <linearGradient id="d5water" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#2C5F5A" stop-opacity="0.5"/>
+              <stop offset="100%" stop-color="#0B0A0E" stop-opacity="1"/>
+            </linearGradient>
+          </defs>
+          <rect width="1200" height="320" fill="url(#d5water)"/>
+          <path d="M0,180 L150,140 L300,160 L450,120 L600,140 L750,110 L900,130 L1050,100 L1200,120 L1200,200 L0,200 Z" fill="#1E1A26" opacity="0.8"/>
+          <g fill="#C9A961" opacity="0.85">
+            <rect x="100" y="180" width="1000" height="6"/>
+            <g>
+              <rect x="180" y="155" width="60" height="30"/>
+              <polygon points="170,155 250,155 240,135 180,135"/>
+              <polygon points="180,135 240,135 230,115 190,115"/>
+            </g>
+            <g>
+              <rect x="450" y="145" width="80" height="40"/>
+              <polygon points="440,145 540,145 525,120 455,120"/>
+              <polygon points="455,120 525,120 510,95 470,95"/>
+              <polygon points="485,95 495,95 490,80"/>
+            </g>
+            <g>
+              <rect x="780" y="155" width="60" height="30"/>
+              <polygon points="770,155 850,155 840,135 780,135"/>
+              <polygon points="780,135 840,135 830,115 790,115"/>
+            </g>
+            <g transform="translate(900,210)">
+              <path d="M0,0 L150,0 L140,20 L10,20 Z" />
+              <rect x="30" y="-30" width="90" height="30"/>
+              <polygon points="20,-30 130,-30 110,-50 40,-50"/>
+            </g>
+          </g>
+          <g stroke="#C9A961" stroke-width="0.5" opacity="0.3">
+            <line x1="100" y1="220" x2="200" y2="220"/>
+            <line x1="300" y1="240" x2="500" y2="240"/>
+            <line x1="600" y1="260" x2="800" y2="260"/>
+            <line x1="50" y1="280" x2="250" y2="280"/>
+          </g>
+          <g fill="#C9A961" opacity="0.7">
+            <path d="M250,250 L320,250 L310,260 L260,260 Z"/>
+            <rect x="275" y="240" width="20" height="10"/>
+            <path d="M600,275 L680,275 L670,285 L610,285 Z"/>
+          </g>
+        </svg>
+      </div>
+      <div class="caption">"昆明湖 — 颐和园四分之三皆为水域"</div>
+    </div>
+
+    <div class="gallery reveal">
+      <div class="gallery-item" data-photo="photos/kunming-lake.jpg">
+        <div class="gallery-photo"></div>
+        <div class="gallery-caption">昆明湖 · 皇家水域</div>
+      </div>
+      <div class="gallery-item" data-photo="photos/long-corridor.jpg">
+        <div class="gallery-photo"></div>
+        <div class="gallery-caption">长廊 · 728 米艺术长卷</div>
+      </div>
+      <div class="gallery-item" data-photo="photos/marble-boat.jpg">
+        <div class="gallery-photo"></div>
+        <div class="gallery-caption">石舫</div>
+      </div>
+    </div>
+
+    <div class="timeline reveal">
+      <div class="time-slot">
+        <div class="marker"></div>
+        <div class="time">09:30</div>
+        <div class="activity">颐和园</div>
+        <div class="place">长廊(728 米彩绘天花板) · 万寿山 · 石舫</div>
+      </div>
+      <div class="time-slot">
+        <div class="marker"></div>
+        <div class="time">11:00</div>
+        <div class="activity">龙舟游湖</div>
+        <div class="place">私人龙舟横渡昆明湖 · 船长会让孩子们参与掌舵</div>
+      </div>
+      <div class="time-slot">
+        <div class="marker"></div>
+        <div class="time">12:45</div>
+        <div class="activity">湖畔清真午餐</div>
+        <div class="place">听鹂馆清真分部 · 皇家风格菜肴 · 临窗可观湖景的座位(已预订)</div>
+      </div>
+      <div class="time-slot">
+        <div class="marker"></div>
+        <div class="time">15:00</div>
+        <div class="activity">购物与告别晚宴</div>
+        <div class="place">SKP / China World Mall · 然后前往四季民福清真版 — 北京最佳的清真版北京烤鸭 · 告别晚宴</div>
+      </div>
+    </div>
+
+    <div class="day-cards reveal delay-1">
+      <div class="info-card">
+        <div class="label">清真午餐</div>
+        <h5>听鹂馆清真分部</h5>
+        <p>位于颐和园内的清真做法皇家菜。已提前预订湖景座位。</p>
+      </div>
+      <div class="info-card">
+        <div class="label">告别晚宴</div>
+        <h5>四季民福清真版 · 北京烤鸭</h5>
+        <p>名副其实的旅程压轴 · 北京最负盛名的北京烤鸭,采用清真认证厨房 · 果木烤炉 · 手工擀制薄饼。</p>
+      </div>
+      <div class="info-card">
+        <div class="label">为女儿(13岁)</div>
+        <h5>珍珠串饰工坊</h5>
+        <p>可选项目:在虹桥与珍珠串饰大师一同进行 45 分钟工坊体验 · 她可以亲手设计并带走自己制作的淡水珍珠项链。</p>
+      </div>
+      <div class="info-card">
+        <div class="label">礼宾备注</div>
+        <h5>购物地点选择</h5>
+        <p>SKP 主打超高端品牌 · China World Mall 汇聚国际奢侈品牌 · 若家人希望体验讨价还价,可选秀水街(Silk Market)。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     DAY VIII — DEPARTURE · 31 May
+     ============================================ -->
+<section class="day-section bg-4" id="day8">
+  <div class="grain"></div>
+  <div class="container">
+    <div class="day-header reveal">
+      <div class="day-number">VIII</div>
+      <div class="day-title-block">
+        <span class="eyebrow">第八日 · 离别</span>
+        <h2>最后一场<em>寻宝之旅</em></h2>
+        <div class="subtitle">潘家园旧货市场(仅周日开放) · 最后一顿午餐 · 20:05 自 PKX 起飞</div>
+        <div class="date-badge">周日 · 2026年5月31日</div>
+      </div>
+      <div class="day-arabic">يوم الوداع<br/><span style="font-size: 1rem; opacity: 0.7;">送别日</span></div>
+    </div>
+
+    <div class="day-visual" data-photo="photos/panjiayuan-hero.jpg">
+      <div class="photo"></div>
+      <div class="scene">
+        <svg viewBox="0 0 1200 320" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+          <defs>
+            <linearGradient id="d8sky" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#8B2C2C" stop-opacity="0.25"/>
+              <stop offset="100%" stop-color="#0B0A0E" stop-opacity="1"/>
+            </linearGradient>
+          </defs>
+          <rect width="1200" height="320" fill="url(#d8sky)"/>
+          <!-- Market stalls -->
+          <g fill="#C9A961" opacity="0.8">
+            <!-- Rows of stalls with red roofs -->
+            <g transform="translate(100,150)">
+              <rect x="0" y="40" width="120" height="80"/>
+              <polygon points="-15,40 135,40 120,20 0,20" fill="#8B2C2C" opacity="0.7"/>
+              <rect x="20" y="60" width="80" height="40" fill="#0B0A0E" opacity="0.5"/>
+            </g>
+            <g transform="translate(250,150)">
+              <rect x="0" y="40" width="120" height="80"/>
+              <polygon points="-15,40 135,40 120,20 0,20" fill="#8B2C2C" opacity="0.7"/>
+              <rect x="20" y="60" width="80" height="40" fill="#0B0A0E" opacity="0.5"/>
+            </g>
+            <g transform="translate(400,150)">
+              <rect x="0" y="40" width="120" height="80"/>
+              <polygon points="-15,40 135,40 120,20 0,20" fill="#8B2C2C" opacity="0.7"/>
+              <rect x="20" y="60" width="80" height="40" fill="#0B0A0E" opacity="0.5"/>
+            </g>
+            <g transform="translate(550,150)">
+              <rect x="0" y="40" width="120" height="80"/>
+              <polygon points="-15,40 135,40 120,20 0,20" fill="#8B2C2C" opacity="0.7"/>
+              <rect x="20" y="60" width="80" height="40" fill="#0B0A0E" opacity="0.5"/>
+            </g>
+            <g transform="translate(700,150)">
+              <rect x="0" y="40" width="120" height="80"/>
+              <polygon points="-15,40 135,40 120,20 0,20" fill="#8B2C2C" opacity="0.7"/>
+              <rect x="20" y="60" width="80" height="40" fill="#0B0A0E" opacity="0.5"/>
+            </g>
+            <g transform="translate(850,150)">
+              <rect x="0" y="40" width="120" height="80"/>
+              <polygon points="-15,40 135,40 120,20 0,20" fill="#8B2C2C" opacity="0.7"/>
+              <rect x="20" y="60" width="80" height="40" fill="#0B0A0E" opacity="0.5"/>
+            </g>
+            <g transform="translate(1000,150)">
+              <rect x="0" y="40" width="120" height="80"/>
+              <polygon points="-15,40 135,40 120,20 0,20" fill="#8B2C2C" opacity="0.7"/>
+              <rect x="20" y="60" width="80" height="40" fill="#0B0A0E" opacity="0.5"/>
+            </g>
+          </g>
+          <!-- Lanterns hanging above -->
+          <g opacity="0.7">
+            <circle cx="200" cy="60" r="10" fill="#E6C77E"/>
+            <circle cx="400" cy="50" r="10" fill="#E6C77E"/>
+            <circle cx="600" cy="60" r="10" fill="#E6C77E"/>
+            <circle cx="800" cy="50" r="10" fill="#E6C77E"/>
+            <circle cx="1000" cy="60" r="10" fill="#E6C77E"/>
+          </g>
+        </svg>
+      </div>
+      <div class="caption">"潘家园 — 北京久负盛名的古玩市场,仅在周末方现全貌"</div>
+    </div>
+
+    <div class="gallery reveal">
+      <div class="gallery-item" data-photo="photos/jade-mountain.jpg">
+        <div class="gallery-photo"></div>
+        <div class="gallery-caption">皇家玉器 · 赠予贵宾</div>
+      </div>
+      <div class="gallery-item" data-photo="photos/calligraphy.jpg">
+        <div class="gallery-photo"></div>
+        <div class="gallery-caption">手绘书法卷轴</div>
+      </div>
+      <div class="gallery-item" data-photo="photos/tea-set.jpg">
+        <div class="gallery-photo"></div>
+        <div class="gallery-caption">中国功夫茶艺</div>
+      </div>
+    </div>
+
+    <div class="timeline reveal">
+      <div class="time-slot">
+        <div class="marker"></div>
+        <div class="time">10:00</div>
+        <div class="activity">潘家园市场</div>
+        <div class="place">古董 · 玉器 · 画轴 · 书法 · 瓷器 · 真正的市场仅在周末开放</div>
+      </div>
+      <div class="time-slot">
+        <div class="marker"></div>
+        <div class="time">12:30</div>
+        <div class="activity">最后一顿清真午餐</div>
+        <div class="place">旅程的最后一餐 · 那家小馆,或回访本周里最喜欢的某家餐厅</div>
+      </div>
+      <div class="time-slot">
+        <div class="marker"></div>
+        <div class="time">14:30</div>
+        <div class="activity">酒店退房</div>
+        <div class="place">返回华尔道夫 · 整理行装 · 最后梳洗 · 礼宾团队协助处理行李与海关单据</div>
+      </div>
+      <div class="time-slot">
+        <div class="marker"></div>
+        <div class="time">15:30</div>
+        <div class="activity">前往 PKX 机场</div>
+        <div class="place">Mercedes V-Class 送往大兴机场 · 16:45 抵达 · VIP 离境协助 · 20:05 Saudia 航班飞往利雅得</div>
+      </div>
+    </div>
+
+    <div class="day-cards reveal delay-1">
+      <div class="info-card">
+        <div class="label">最后一顿清真午餐</div>
+        <h5>那家小馆</h5>
+        <p>回访北京最佳清真餐厅之一,作为告别午餐。皇家满族菜肴的清真做法。</p>
+      </div>
+      <div class="info-card">
+        <div class="label">伴手礼推荐</div>
+        <h5>书法与玉器</h5>
+        <p>定制家族姓氏书法卷轴 · 为孩子准备的正宗玉佩 · 礼仪茶具套装。</p>
+      </div>
+      <div class="info-card">
+        <div class="label">VIP 离境</div>
+        <h5>PKX 快速通道</h5>
+        <p>预先安排 VIP 值机 · 安检优先通道 · 全程护送至 Saudia 贵宾休息室 · 临登机即可上机。</p>
+      </div>
+      <div class="info-card">
+        <div class="label">礼宾备注</div>
+        <h5>提前三小时抵达</h5>
+        <p>国际航班充足预留 · 75 分钟车程已纳入考量 · 退税(VAT)手续由我方代表协助办理。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     HALAL GUIDE
+     ============================================ -->
+<section id="halal">
+  <div class="grain"></div>
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">清真餐饮指南</span>
+      <h2>贵宾家庭可以<em>安心享用</em>之地</h2>
+      <p class="lede">名单上每一家餐厅均经过亲自考察。每一家均持有中国官方伊斯兰教协会颁发的合规清真认证。</p>
+    </div>
+
+    <div class="halal-grid">
+      <div class="restaurant-card reveal">
+        <div class="cert">✓ 清真认证</div>
+        <h4>洪顺轩</h4>
+        <div class="cuisine">传统回族 · 牛街</div>
+        <p class="desc">自 1948 年以来便是牛街老字号。手工拉面、羊肉饺子、芝麻烧饼 — 三代相传配方未变。</p>
+        <div class="details">
+          <span><strong>最适合</strong>地道的牛街体验</span>
+          <span><strong>日程</strong>第六日 — 周五</span>
+        </div>
+      </div>
+
+      <div class="restaurant-card reveal delay-1">
+        <div class="cert">✓ 清真认证</div>
+        <h4>那家小馆</h4>
+        <div class="cuisine">皇家满族菜 · 东城</div>
+        <p class="desc">皇家秘方采用清真做法呈现。安静雅致,晚清风格的私人包房。深受到访的海湾国家王室喜爱。</p>
+        <div class="details">
+          <span><strong>最适合</strong>精致晚宴 / 告别午餐</span>
+          <span><strong>日程</strong>第一日 与 第八日</span>
+        </div>
+      </div>
+
+      <div class="restaurant-card reveal delay-2">
+        <div class="cert">✓ 清真认证</div>
+        <h4>四季民福</h4>
+        <div class="cuisine">清真北京烤鸭 · 前门</div>
+        <p class="desc">北京最负盛名的北京烤鸭,采用全清真厨房。果木烤炉、手工擀制薄饼,鸭皮酥脆完美。</p>
+        <div class="details">
+          <span><strong>最适合</strong>北京的招牌名菜</span>
+          <span><strong>日程</strong>第七日 — 告别晚宴</span>
+        </div>
+      </div>
+
+      <div class="restaurant-card reveal">
+        <div class="cert">✓ 清真认证</div>
+        <h4>满福楼清真火锅</h4>
+        <div class="cuisine">皇家火锅 · 王府井</div>
+        <p class="desc">自 1985 年起便是皇家风格的清真火锅。安静的私人包间,孩子喜欢看着食材在桌上现涮现吃。北京经典老店。</p>
+        <div class="details">
+          <span><strong>最适合</strong>家庭午餐 / 火锅体验</span>
+          <span><strong>日程</strong>第三日 — 紫禁城</span>
+        </div>
+      </div>
+
+      <div class="restaurant-card reveal delay-1">
+        <div class="cert">✓ 清真认证</div>
+        <h4>吐鲁番餐厅</h4>
+        <div class="cuisine">维吾尔族 · 三里屯</div>
+        <p class="desc">地道的维吾尔族穆斯林餐 — 炭烤羊肉、手工拉条子、丝绸之路香料。口味接近阿拉伯人喜好 · 晚间现场音乐表演。</p>
+        <div class="details">
+          <span><strong>最适合</strong>具有地方风情的文化晚宴</span>
+          <span><strong>日程</strong>第五日 — 晚间</span>
+        </div>
+      </div>
+
+      <div class="restaurant-card reveal delay-2">
+        <div class="cert">✓ 清真认证</div>
+        <h4>听鹂馆清真分部</h4>
+        <div class="cuisine">皇家菜 · 颐和园</div>
+        <p class="desc">皇家风格菜肴的清真做法,位于颐和园园区内。临窗座位可俯瞰昆明湖景。</p>
+        <div class="details">
+          <span><strong>最适合</strong>风景秀丽的湖畔午餐</span>
+          <span><strong>日程</strong>第七日 — 颐和园</span>
+        </div>
+      </div>
+
+      <div class="restaurant-card reveal">
+        <div class="cert">✓ 清真认证</div>
+        <h4>小卢清真餐厅</h4>
+        <div class="cuisine">回族山村风味 · 慕田峪</div>
+        <p class="desc">长城脚下村庄中,回族家庭经营。手工拉面、羊肉串、传统大饼。</p>
+        <div class="details">
+          <span><strong>最适合</strong>山中村落午餐</span>
+          <span><strong>日程</strong>第二日 — 长城</span>
+        </div>
+      </div>
+
+      <div class="restaurant-card reveal delay-1">
+        <div class="cert">✓ 清真认证</div>
+        <h4>海碗居清真版</h4>
+        <div class="cuisine">老北京 · 天坛</div>
+        <p class="desc">北京人钟爱的老字号,以清真做法呈现炸酱面(咸香酱料拌面)。地道氛围,传统服务。</p>
+        <div class="details">
+          <span><strong>最适合</strong>经典的北京风味午餐</span>
+          <span><strong>日程</strong>第五日 — 天坛</span>
+        </div>
+      </div>
+
+      <div class="restaurant-card reveal delay-2">
+        <div class="cert">✓ 清真认证</div>
+        <h4>Crystal Jade 清真分店(翡翠拉面)</h4>
+        <div class="cuisine">粤菜 · 王府井</div>
+        <p class="desc">新加坡高端连锁品牌的北京清真分店。点心、烧腊、丝滑面汤。现代典雅,口味温和。</p>
+        <div class="details">
+          <span><strong>最适合</strong>备选午餐 / 轻食晚餐</span>
+          <span><strong>日程</strong>机动灵活安排</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     MOSQUES
+     ============================================ -->
+<section id="mosques">
+  <div class="grain"></div>
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">礼拜之所</span>
+      <h2><em>北京的清真寺</em></h2>
+      <p class="lede">伊斯兰教在北京有逾千年的历史。这些清真寺将于本周每日礼拜时接待贵宾家庭。</p>
+    </div>
+
+    <div class="mosques-grid">
+      <div class="mosque-card reveal">
+        <svg class="mosque-icon" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M32 4 L32 12"/><circle cx="32" cy="14" r="2" fill="currentColor"/>
+          <path d="M20 20 Q32 8 44 20"/><path d="M14 30 L14 56 L50 56 L50 30"/>
+          <path d="M14 30 Q32 14 50 30"/><path d="M28 56 L28 42 Q32 36 36 42 L36 56"/>
+          <line x1="8" y1="56" x2="56" y2="56"/>
+          <circle cx="22" cy="38" r="2"/><circle cx="42" cy="38" r="2"/>
+        </svg>
+        <h4>东四清真寺</h4>
+        <div class="arabic-name">مسجد دونغسي</div>
+        <div class="est">始建于公元 1356 年 · 元代</div>
+        <p class="desc">贵宾一家的首选清真寺 — 距华尔道夫酒店仅 8 分钟车程。元代建筑庄严静谧,稳定开放接待礼拜,包括 5 月 29 日(周五)的主麻日礼拜。</p>
+        <div class="address">东城区东四南大街</div>
+      </div>
+
+      <div class="mosque-card reveal delay-1" style="border-color: var(--gold);">
+        <svg class="mosque-icon" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M32 4 L32 12"/><circle cx="32" cy="14" r="2" fill="currentColor"/>
+          <path d="M20 20 Q32 8 44 20"/><path d="M14 30 L14 56 L50 56 L50 30"/>
+          <path d="M14 30 Q32 14 50 30"/><path d="M28 56 L28 42 Q32 36 36 42 L36 56"/>
+          <line x1="8" y1="56" x2="56" y2="56"/>
+          <circle cx="22" cy="38" r="2"/><circle cx="42" cy="38" r="2"/>
+        </svg>
+        <h4>牛街清真寺</h4>
+        <div class="arabic-name">مسجد نيوجيه</div>
+        <div class="est">始建于公元 996 年 · 辽代</div>
+        <p class="desc">北京最古老、规模最大的清真寺,创建于一千多年前。穆斯林北京的核心所在,周边汇聚着这座城市最受钟爱的清真餐厅与商铺。</p>
+        <div class="address">西城区牛街 88 号</div>
+      </div>
+
+      <div class="mosque-card reveal delay-2">
+        <svg class="mosque-icon" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M32 4 L32 12"/><circle cx="32" cy="14" r="2" fill="currentColor"/>
+          <path d="M20 20 Q32 8 44 20"/><path d="M14 30 L14 56 L50 56 L50 30"/>
+          <path d="M14 30 Q32 14 50 30"/><path d="M28 56 L28 42 Q32 36 36 42 L36 56"/>
+          <line x1="8" y1="56" x2="56" y2="56"/>
+          <circle cx="22" cy="38" r="2"/><circle cx="42" cy="38" r="2"/>
+        </svg>
+        <h4>海淀清真寺</h4>
+        <div class="arabic-name">مسجد هايديان</div>
+        <div class="est">始建于公元 1283 年 · 元代</div>
+        <p class="desc">位于颐和园附近,十分便利,是第七日完成晌礼或晡礼的理想之所。回族社群活跃,环境友好,维护良好。</p>
+        <div class="address">海淀区,近颐和园</div>
+      </div>
+    </div>
+
+    <div style="margin-top: 4rem; padding: 2rem; border: 1px solid var(--border); border-radius: 2px; text-align: center; background: rgba(44, 95, 90, 0.05);">
+      <div style="font-family: 'Amiri', serif; font-size: 1.5rem; color: var(--gold); margin-bottom: 1rem;">في كل مكان</div>
+      <p style="font-family: 'Noto Serif SC', 'Cormorant Garamond', serif; font-style: italic; font-size: 1.2rem; color: var(--text);">
+        除以上三座之外,北京拥有<strong style="color: var(--gold); font-weight: 500;">70 余座清真寺</strong>。Mercedes V-Class 车内备有礼拜毯、朝向罗盘以及供小净使用的清新洁水 &mdash; 司机会在每日适当时间提供协助。
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     PRACTICAL
+     ============================================ -->
+<section id="practical">
+  <div class="grain"></div>
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">重要信息</span>
+      <h2><em>实用细节</em></h2>
+      <p class="lede">您所需知晓的一切 — 均已处理、安排、悉心照料。</p>
+    </div>
+
+    <div class="practical-grid">
+      <div class="practical-card reveal">
+        <div class="head">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="10" r="3"/>
+            <path d="M12 2a8 8 0 0 0-8 8c0 1.892.402 3.13 1.5 4.5L12 22l6.5-7.5c1.098-1.37 1.5-2.608 1.5-4.5a8 8 0 0 0-8-8z"/>
+          </svg>
+          <h4>行程后勤</h4>
+        </div>
+        <ul>
+          <li><strong>车辆</strong><span>Mercedes-Benz V-Class V260L(尊贵版)— 全程专属</span></li>
+          <li><strong>司机</strong><span>会英语、经严格审核,06:00&ndash;23:00 在岗 + 随时待命</span></li>
+          <li><strong>导游</strong><span>北京持牌导游 · 可按需求安排英语或阿拉伯语导游</span></li>
+          <li><strong>礼宾</strong><span>阿拉伯语 / 英语,WhatsApp 全天候 24 小时</span></li>
+          <li><strong>SIM 卡</strong><span>不限流量 5G SIM 卡,抵达时即可使用</span></li>
+          <li><strong>酒店</strong><span>北京华尔道夫酒店 · 王府井金鱼胡同</span></li>
+        </ul>
+      </div>
+
+      <div class="practical-card reveal delay-1">
+        <div class="head">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+          <h4>气候 · 2026年5月下旬</h4>
+        </div>
+        <ul>
+          <li><strong>白天气温</strong><span>22&ndash;28°C — 舒适宜人,以晴朗为主</span></li>
+          <li><strong>夜间气温</strong><span>14&ndash;18°C — 傍晚需备轻外套</span></li>
+          <li><strong>降雨</strong><span>偶有少量降雨 — 车内常备雨伞</span></li>
+          <li><strong>空气质量</strong><span>5 月下旬总体良好 — 每日监测</span></li>
+          <li><strong>日照</strong><span>正午阳光强烈 — 建议儿童使用 SPF50 防晒霜</span></li>
+          <li><strong>饮水</strong><span>车内随时供应优质瓶装水</span></li>
+        </ul>
+      </div>
+
+      <div class="practical-card reveal delay-2">
+        <div class="head">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+          <h4>礼拜时间 · 5月下旬</h4>
+        </div>
+        <ul>
+          <li><strong>晨礼(Fajr)</strong><span>约 03:30 — 于华尔道夫套房内完成</span></li>
+          <li><strong>晌礼(Dhuhr)</strong><span>约 12:20 — 每日行程中段予以兼顾</span></li>
+          <li><strong>晡礼(Asr)</strong><span>约 16:10 — 每日行程中已留出安静的暂停时段</span></li>
+          <li><strong>昏礼(Maghrib)</strong><span>约 19:35 — 通常已返回酒店或在餐厅内</span></li>
+          <li><strong>宵礼(Isha)</strong><span>约 21:10 — 于套房内完成</span></li>
+          <li><strong>主麻日(Jumu'ah)</strong><span>约 13:00,5月29日(周五) · 东四清真寺</span></li>
+        </ul>
+      </div>
+
+      <div class="practical-card reveal delay-3">
+        <div class="head">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/>
+            <line x1="12" y1="6" x2="12" y2="12"/>
+            <line x1="12" y1="12" x2="16" y2="14"/>
+          </svg>
+          <h4>航班信息</h4>
+        </div>
+        <ul>
+          <li><strong>抵达航班</strong><span>Saudia · 利雅得 → 北京大兴(PKX)</span></li>
+          <li><strong>抵达时间</strong><span>17:05 · 2026年5月24日(周日)</span></li>
+          <li><strong>前往酒店</strong><span>Mercedes V-Class 车程 75 分钟 · 抵达约 19:30</span></li>
+          <li><strong>离境航班</strong><span>Saudia · 北京大兴(PKX) → 利雅得</span></li>
+          <li><strong>起飞时间</strong><span>20:05 · 2026年5月31日(周日)</span></li>
+          <li><strong>前往机场</strong><span>15:30 自华尔道夫出发 · 16:45 抵达 PKX</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     FAREWELL
+     ============================================ -->
+<section class="farewell" id="farewell">
+  <div class="grain"></div>
+  <div class="pattern-overlay"></div>
+  <div class="container">
+    <div class="reveal">
+      <div class="farewell-arabic">مع السلامة<br/>ورحلة آمنة إلى الديار</div>
+      <div class="eyebrow">愿您归途平安</div>
+    </div>
+    <h2 class="reveal delay-1">期待<em>再次相见</em></h2>
+    <p class="closing reveal delay-2">
+      能在帝都接待贵宾一家,是我们的荣幸。<br/>
+      愿这八日的回忆,如紫禁城屋顶上的<br/>
+      鎏金一般珍贵长存。
+    </p>
+    <div class="signature reveal delay-3">
+      <div class="name">您的北京礼宾团队</div>
+      <div class="title">精心策划 · 谨慎周到 · 全心奉献</div>
+    </div>
+    <div style="margin-top: 4rem; opacity: 0.4;">
+      <div class="hero-divider">
+        <div class="line"></div>
+        <div class="ornament">◆</div>
+        <div class="line"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // ============================================
+  // PROGRESS BAR
+  // ============================================
+  const progressBar = document.getElementById('progressBar');
+  window.addEventListener('scroll', () => {
+    const scrolled = window.scrollY;
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    progressBar.style.width = ((scrolled / max) * 100) + '%';
+  });
+
+  // ============================================
+  // REVEAL ON SCROLL
+  // ============================================
+  const reveals = document.querySelectorAll('.reveal');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -80px 0px' });
+  reveals.forEach(el => revealObserver.observe(el));
+
+  // ============================================
+  // SIDE NAV ACTIVE STATE
+  // ============================================
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.side-nav a');
+  const navObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute('id');
+        navLinks.forEach(link => {
+          link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+        });
+      }
+    });
+  }, { threshold: 0.5 });
+  sections.forEach(section => navObserver.observe(section));
+
+  // ============================================
+  // SMOOTH ANCHOR SCROLL
+  // ============================================
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
+  // ============================================
+  // KEYBOARD NAVIGATION
+  // ============================================
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowDown' || e.key === 'PageDown') {
+      e.preventDefault();
+      const current = [...sections].reverse().find(s => s.getBoundingClientRect().top <= 50);
+      if (current && current.nextElementSibling?.tagName === 'SECTION') {
+        current.nextElementSibling.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+    if (e.key === 'ArrowUp' || e.key === 'PageUp') {
+      e.preventDefault();
+      const current = [...sections].find(s => s.getBoundingClientRect().bottom > 50);
+      if (current && current.previousElementSibling?.tagName === 'SECTION') {
+        current.previousElementSibling.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  });
+
+  // ============================================
+  // LOAD PHOTOS — HIGH RESOLUTION
+  // Priority: data-photo (direct URL) > data-wiki (Wikipedia API)
+  // Wikimedia direct URLs always succeed; thumb URLs only work for pre-cached sizes.
+  // ============================================
+  function applyPhoto(el, url) {
+    let target;
+    if (el.classList.contains('photo-bg') || el.classList.contains('v-photo')) {
+      target = el;
+    } else if (el.classList.contains('gallery-item')) {
+      target = el.querySelector('.gallery-photo');
+    } else {
+      target = el.querySelector('.photo');
+    }
+    if (!target) return;
+    const img = new Image();
+    img.onload = () => {
+      // For IMG elements, set src directly (object-fit handles sizing).
+      // For DIVs, use background-image.
+      if (target.tagName === 'IMG') {
+        target.src = url;
+      } else {
+        target.style.backgroundImage = `url("${url}")`;
+      }
+      target.classList.add('loaded');
+      if (el.classList.contains('day-visual')) el.classList.add('has-photo');
+      if (el.classList.contains('gallery-item')) el.classList.add('loaded');
+      // V-Class hero: lift the parent so SVG silhouette hides behind real photo
+      if (el.classList.contains('v-photo') && el.parentElement) {
+        el.parentElement.classList.add('has-photo');
+      }
+    };
+    img.onerror = () => {
+      console.warn('[photo] failed to load:', url);
+    };
+    img.src = url;
+  }
+
+  async function loadPhoto(el) {
+    // Direct URL takes priority — skip Wikipedia API
+    const directUrl = el.dataset.photo;
+    if (directUrl) {
+      applyPhoto(el, directUrl);
+      return;
+    }
+    const slug = el.dataset.wiki;
+    if (!slug) return;
+    try {
+      const r = await fetch(
+        `https://en.wikipedia.org/w/api.php?action=query&titles=${slug}&prop=pageimages&pithumbsize=2560&format=json&origin=*`
+      );
+      const data = await r.json();
+      const pages = data.query?.pages;
+      if (!pages) return;
+      const page = Object.values(pages)[0];
+      const url = page?.thumbnail?.source || page?.original?.source;
+      if (!url) return;
+      applyPhoto(el, url);
+    } catch (e) {
+      console.warn('[photo] Wikipedia API failed for slug:', slug, e);
+    }
+  }
+
+  document.querySelectorAll('[data-wiki], [data-photo]').forEach(loadPhoto);
+</script>
+
+</body>
+</html>
