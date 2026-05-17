@@ -1,0 +1,2624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Beijing · An Eight-Day Imperial Journey · Itinerary 24-31 May 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@200;300;400;500;600;700&family=Amiri:wght@400;700&family=Cinzel:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  /* ============================================
+     RESET & BASE
+     ============================================ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; scroll-snap-type: y mandatory; }
+  body {
+    background: #0B0A0E;
+    color: rgba(242, 234, 213, 0.92);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  :root {
+    --bg: #0B0A0E;
+    --bg-2: #15131B;
+    --bg-3: #1E1A26;
+    --gold: #C9A961;
+    --gold-bright: #E6C77E;
+    --gold-deep: #8B7340;
+    --gold-soft: rgba(201, 169, 97, 0.15);
+    --cream: #F2EAD5;
+    --jade: #2C5F5A;
+    --crimson: #8B2C2C;
+    --text: rgba(242, 234, 213, 0.92);
+    --text-dim: rgba(242, 234, 213, 0.55);
+    --text-faint: rgba(242, 234, 213, 0.35);
+    --border: rgba(201, 169, 97, 0.18);
+    --border-bright: rgba(201, 169, 97, 0.4);
+  }
+
+  ::selection { background: var(--gold); color: var(--bg); }
+
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--gold-deep); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--gold); }
+
+  /* ============================================
+     TYPOGRAPHY
+     ============================================ */
+  .display { font-family: 'Cormorant Garamond', 'Times New Roman', serif; font-weight: 300; letter-spacing: 0.02em; line-height: 1.05; }
+  .cinzel { font-family: 'Cinzel', serif; letter-spacing: 0.18em; text-transform: uppercase; }
+  .arabic { font-family: 'Amiri', serif; direction: rtl; letter-spacing: 0; }
+  .eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+  .gold-text {
+    background: linear-gradient(135deg, var(--gold-bright) 0%, var(--gold) 50%, var(--gold-deep) 100%);
+    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+  }
+
+  /* ============================================
+     SECTIONS
+     ============================================ */
+  section {
+    min-height: 100vh;
+    width: 100%;
+    padding: 6rem 5vw;
+    position: relative;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .container { max-width: 1400px; width: 100%; margin: 0 auto; position: relative; z-index: 3; }
+
+  /* ============================================
+     BACKGROUND TEXTURE & PHOTO OVERLAY
+     ============================================ */
+  .grain {
+    position: absolute; inset: 0; pointer-events: none; opacity: 0.04; z-index: 2;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  .photo-bg {
+    position: absolute; inset: 0;
+    background-size: cover; background-position: center;
+    opacity: 0; transition: opacity 2s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 0;
+  }
+  .photo-bg.loaded { opacity: 0.55; }
+  .photo-bg::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(11,10,14,0.6) 0%, rgba(11,10,14,0.85) 100%);
+  }
+  .pattern-overlay {
+    position: absolute; inset: 0; pointer-events: none; opacity: 0.05; z-index: 1;
+    background-image:
+      radial-gradient(circle at 25% 25%, var(--gold) 0%, transparent 50%),
+      radial-gradient(circle at 75% 75%, var(--gold) 0%, transparent 50%);
+  }
+
+  /* ============================================
+     PROGRESS BAR & NAV
+     ============================================ */
+  .progress-bar {
+    position: fixed; top: 0; left: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--gold-bright), var(--gold));
+    z-index: 1000; width: 0%;
+    transition: width 0.1s ease-out;
+    box-shadow: 0 0 12px rgba(201, 169, 97, 0.6);
+  }
+  .side-nav {
+    position: fixed; right: 2rem; top: 50%; transform: translateY(-50%);
+    z-index: 100; display: flex; flex-direction: column; gap: 0.7rem;
+  }
+  .side-nav a {
+    position: relative; display: block; width: 8px; height: 8px; border-radius: 50%;
+    background: transparent; border: 1px solid var(--gold-deep);
+    transition: all 0.3s ease;
+  }
+  .side-nav a:hover { border-color: var(--gold-bright); transform: scale(1.4); }
+  .side-nav a.active {
+    background: var(--gold); border-color: var(--gold);
+    box-shadow: 0 0 12px rgba(201, 169, 97, 0.7);
+  }
+  .side-nav a::after {
+    content: attr(data-label); position: absolute; right: 22px; top: 50%;
+    transform: translateY(-50%); font-size: 0.62rem; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--gold); white-space: nowrap;
+    opacity: 0; transition: opacity 0.3s; pointer-events: none;
+    background: rgba(11,10,14,0.85); padding: 4px 10px; border-radius: 2px;
+    border: 1px solid var(--border);
+  }
+  .side-nav a:hover::after { opacity: 1; }
+
+  /* ============================================
+     REVEAL
+     ============================================ */
+  .reveal {
+    opacity: 0; transform: translateY(40px);
+    transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal.delay-1 { transition-delay: 0.12s; }
+  .reveal.delay-2 { transition-delay: 0.24s; }
+  .reveal.delay-3 { transition-delay: 0.36s; }
+  .reveal.delay-4 { transition-delay: 0.48s; }
+  .reveal.delay-5 { transition-delay: 0.6s; }
+
+  /* ============================================
+     HERO
+     ============================================ */
+  .hero {
+    background:
+      radial-gradient(ellipse at 50% 100%, rgba(139, 44, 44, 0.18) 0%, transparent 60%),
+      radial-gradient(ellipse at 30% 30%, rgba(201, 169, 97, 0.1) 0%, transparent 50%),
+      linear-gradient(180deg, #0B0A0E 0%, #15131B 100%);
+    align-items: center; text-align: center;
+  }
+  .hero-arabic {
+    font-family: 'Amiri', serif; font-size: 2.2rem;
+    color: var(--gold); margin-bottom: 2rem; opacity: 0.85;
+  }
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif; font-weight: 300;
+    font-size: clamp(4rem, 14vw, 11rem); line-height: 0.92;
+    letter-spacing: 0.05em; margin-bottom: 0.5rem;
+  }
+  .hero-title .first { display: block; font-style: italic; font-weight: 300; }
+  .hero-divider {
+    display: flex; align-items: center; justify-content: center;
+    gap: 1.2rem; margin: 2rem 0;
+  }
+  .hero-divider .line {
+    height: 1px; width: 80px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+  .hero-divider .ornament { color: var(--gold); font-size: 1.2rem; }
+  .hero-subtitle {
+    font-family: 'Cinzel', serif; font-size: clamp(0.85rem, 1.4vw, 1.1rem);
+    letter-spacing: 0.5em; text-transform: uppercase; color: var(--cream);
+    margin-bottom: 1.2rem; text-indent: 0.5em;
+  }
+  .hero-dates {
+    font-family: 'Cormorant Garamond', serif; font-style: italic;
+    font-size: 1.3rem; color: var(--gold); margin-bottom: 2.5rem;
+    letter-spacing: 0.1em;
+  }
+  .hero-dedication {
+    font-family: 'Cormorant Garamond', serif; font-style: italic;
+    font-size: 1.15rem; color: var(--text-dim);
+    max-width: 600px; margin: 0 auto;
+  }
+  .hero-scroll {
+    position: absolute; bottom: 3rem; left: 50%; transform: translateX(-50%);
+    text-align: center; color: var(--gold); opacity: 0.7;
+    animation: bounce 2.5s ease-in-out infinite; z-index: 5;
+  }
+  .hero-scroll .label {
+    font-size: 0.65rem; letter-spacing: 0.4em; text-transform: uppercase;
+    margin-bottom: 0.7rem;
+  }
+  .hero-scroll .arrow {
+    width: 1px; height: 40px;
+    background: linear-gradient(180deg, var(--gold), transparent);
+    margin: 0 auto;
+  }
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(10px); }
+  }
+  .hero-skyline {
+    position: absolute; bottom: 0; left: 0; width: 100%; height: 30vh;
+    opacity: 0.35; pointer-events: none; z-index: 1;
+  }
+
+  /* ============================================
+     SECTION HEAD
+     ============================================ */
+  .section-head { margin-bottom: 4rem; text-align: center; }
+  .section-head .eyebrow { margin-bottom: 1rem; display: block; }
+  .section-head h2 {
+    font-family: 'Cormorant Garamond', serif; font-weight: 300;
+    font-size: clamp(2.5rem, 5vw, 4.5rem); line-height: 1.05;
+    letter-spacing: 0.01em; margin-bottom: 1.2rem;
+  }
+  .section-head h2 em { font-style: italic; color: var(--gold); }
+  .section-head .lede {
+    font-family: 'Cormorant Garamond', serif; font-style: italic;
+    font-size: 1.25rem; color: var(--text-dim);
+    max-width: 720px; margin: 0 auto; line-height: 1.5;
+  }
+
+  /* ============================================
+     WELCOME
+     ============================================ */
+  .welcome { text-align: center; }
+  .welcome-arabic {
+    font-family: 'Amiri', serif; font-size: 3rem;
+    color: var(--gold); margin-bottom: 1rem;
+  }
+  .welcome-text {
+    max-width: 780px; margin: 2rem auto 4rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem; line-height: 1.7; font-weight: 300; color: var(--text);
+  }
+  .welcome-text em { color: var(--gold); font-style: italic; }
+  .stats {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem;
+    max-width: 1100px; margin: 0 auto;
+  }
+  .stat {
+    padding: 2rem 1rem;
+    border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+    text-align: center;
+  }
+  .stat .num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.5rem; font-weight: 300; line-height: 1; margin-bottom: 0.5rem;
+  }
+  .stat .label {
+    font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--text-dim);
+  }
+
+  /* ============================================
+     OVERVIEW
+     ============================================ */
+  .days-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem;
+    margin-top: 3rem;
+  }
+  .day-card {
+    position: relative; padding: 1.8rem 1.4rem;
+    background: linear-gradient(135deg, rgba(30, 26, 38, 0.8) 0%, rgba(21, 19, 27, 0.9) 100%);
+    border: 1px solid var(--border); border-radius: 2px;
+    overflow: hidden; transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    min-height: 230px; display: flex; flex-direction: column; justify-content: space-between;
+  }
+  .day-card:hover {
+    border-color: var(--gold); transform: translateY(-4px);
+    box-shadow: 0 20px 60px -20px rgba(201, 169, 97, 0.3);
+  }
+  .day-card::before {
+    content: ''; position: absolute; top: 0; left: 0;
+    width: 100%; height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    transform: translateX(-100%); transition: transform 0.7s ease;
+  }
+  .day-card:hover::before { transform: translateX(0); }
+  .day-card .num {
+    font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.35em;
+    color: var(--gold); margin-bottom: 0.4rem;
+  }
+  .day-card .date {
+    font-family: 'Cormorant Garamond', serif; font-style: italic;
+    font-size: 0.85rem; color: var(--text-faint); margin-bottom: 0.8rem;
+  }
+  .day-card h3 {
+    font-family: 'Cormorant Garamond', serif; font-weight: 400;
+    font-size: 1.5rem; line-height: 1.1; margin-bottom: 0.8rem;
+  }
+  .day-card p { font-size: 0.85rem; color: var(--text-dim); line-height: 1.55; }
+  .day-card .meta {
+    margin-top: 1.2rem; font-size: 0.65rem; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--text-faint);
+  }
+
+  /* ============================================
+     CULTURAL CARE
+     ============================================ */
+  .care-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem;
+    margin-top: 4rem;
+  }
+  .care-item { text-align: center; padding: 2rem 1rem; }
+  .care-item .icon {
+    width: 70px; height: 70px; margin: 0 auto 1.5rem;
+    display: flex; align-items: center; justify-content: center;
+    border: 1px solid var(--gold); border-radius: 50%; color: var(--gold);
+  }
+  .care-item h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem; font-weight: 400; margin-bottom: 1rem; color: var(--cream);
+  }
+  .care-item p { font-size: 0.95rem; color: var(--text-dim); line-height: 1.7; }
+
+  /* ============================================
+     VEHICLE SLIDE
+     ============================================ */
+  .vehicle {
+    background:
+      radial-gradient(ellipse at 70% 50%, rgba(201, 169, 97, 0.08) 0%, transparent 60%),
+      var(--bg);
+  }
+  .vehicle-grid {
+    display: grid; grid-template-columns: 1.1fr 1fr; gap: 4rem;
+    align-items: center; margin-top: 3rem;
+  }
+  .vehicle-visual {
+    position: relative;
+    width: 100%; min-height: 480px; height: 480px;
+    background: linear-gradient(135deg, rgba(30,26,38,0.9), rgba(11,10,14,0.95));
+    border: 1px solid var(--border); border-radius: 4px; overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .vehicle-visual .v-photo {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: center;
+    background-size: cover; background-position: center;
+    opacity: 0; transition: opacity 2s ease;
+    display: block;
+  }
+  .vehicle-visual .v-photo.loaded { opacity: 1; }
+  .vehicle-visual svg { position: relative; z-index: 2; width: 80%; height: auto; opacity: 0.9; transition: opacity 1.5s ease; }
+  .vehicle-visual.has-photo svg { opacity: 0; }
+  .vehicle-visual::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(180deg, transparent 50%, rgba(11,10,14,0.6) 100%);
+    pointer-events: none;
+  }
+  .vehicle-content h3 {
+    font-family: 'Cormorant Garamond', serif; font-weight: 300;
+    font-size: 3rem; line-height: 1.05; margin-bottom: 0.5rem;
+  }
+  .vehicle-content h3 em { font-style: italic; color: var(--gold); }
+  .vehicle-content .model {
+    font-family: 'Cinzel', serif; font-size: 0.8rem; letter-spacing: 0.3em;
+    text-transform: uppercase; color: var(--gold); margin-bottom: 2rem;
+  }
+  .vehicle-content .desc {
+    font-family: 'Cormorant Garamond', serif; font-style: italic;
+    font-size: 1.2rem; color: var(--text); margin-bottom: 2rem;
+  }
+  .vehicle-specs {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem;
+    margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--border);
+  }
+  .vehicle-specs .spec .label {
+    font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 0.3rem;
+  }
+  .vehicle-specs .spec .value { font-size: 1rem; color: var(--cream); }
+  .service-list {
+    margin-top: 4rem; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+  }
+  .service-item {
+    padding: 1.5rem; border: 1px solid var(--border);
+    background: rgba(21,19,27,0.5);
+  }
+  .service-item .icon-sm {
+    width: 28px; height: 28px; color: var(--gold); margin-bottom: 1rem;
+  }
+  .service-item h5 {
+    font-family: 'Cormorant Garamond', serif; font-size: 1.15rem;
+    font-weight: 500; margin-bottom: 0.4rem; color: var(--cream);
+  }
+  .service-item p { font-size: 0.85rem; color: var(--text-dim); line-height: 1.5; }
+
+  /* ============================================
+     DAY DETAIL SECTIONS
+     ============================================ */
+  .day-section { padding: 6rem 5vw; position: relative; }
+  .day-section.bg-1 { background: linear-gradient(180deg, #0B0A0E, #15131B); }
+  .day-section.bg-2 { background: linear-gradient(180deg, #15131B, #1E1A26); }
+  .day-section.bg-3 { background: linear-gradient(180deg, #1E1A26, #15131B); }
+  .day-section.bg-4 { background: linear-gradient(180deg, #15131B, #0B0A0E); }
+
+  .day-header {
+    display: grid; grid-template-columns: auto 1fr auto;
+    gap: 3rem; align-items: center;
+    margin-bottom: 4rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border);
+  }
+  .day-number {
+    font-family: 'Cormorant Garamond', serif; font-weight: 300; font-style: italic;
+    font-size: 8rem; line-height: 1; color: var(--gold); opacity: 0.4;
+  }
+  .day-title-block .eyebrow { margin-bottom: 0.8rem; display: block; }
+  .day-title-block h2 {
+    font-family: 'Cormorant Garamond', serif; font-weight: 300;
+    font-size: clamp(2.5rem, 5vw, 4.2rem); line-height: 1.05; margin-bottom: 0.8rem;
+  }
+  .day-title-block h2 em { font-style: italic; color: var(--gold); }
+  .day-title-block .subtitle {
+    font-family: 'Cormorant Garamond', serif; font-style: italic;
+    font-size: 1.15rem; color: var(--text-dim);
+  }
+  .day-title-block .date-badge {
+    display: inline-block; margin-top: 0.7rem; padding: 0.3rem 1rem;
+    border: 1px solid var(--border-bright); border-radius: 2px;
+    font-family: 'Cinzel', serif; font-size: 0.7rem; letter-spacing: 0.3em;
+    text-transform: uppercase; color: var(--gold); background: var(--gold-soft);
+  }
+  .day-arabic {
+    text-align: right; font-family: 'Amiri', serif;
+    font-size: 1.8rem; color: var(--gold); opacity: 0.7;
+    direction: rtl; line-height: 1.4;
+  }
+
+  .day-visual {
+    height: 380px; margin: 0 -5vw 4rem; position: relative; overflow: hidden;
+    background: var(--bg-2);
+  }
+  .day-visual .scene {
+    position: absolute; inset: 0; z-index: 2;
+    display: flex; align-items: center; justify-content: center;
+    opacity: 1; transition: opacity 1.5s ease;
+  }
+  .day-visual.has-photo .scene { opacity: 0; }
+  .day-visual .photo {
+    position: absolute; inset: 0; background-size: cover; background-position: center;
+    opacity: 0; transition: opacity 2s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 1;
+  }
+  .day-visual .photo.loaded { opacity: 1; }
+  .day-visual::after {
+    content: ''; position: absolute; inset: 0; z-index: 3;
+    background: linear-gradient(180deg, rgba(11,10,14,0.2) 0%, transparent 40%, var(--bg) 100%);
+    pointer-events: none;
+  }
+  .day-visual .caption {
+    position: absolute; bottom: 1.5rem; left: 5vw; z-index: 4;
+    font-family: 'Cormorant Garamond', serif; font-style: italic;
+    font-size: 1.1rem; color: var(--gold);
+    text-shadow: 0 2px 12px rgba(0,0,0,0.8);
+  }
+
+  /* Timeline */
+  .timeline {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
+    margin-bottom: 4rem; position: relative;
+  }
+  .timeline::before {
+    content: ''; position: absolute; top: 28px; left: 5%; right: 5%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold-deep) 10%, var(--gold-deep) 90%, transparent);
+  }
+  .time-slot { padding: 0 1.5rem; text-align: center; position: relative; }
+  .time-slot .marker {
+    width: 14px; height: 14px; border-radius: 50%;
+    background: var(--gold); border: 1px solid var(--gold);
+    margin: 0 auto 1rem; position: relative; z-index: 2;
+    transition: all 0.3s; box-shadow: 0 0 0 4px var(--bg);
+  }
+  .time-slot:hover .marker { box-shadow: 0 0 0 4px var(--bg), 0 0 16px rgba(201, 169, 97, 0.7); }
+  .time-slot .time {
+    font-family: 'Cinzel', serif; font-size: 0.72rem;
+    letter-spacing: 0.3em; color: var(--gold); margin-bottom: 0.5rem;
+  }
+  .time-slot .activity {
+    font-family: 'Cormorant Garamond', serif; font-size: 1.35rem;
+    font-weight: 400; line-height: 1.2; margin-bottom: 0.5rem; color: var(--cream);
+  }
+  .time-slot .place {
+    font-size: 0.82rem; color: var(--text-dim); line-height: 1.5;
+  }
+
+  .day-cards {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem;
+  }
+  .info-card {
+    padding: 1.8rem;
+    background: rgba(30, 26, 38, 0.5);
+    border: 1px solid var(--border); border-radius: 2px;
+    backdrop-filter: blur(10px);
+    transition: all 0.4s ease; position: relative; overflow: hidden;
+  }
+  .info-card:hover {
+    border-color: var(--gold); background: rgba(30, 26, 38, 0.85);
+  }
+  .info-card .label {
+    font-size: 0.62rem; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 0.8rem;
+  }
+  .info-card h5 {
+    font-family: 'Cormorant Garamond', serif; font-size: 1.25rem;
+    font-weight: 500; margin-bottom: 0.5rem; color: var(--cream); line-height: 1.2;
+  }
+  .info-card p { font-size: 0.85rem; color: var(--text-dim); line-height: 1.6; }
+
+  /* ============================================
+     QUOTE
+     ============================================ */
+  .quote-section { text-align: center; }
+  .quote-mark {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 8rem; line-height: 1;
+    color: var(--gold); opacity: 0.3; margin-bottom: -2rem;
+  }
+  .quote-text {
+    font-family: 'Cormorant Garamond', serif; font-style: italic;
+    font-weight: 300; font-size: clamp(1.5rem, 3vw, 2.4rem); line-height: 1.4;
+    max-width: 900px; margin: 0 auto 2rem; color: var(--cream);
+  }
+  .quote-author {
+    font-family: 'Cinzel', serif; font-size: 0.8rem;
+    letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold);
+  }
+
+  /* ============================================
+     HALAL GUIDE
+     ============================================ */
+  .halal-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem; margin-top: 3rem;
+  }
+  .restaurant-card {
+    padding: 2rem; border: 1px solid var(--border);
+    background: linear-gradient(135deg, rgba(44, 95, 90, 0.05) 0%, rgba(21, 19, 27, 0.5) 100%);
+    transition: all 0.4s ease; position: relative;
+  }
+  .restaurant-card:hover { border-color: var(--gold); transform: translateY(-4px); }
+  .restaurant-card .cert {
+    display: inline-block; padding: 0.25rem 0.7rem;
+    font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--jade); background: rgba(44, 95, 90, 0.15);
+    border: 1px solid var(--jade); border-radius: 2px; margin-bottom: 1.2rem;
+  }
+  .restaurant-card h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.55rem; font-weight: 500;
+    margin-bottom: 0.3rem; color: var(--cream);
+  }
+  .restaurant-card .cuisine {
+    font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 1rem;
+  }
+  .restaurant-card .desc {
+    font-size: 0.9rem; color: var(--text-dim); line-height: 1.6; margin-bottom: 1.2rem;
+  }
+  .restaurant-card .details {
+    display: flex; flex-direction: column; gap: 0.4rem;
+    font-size: 0.78rem; color: var(--text-faint);
+    border-top: 1px solid var(--border); padding-top: 1rem;
+  }
+  .restaurant-card .details span { display: flex; gap: 0.5rem; align-items: flex-start; }
+  .restaurant-card .details strong {
+    color: var(--gold); font-weight: 400; min-width: 70px;
+  }
+
+  /* ============================================
+     MOSQUES
+     ============================================ */
+  .mosques-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 3rem;
+  }
+  .mosque-card {
+    padding: 2.5rem 2rem; text-align: center;
+    border: 1px solid var(--border);
+    background: linear-gradient(180deg, rgba(30, 26, 38, 0.6) 0%, rgba(11, 10, 14, 0.8) 100%);
+    transition: all 0.4s ease;
+  }
+  .mosque-card:hover { border-color: var(--gold); }
+  .mosque-icon {
+    width: 60px; height: 60px; margin: 0 auto 1.5rem; color: var(--gold);
+  }
+  .mosque-card h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.7rem; font-weight: 400;
+    color: var(--cream); margin-bottom: 0.3rem;
+  }
+  .mosque-card .arabic-name {
+    font-family: 'Amiri', serif; font-size: 1.4rem;
+    color: var(--gold); margin-bottom: 1rem;
+  }
+  .mosque-card .est {
+    font-size: 0.68rem; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--text-faint); margin-bottom: 1.2rem;
+  }
+  .mosque-card .desc {
+    font-size: 0.88rem; color: var(--text-dim); line-height: 1.6; margin-bottom: 1.5rem;
+  }
+  .mosque-card .address {
+    font-size: 0.78rem; color: var(--gold);
+    border-top: 1px solid var(--border); padding-top: 1rem;
+  }
+
+  /* ============================================
+     PRACTICAL
+     ============================================ */
+  .practical-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 2.5rem; margin-top: 3rem;
+  }
+  .practical-card {
+    padding: 2.5rem; border: 1px solid var(--border);
+    background: rgba(21, 19, 27, 0.7); backdrop-filter: blur(10px);
+  }
+  .practical-card .head {
+    display: flex; align-items: center; gap: 1rem;
+    margin-bottom: 1.5rem; padding-bottom: 1.2rem; border-bottom: 1px solid var(--border);
+  }
+  .practical-card .head svg { width: 32px; height: 32px; color: var(--gold); }
+  .practical-card .head h4 {
+    font-family: 'Cormorant Garamond', serif; font-size: 1.55rem; font-weight: 500;
+  }
+  .practical-card ul { list-style: none; }
+  .practical-card li {
+    padding: 0.7rem 0; border-bottom: 1px solid rgba(201, 169, 97, 0.08);
+    display: grid; grid-template-columns: 140px 1fr; gap: 1rem; font-size: 0.92rem;
+  }
+  .practical-card li:last-child { border: none; }
+  .practical-card li strong {
+    color: var(--gold); font-weight: 400; font-family: 'Cinzel', serif;
+    font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; padding-top: 3px;
+  }
+  .practical-card li span { color: var(--text); }
+
+  /* ============================================
+     FAREWELL
+     ============================================ */
+  .farewell {
+    background:
+      radial-gradient(ellipse at 50% 50%, rgba(139, 44, 44, 0.12) 0%, transparent 60%),
+      radial-gradient(ellipse at 50% 100%, rgba(201, 169, 97, 0.1) 0%, transparent 60%),
+      linear-gradient(180deg, #15131B 0%, #0B0A0E 100%);
+    text-align: center; align-items: center;
+  }
+  .farewell-arabic {
+    font-family: 'Amiri', serif; font-size: 4rem;
+    color: var(--gold); margin-bottom: 1.5rem; line-height: 1.3;
+  }
+  .farewell h2 {
+    font-family: 'Cormorant Garamond', serif; font-weight: 300; font-style: italic;
+    font-size: clamp(3rem, 6vw, 5rem); line-height: 1.1; margin-bottom: 2rem;
+  }
+  .farewell .closing {
+    font-family: 'Cormorant Garamond', serif; font-style: italic;
+    font-size: 1.3rem; color: var(--text-dim);
+    max-width: 700px; margin: 0 auto 4rem; line-height: 1.6;
+  }
+  .signature {
+    border-top: 1px solid var(--border); padding-top: 2rem;
+    max-width: 400px; margin: 0 auto;
+  }
+  .signature .name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem; color: var(--cream); margin-bottom: 0.3rem;
+  }
+  .signature .title {
+    font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold);
+  }
+
+  /* ============================================
+     GALLERY (3-photo row per day)
+     ============================================ */
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin: -2rem -5vw 4rem;
+    padding: 0 5vw;
+  }
+  .gallery-item {
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    position: relative;
+    background: linear-gradient(135deg, rgba(30,26,38,0.9), rgba(11,10,14,0.95));
+    border: 1px solid var(--border);
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .gallery-item:hover {
+    border-color: var(--gold);
+    transform: translateY(-4px);
+    box-shadow: 0 25px 60px -25px rgba(201, 169, 97, 0.45);
+  }
+  .gallery-photo {
+    position: absolute; inset: 0;
+    background-size: cover; background-position: center;
+    opacity: 0;
+    transition: opacity 1.5s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .gallery-photo.loaded { opacity: 1; }
+  .gallery-item:hover .gallery-photo { transform: scale(1.06); }
+  .gallery-item::after {
+    content: ''; position: absolute; inset: 0; pointer-events: none;
+    background: linear-gradient(180deg, transparent 45%, rgba(11,10,14,0.92));
+  }
+  .gallery-caption {
+    position: absolute; bottom: 1.2rem; left: 1.2rem; right: 1.2rem;
+    z-index: 2;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--cream);
+    text-shadow: 0 2px 10px rgba(0,0,0,0.95);
+    line-height: 1.3;
+  }
+  .gallery-item::before {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(201,169,97,0.05), transparent);
+    transform: translateX(-100%);
+    animation: shimmer 2.5s infinite;
+    pointer-events: none;
+  }
+  .gallery-item.loaded::before { display: none; }
+  @keyframes shimmer { 100% { transform: translateX(100%); } }
+
+  /* ============================================
+     RESPONSIVE
+     ============================================ */
+  @media (max-width: 1024px) {
+    .days-grid { grid-template-columns: repeat(2, 1fr); }
+    .care-grid { grid-template-columns: 1fr; }
+    .halal-grid { grid-template-columns: repeat(2, 1fr); }
+    .mosques-grid { grid-template-columns: 1fr; }
+    .practical-grid { grid-template-columns: 1fr; }
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .timeline { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+    .timeline::before { display: none; }
+    .day-cards { grid-template-columns: repeat(2, 1fr); }
+    .day-header { grid-template-columns: 1fr; gap: 1.5rem; text-align: center; }
+    .day-arabic { text-align: center; }
+    .day-number { font-size: 5rem; }
+    .side-nav { display: none; }
+    .vehicle-grid { grid-template-columns: 1fr; }
+    .service-list { grid-template-columns: 1fr; }
+    .gallery { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 640px) {
+    section { padding: 4rem 5vw; }
+    .days-grid { grid-template-columns: 1fr; }
+    .halal-grid { grid-template-columns: 1fr; }
+    .day-cards { grid-template-columns: 1fr; }
+    .timeline { grid-template-columns: 1fr; }
+    .vehicle-specs { grid-template-columns: 1fr; }
+    .gallery { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<nav class="side-nav" id="sideNav">
+  <a href="#hero" data-label="Welcome" class="active"></a>
+  <a href="#welcome" data-label="Greeting"></a>
+  <a href="#overview" data-label="Itinerary"></a>
+  <a href="#care" data-label="Cultural Care"></a>
+  <a href="#vehicle" data-label="Your Vehicle"></a>
+  <a href="#day1" data-label="Day I · Arrival"></a>
+  <a href="#day2" data-label="Day II · Forbidden City"></a>
+  <a href="#day3" data-label="Day III · Great Wall · Olympic Park"></a>
+  <a href="#day4" data-label="Day IV · Hutongs · Beihai"></a>
+  <a href="#day5" data-label="Day V · Museums · Temple of Heaven"></a>
+  <a href="#day6" data-label="Day VI · Summer Palace · Universities"></a>
+  <a href="#day7" data-label="Day VII · Universal"></a>
+  <a href="#day8" data-label="Day VIII · Departure"></a>
+  <a href="#halal" data-label="Halal Guide"></a>
+  <a href="#mosques" data-label="Mosques"></a>
+  <a href="#practical" data-label="Practical"></a>
+  <a href="#farewell" data-label="Farewell"></a>
+</nav>
+
+<!-- ============================================
+     HERO
+     ============================================ -->
+<section class="hero" id="hero">
+  <div class="photo-bg loaded" data-photo="photos/hero-beijing.jpg" style="background-image: url('photos/hero-beijing.jpg');"></div>
+  <div class="grain"></div>
+  <div class="pattern-overlay"></div>
+
+  <svg class="hero-skyline" viewBox="0 0 1600 400" preserveAspectRatio="xMidYEnd slice">
+    <defs>
+      <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#C9A961" stop-opacity="0"/>
+        <stop offset="100%" stop-color="#C9A961" stop-opacity="0.4"/>
+      </linearGradient>
+    </defs>
+    <path d="M0,300 L150,180 L280,220 L420,150 L550,200 L700,140 L850,180 L1000,160 L1180,200 L1320,170 L1450,210 L1600,180 L1600,400 L0,400 Z" fill="url(#skyGrad)" opacity="0.5"/>
+    <path d="M0,400 L0,320 L80,320 L100,300 L180,300 L200,320 L240,320 L240,280 L260,260 L340,260 L360,280 L360,320 L420,320 L420,290 L440,270 L520,270 L540,290 L540,320 L600,320 L620,300 L700,300 L720,320 L780,320 L780,280 L800,260 L880,260 L900,280 L900,320 L960,320 L960,290 L980,270 L1060,270 L1080,290 L1080,320 L1140,320 L1160,300 L1240,300 L1260,320 L1320,320 L1320,290 L1340,270 L1420,270 L1440,290 L1440,320 L1500,320 L1500,310 L1600,310 L1600,400 Z" fill="#C9A961" opacity="0.6"/>
+    <g fill="#C9A961" opacity="0.7">
+      <polygon points="190,300 200,280 210,300"/>
+      <polygon points="700,300 715,275 730,300"/>
+      <polygon points="1150,300 1165,275 1180,300"/>
+    </g>
+  </svg>
+
+  <div class="container">
+    <div class="reveal visible">
+      <div class="hero-arabic">أهلاً وسهلاً بكم في بكين</div>
+    </div>
+    <h1 class="hero-title reveal delay-1 visible">
+      <span class="first">Beijing</span>
+    </h1>
+    <div class="hero-divider reveal delay-2 visible">
+      <div class="line"></div>
+      <div class="ornament">◆</div>
+      <div class="line"></div>
+    </div>
+    <div class="hero-subtitle reveal delay-3 visible">An Eight-Day Imperial Journey</div>
+    <div class="hero-dates reveal delay-3 visible">24 — 31 May 2026</div>
+    <div class="hero-dedication reveal delay-4 visible">
+      Curated for an esteemed family of four<br />
+      from the Kingdom of Saudi Arabia
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <div class="label">Begin the journey</div>
+    <div class="arrow"></div>
+  </div>
+</section>
+
+<!-- ============================================
+     WELCOME
+     ============================================ -->
+<section class="welcome" id="welcome">
+  <div class="grain"></div>
+  <div class="container">
+    <div class="reveal">
+      <div class="welcome-arabic">السلام عليكم ورحمة الله</div>
+      <div class="eyebrow">Peace be upon you</div>
+    </div>
+    <div class="welcome-text reveal delay-1">
+      It is our distinct honour to welcome your family to the <em>Imperial Capital of the Middle Kingdom</em>.
+      Over the coming eight days, we have prepared a private journey that weaves together the grandeur of
+      ancient dynasties, the tranquillity of sacred spaces, and joyful moments for your children &mdash;
+      all while honouring the values, dietary needs, and prayer rhythms of your family.
+    </div>
+    <div class="stats reveal delay-2">
+      <div class="stat"><div class="num gold-text">VIII</div><div class="label">Days of Wonder</div></div>
+      <div class="stat"><div class="num gold-text">20</div><div class="label">Iconic Landmarks</div></div>
+      <div class="stat"><div class="num gold-text">100%</div><div class="label">Halal Certified</div></div>
+      <div class="stat"><div class="num gold-text">24/7</div><div class="label">Private Vehicle</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     OVERVIEW — 8 days
+     ============================================ -->
+<section id="overview">
+  <div class="grain"></div>
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">The Itinerary</span>
+      <h2>Eight Days, <em>Eight Worlds</em></h2>
+      <p class="lede">From the moment your flight touches down at Daxing to the final farewell &mdash; every day has been pondered, paced, and prepared.</p>
+    </div>
+
+    <div class="days-grid">
+      <div class="day-card reveal">
+        <div>
+          <div class="num">Day I</div>
+          <div class="date">Sunday · 24 May</div>
+          <h3>Arrival &amp; Welcome</h3>
+          <p>VIP reception at Daxing, transfer to Waldorf Astoria, evening of rest after the long flight.</p>
+        </div>
+        <div class="meta">◆ Waldorf Astoria · PKX</div>
+      </div>
+
+      <div class="day-card reveal delay-1">
+        <div>
+          <div class="num">Day II</div>
+          <div class="date">Monday · 25 May</div>
+          <h3>The Imperial Heart</h3>
+          <p>Tian'anmen Square, the Great Hall of the People, and the Forbidden City — the palace of twenty-four emperors.</p>
+        </div>
+        <div class="meta">◆ UNESCO</div>
+      </div>
+
+      <div class="day-card reveal delay-2">
+        <div>
+          <div class="num">Day III</div>
+          <div class="date">Tuesday · 26 May</div>
+          <h3>Great Wall &amp; Olympic Park</h3>
+          <p>Badaling — the most celebrated stretch of the Wall — followed by the Olympic Park, Bird's Nest and Water Cube.</p>
+        </div>
+        <div class="meta">◆ Badaling</div>
+      </div>
+
+      <div class="day-card reveal delay-3">
+        <div>
+          <div class="num">Day IV</div>
+          <div class="date">Wednesday · 27 May</div>
+          <h3>Hutongs &amp; Lakes</h3>
+          <p>Prince Gong's Mansion, a stroll through Shichahai and Beihai Park — the most poetic day of the week.</p>
+        </div>
+        <div class="meta">◆ Old Beijing</div>
+      </div>
+
+      <div class="day-card reveal">
+        <div>
+          <div class="num">Day V</div>
+          <div class="date">Thursday · 28 May</div>
+          <h3>Museums &amp; Temple of Heaven</h3>
+          <p>The National Museum of China, the Science &amp; Technology Museum for the children, then the Temple of Heaven in golden hour.</p>
+        </div>
+        <div class="meta">◆ Knowledge &amp; Sky</div>
+      </div>
+
+      <div class="day-card reveal delay-1" style="border-color: var(--gold); background: linear-gradient(135deg, rgba(44, 95, 90, 0.15) 0%, rgba(21, 19, 27, 0.9) 100%);">
+        <div>
+          <div class="num" style="color: var(--gold-bright);">Day VI · Friday</div>
+          <div class="date">Friday · 29 May</div>
+          <h3>Summer Palace &amp; Universities</h3>
+          <p>The Summer Palace, the ruins of Yuanmingyuan, an outer view of Tsinghua and Peking University. Jumu'ah at Haidian Mosque.</p>
+        </div>
+        <div class="meta" style="color: var(--gold);">◆ Jumu'ah Day</div>
+      </div>
+
+      <div class="day-card reveal delay-2">
+        <div>
+          <div class="num">Day VII</div>
+          <div class="date">Saturday · 30 May</div>
+          <h3>Universal Studios</h3>
+          <p>A full day for the children — VIP fast-pass, Kung Fu Panda Land, Transformers, halal dining inside the park.</p>
+        </div>
+        <div class="meta">◆ For the Children</div>
+      </div>
+
+      <div class="day-card reveal delay-3">
+        <div>
+          <div class="num">Day VIII</div>
+          <div class="date">Sunday · 31 May</div>
+          <h3>The Farewell</h3>
+          <p>A quiet morning at the hotel, a farewell luncheon, a VIP transfer to PKX for the Saudia flight at 20:05.</p>
+        </div>
+        <div class="meta">◆ Saudia 20:05</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     CULTURAL CARE
+     ============================================ -->
+<section id="care">
+  <div class="grain"></div>
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Designed for your family</span>
+      <h2>Tailored with <em>Care &amp; Respect</em></h2>
+      <p class="lede">Every detail has been considered to honour the traditions of your faith and the comfort of your family.</p>
+    </div>
+
+    <div class="care-grid">
+      <div class="care-item reveal">
+        <div class="icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        <h4>100% Halal Dining</h4>
+        <p>Every meal is sourced from halal-certified restaurants. From Niujie Muslim quarter establishments to luxury halal Peking duck — personally inspected.</p>
+      </div>
+      <div class="care-item reveal delay-1">
+        <div class="icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+            <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+          </svg>
+        </div>
+        <h4>Prayer-Time Mindful</h4>
+        <p>The itinerary accommodates all five daily prayers. Mosques and prayer-friendly spaces are pre-mapped for each day. Jumu'ah on 29 May is performed at Haidian Mosque, conveniently beside the Summer Palace.</p>
+      </div>
+      <div class="care-item reveal delay-2">
+        <div class="icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+        </div>
+        <h4>Family-First Pacing</h4>
+        <p>Mornings are unhurried, afternoons include rest periods. The most demanding excursions are placed when your children — aged 8 and 13 — are at their freshest.</p>
+      </div>
+    </div>
+
+    <div class="care-grid" style="margin-top: 2rem;">
+      <div class="care-item reveal delay-3">
+        <div class="icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+          </svg>
+        </div>
+        <h4>Arabic-Friendly Concierge</h4>
+        <p>An Arabic- or English-speaking concierge is on WhatsApp 24/7 — for restaurant requests, medical needs, prayer questions, or a familiar voice from home.</p>
+      </div>
+      <div class="care-item reveal delay-4">
+        <div class="icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+          </svg>
+        </div>
+        <h4>Privacy &amp; Modesty</h4>
+        <p>Private vehicle, private guide, where possible — private viewing slots at landmarks. A female guide is available on request for any portion of the journey.</p>
+      </div>
+      <div class="care-item reveal delay-5">
+        <div class="icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+          </svg>
+        </div>
+        <h4>Made for the Children</h4>
+        <p>For the son (8) — Kung Fu Panda and Transformers at Universal, the Science Museum, the Great Wall. For the daughter (13) — Tsinghua &amp; Peking University, a photo walk through the Shichahai hutongs, the Yuanmingyuan ruins.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     VEHICLE
+     ============================================ -->
+<section class="vehicle" id="vehicle">
+  <div class="grain"></div>
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Your Private Vehicle · 24/7</span>
+      <h2>The <em>Mercedes-Benz V-Class</em></h2>
+      <p class="lede">A single elegant vehicle — yours, exclusively, for all eight days. Spacious enough for the family and full luggage, refined enough for any occasion.</p>
+    </div>
+
+    <div class="vehicle-grid">
+      <div class="vehicle-visual reveal">
+        <img class="v-photo loaded" data-photo="photos/vclass.jpg" src="photos/vclass.jpg" alt="Mercedes-Benz V-Class" />
+        <svg viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="vbody" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#2A2628" stop-opacity="0.9"/>
+              <stop offset="100%" stop-color="#15131B" stop-opacity="1"/>
+            </linearGradient>
+          </defs>
+          <!-- V-Class silhouette -->
+          <path d="M40,160 L60,110 L120,90 L320,90 L360,110 L370,160 L350,170 L320,170 Q310,185 290,185 Q270,185 260,170 L140,170 Q130,185 110,185 Q90,185 80,170 L50,170 Z"
+                fill="url(#vbody)" stroke="#C9A961" stroke-width="1.2" opacity="0.95"/>
+          <!-- Windows -->
+          <path d="M75,108 L115,95 L195,95 L195,135 L75,135 Z" fill="#0B0A0E" opacity="0.7" stroke="#C9A961" stroke-width="0.5"/>
+          <path d="M205,95 L290,95 L290,135 L205,135 Z" fill="#0B0A0E" opacity="0.7" stroke="#C9A961" stroke-width="0.5"/>
+          <path d="M300,95 L340,108 L340,135 L300,135 Z" fill="#0B0A0E" opacity="0.7" stroke="#C9A961" stroke-width="0.5"/>
+          <!-- Wheels -->
+          <circle cx="110" cy="180" r="22" fill="#15131B" stroke="#C9A961" stroke-width="1.5"/>
+          <circle cx="110" cy="180" r="13" fill="none" stroke="#C9A961" stroke-width="0.8"/>
+          <circle cx="290" cy="180" r="22" fill="#15131B" stroke="#C9A961" stroke-width="1.5"/>
+          <circle cx="290" cy="180" r="13" fill="none" stroke="#C9A961" stroke-width="0.8"/>
+          <!-- Mercedes star -->
+          <circle cx="200" cy="115" r="6" fill="none" stroke="#C9A961" stroke-width="0.8"/>
+          <path d="M200,109 L200,121 M194.5,118 L205.5,112 M194.5,112 L205.5,118" stroke="#C9A961" stroke-width="0.6" fill="none"/>
+        </svg>
+      </div>
+
+      <div class="vehicle-content reveal delay-1">
+        <h3>V-Class <em>V260L</em></h3>
+        <div class="model">Extended Wheelbase · Exclusive Edition</div>
+        <div class="desc">"The flagship luxury MPV in China — chosen for visiting heads of state, GCC families, and the Beijing diplomatic corps."</div>
+
+        <div class="vehicle-specs">
+          <div class="spec">
+            <div class="label">Seating</div>
+            <div class="value">7 seats · 4 captain chairs</div>
+          </div>
+          <div class="spec">
+            <div class="label">Luggage</div>
+            <div class="value">All 4 suitcases, full size</div>
+          </div>
+          <div class="spec">
+            <div class="label">Interior</div>
+            <div class="value">Nappa leather · Alcantara roof</div>
+          </div>
+          <div class="spec">
+            <div class="label">Comfort</div>
+            <div class="value">Folding tables · entertainment</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="service-list">
+      <div class="service-item reveal">
+        <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+        </svg>
+        <h5>24/7 Availability</h5>
+        <p>Driver on duty 06:00&ndash;23:00; on-call for night hours with 30-minute response. Backup driver on long days.</p>
+      </div>
+      <div class="service-item reveal delay-1">
+        <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+        </svg>
+        <h5>Always Prepared</h5>
+        <p>Prayer mats × 4, qibla compass, chilled bottled water, refreshing towels, child-friendly snacks, light blankets.</p>
+      </div>
+      <div class="service-item reveal delay-2">
+        <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/>
+        </svg>
+        <h5>Always Connected</h5>
+        <p>WhatsApp channel with driver + Arabic-speaking concierge. Real-time route flexibility throughout the day.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     DAY I — ARRIVAL · 24 May
+     ============================================ -->
+<section class="day-section bg-1" id="day1">
+  <div class="grain"></div>
+  <div class="container">
+    <div class="day-header reveal">
+      <div class="day-number">I</div>
+      <div class="day-title-block">
+        <span class="eyebrow">Day One · Arrival</span>
+        <h2>A <em>Soft Landing</em></h2>
+        <div class="subtitle">Saudia Airlines lands at Daxing 17:05 · transfer to Waldorf Astoria</div>
+        <div class="date-badge">Sunday · 24 May 2026</div>
+      </div>
+      <div class="day-arabic">يوم الوصول<br/><span style="font-size: 1rem; opacity: 0.7;">Day of Arrival</span></div>
+    </div>
+
+    <div class="day-visual has-photo" data-photo="photos/waldorf.jpg">
+      <div class="photo loaded" style="background-image: url('photos/waldorf.jpg');"></div>
+      <div class="scene">
+        <svg viewBox="0 0 1200 320" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+          <defs>
+            <linearGradient id="d1grad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#8B2C2C" stop-opacity="0.3"/>
+              <stop offset="100%" stop-color="#0B0A0E" stop-opacity="1"/>
+            </linearGradient>
+            <radialGradient id="lantern1" cx="0.5" cy="0.5" r="0.5">
+              <stop offset="0%" stop-color="#E6C77E" stop-opacity="1"/>
+              <stop offset="60%" stop-color="#C9A961" stop-opacity="0.7"/>
+              <stop offset="100%" stop-color="#8B2C2C" stop-opacity="0.3"/>
+            </radialGradient>
+          </defs>
+          <rect width="1200" height="320" fill="url(#d1grad)"/>
+          <g opacity="0.85">
+            <ellipse cx="200" cy="80" rx="22" ry="28" fill="url(#lantern1)"/><line x1="200" y1="52" x2="200" y2="20" stroke="#C9A961" stroke-width="1"/>
+            <ellipse cx="380" cy="140" rx="18" ry="24" fill="url(#lantern1)"/><line x1="380" y1="116" x2="380" y2="85" stroke="#C9A961" stroke-width="1"/>
+            <ellipse cx="600" cy="60" rx="25" ry="32" fill="url(#lantern1)"/><line x1="600" y1="28" x2="600" y2="0" stroke="#C9A961" stroke-width="1"/>
+            <ellipse cx="820" cy="120" rx="20" ry="26" fill="url(#lantern1)"/><line x1="820" y1="94" x2="820" y2="60" stroke="#C9A961" stroke-width="1"/>
+            <ellipse cx="1020" cy="90" rx="22" ry="28" fill="url(#lantern1)"/><line x1="1020" y1="62" x2="1020" y2="30" stroke="#C9A961" stroke-width="1"/>
+          </g>
+          <g>
+            <circle cx="200" cy="80" r="50" fill="#C9A961" opacity="0.15"/>
+            <circle cx="600" cy="60" r="60" fill="#C9A961" opacity="0.2"/>
+            <circle cx="1020" cy="90" r="50" fill="#C9A961" opacity="0.15"/>
+          </g>
+        </svg>
+      </div>
+      <div class="caption">"Waldorf Astoria Beijing · Wangfujing · home for the week"</div>
+    </div>
+
+    <div class="gallery reveal">
+      <div class="gallery-item loaded" data-photo="photos/waldorf-2.jpg">
+        <div class="gallery-photo loaded" style="background-image: url('photos/waldorf-2.jpg');"></div>
+        <div class="gallery-caption">Waldorf Astoria · Jinyu Hutong</div>
+      </div>
+      <div class="gallery-item loaded" data-photo="photos/wangfujing.jpg">
+        <div class="gallery-photo loaded" style="background-image: url('photos/wangfujing.jpg');"></div>
+        <div class="gallery-caption">Wangfujing pedestrian street</div>
+      </div>
+      <div class="gallery-item loaded" data-photo="photos/daxing-airport.jpg">
+        <div class="gallery-photo loaded" style="background-image: url('photos/daxing-airport.jpg');"></div>
+        <div class="gallery-caption">Daxing International Airport (PKX)</div>
+      </div>
+    </div>
+
+    <div class="timeline reveal">
+      <div class="time-slot">
+        <div class="marker"></div>
+        <div class="time">17:05</div>
+        <div class="activity">Landing at PKX</div>
+        <div class="place">Saudia Airlines arrives · VIP fast-track immigration · porters · representative meets at gate</div>
+      </div>
+      <div class="time-slot">
+        <div class="marker"></div>
+        <div class="time">18:00</div>
+        <div class="activity">Luxury Transfer</div>
+        <div class="place">Mercedes V-Class · 75 min from Daxing to Wangfujing · refreshments in vehicle</div>
+      </div>
+      <div class="time-slot">
+        <div class="marker"></div>
+        <div class="time">19:30</div>
+        <div class="activity">Waldorf Check-In</div>
+        <div class="place">Suite preparation · Maghrib prayer in comfort (19:35) · time to refresh</div>
+      </div>
+      <div class="time-slot">
+        <div class="marker"></div>
+        <div class="time">20:30</div>
+        <div class="activity">Welcome Dinner</div>
+        <div class="place">Light halal welcome dinner in-suite or at the Waldorf · early evening to recover</div>
+      </div>
+    </div>
+
+    <div class="day-cards reveal delay-1">
+      <div class="info-card">
+        <div class="label">Welcome Dinner</div>
+        <h5>Brian McKenna @ The Courtyard</h5>
+        <p>Inside Waldorf Astoria. Refined, with halal menu available on request. Or in-suite delivery from Najia Xiaoguan if preferred after the long flight.</p>
+      </div>
+      <div class="info-card">
+        <div class="label">Nearest Mosque</div>
+        <h5>Dongsi Mosque</h5>
+        <p>Just 8 minutes from Waldorf by car. Established 1356 CE. Welcoming and quiet for evening prayers throughout the week.</p>
+      </div>
+      <div class="info-card">
+        <div class="label">For the Children</div>
+        <h5>Wangfujing Lanterns</h5>
+        <p>If energy permits, a short stroll along Wangfujing — silk-lantern displays and gentle evening atmosphere just outside the hotel door.</p>
+      </div>
+      <div class="info-card">
+        <div class="label">Concierge Note</div>
+        <h5>Light Day Intentionally</h5>
+        <p>After 10 hours of flight, Day One is paced gently. We resist the temptation to fill it. Rest before the journey truly begins.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     DAY II — IMPERIAL HEART · 25 May
+     ============================================ -->
+<section class="day-section bg-2" id="day2">
+  <div class="grain"></div>
+  <div class="container">
+    <div class="day-header reveal">
+      <div class="day-number">II</div>
+      <div class="day-title-block">
+        <span class="eyebrow">Day Two · The Imperial Heart</span>
+        <h2>The <em>Forbidden City</em></h2>
+        <div class="subtitle">Tian'anmen Square · the Great Hall of the People · the Forbidden City — palace of twenty-four emperors</div>
+        <div class="date-badge">Monday · 25 May 2026</div>
+      </div>
+      <div class="day-arabic">المدينة المحرمة<br/><span style="font-size: 1rem; opacity: 0.7;">The Forbidden City</span></div>
+    </div>
+
+    <div class="day-visual has-photo" data-photo="photos/forbidden-city.jpg">
+      <div class="photo loaded" style="background-image: url('photos/forbidden-city.jpg');"></div>
+      <div class="scene">
+        <svg viewBox="0 0 1200 320" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+          <defs>
+            <linearGradient id="d3sky" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#2C5F5A" stop-opacity="0.3"/>
+              <stop offset="100%" stop-color="#0B0A0E" stop-opacity="1"/>
+            </linearGradient>
+          </defs>
+          <rect width="1200" height="320" fill="url(#d3sky)"/>
+          <path d="M0,220 L80,180 L160,200 L240,150 L320,170 L400,130 L480,150 L560,110 L640,130 L720,100 L800,120 L880,90 L960,110 L1040,80 L1120,100 L1200,90 L1200,320 L0,320 Z" fill="#1E1A26" opacity="0.9"/>
+          <path d="M0,260 L100,230 L200,250 L300,200 L400,220 L500,180 L600,200 L700,170 L800,190 L900,160 L1000,180 L1100,150 L1200,170 L1200,320 L0,320 Z" fill="#15131B" opacity="0.95"/>
+          <g fill="#C9A961" opacity="0.85">
+            <path d="M0,225 L80,185 L160,205 L240,155 L320,175 L400,135 L480,155 L560,115 L640,135 L720,105 L800,125 L880,95 L960,115 L1040,85 L1120,105 L1200,95 L1200,108 L1120,118 L1040,98 L960,128 L880,108 L800,138 L720,118 L640,148 L560,128 L480,168 L400,148 L320,188 L240,168 L160,218 L80,198 L0,238 Z" />
+            <rect x="156" y="195" width="12" height="20"/>
+            <rect x="318" y="165" width="12" height="20"/>
+            <rect x="478" y="145" width="12" height="20"/>
+            <rect x="638" y="125" width="12" height="20"/>
+            <rect x="798" y="115" width="12" height="20"/>
+            <rect x="958" y="105" width="12" height="20"/>
+            <rect x="1118" y="95" width="12" height="20"/>
+          </g>
+        </svg>
+      </div>
+      <div class="caption">"Nine thousand rooms, six centuries of imperial memory"</div>
+    </div>
+
+    <div class="gallery reveal">
+      <div class="gallery-item loaded" data-photo="photos/tiananmen.jpg">
+        <div class="gallery-photo loaded" style="background-image: url('photos/tiananmen.jpg');"></div>
+        <div class="gallery-caption">Tian'anmen Square at dawn</div>
+      </div>
+      <div class="gallery-item" data-wiki="Great_Hall_of_the_People">
+        <div class="gallery-photo"></div>
+        <div class="gallery-caption">The Great Hall of the People</div>
+      </div>
+      <div class="gallery-item loaded" data-photo="photos/supreme-harmony.jpg">
+        <div class="gallery-photo loaded" style="background-image: url('photos/supreme-harmony.jpg');"></div>
+        <div class="gallery-caption">Hall of Supreme Harmony</div>
+      </div>
+    </div>
+
+    <div class="timeline reveal">
+      <div class="time-slot">
+        <div class="marker"></div>
+        <div class="time">09:00</div>
+        <div class="activity">Tian'anmen Square</div>
+        <div class="place">The largest public square in the world · a short walk from the hotel · a contemplative beginning to the day</div>
+      </div>
+      <div class="time-slot">
+        <div class="marker"></div>
+        <div class="time">10:00</div>
+        <div class="activity">Great Hall of the People</div>
+        <div class="place">Exterior viewing and photography at the principal facade · seat of the National People's Congress, symbol of modern China</div>
+      </div>
+      <div class="time-slot">
+        <div class="marker"></div>
+        <div class="time">11:00</div>
+        <div class="activity">The Forbidden City</div>
+        <div class="place">3-hour guided tour · Hall of Supreme Harmony · Imperial Garden · Treasure Gallery · Nine-Dragon Wall</div>
+      </div>
+      <div class="time-slot">
+        <div class="marker"></div>
+        <div class="time">14:00</div>
+        <div class="activity">Imperial Halal Lunch</div>
+        <div class="place">Manfulou — imperial-style halal hotpot in quiet private rooms · 10 minutes from the Forbidden City</div>
+      </div>
+    </div>
+
+    <div class="day-cards reveal delay-1">
+      <div class="info-card">
+        <div class="label">Halal Lunch</div>
+        <h5>Manfulou Halal Hotpot</h5>
+        <p>Imperial-style halal hotpot · quiet private dining rooms · the children love the at-table preparation. A Beijing classic since 1985.</p>
+      </div>
+      <div class="info-card">
+        <div class="label">Prayer Time</div>
+        <h5>Dhuhr — Imperial Garden</h5>
+        <p>The Imperial Garden has secluded pavilions suitable for the noon prayer · alternatively performed at the restaurant before lunch.</p>
+      </div>
+      <div class="info-card">
+        <div class="label">For the Children</div>
+        <h5>The Dragon Hunt</h5>
+        <p>Our guide invents a playful "dragon-counting" game — there are over a thousand dragon images throughout the palace in many forms.</p>
+      </div>
+      <div class="info-card">
+        <div class="label">Concierge Note</div>
+        <h5>Comfortable Footwear</h5>
+        <p>Walking distance through the Forbidden City is significant — over 4 km. Today, comfort prevails over style. Bring water; sun cream essential.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     DAY III — GREAT WALL + OLYMPIC · 26 May
+     ============================================ -->
+<section class="day-section bg-3" id="day3">
+  <div class="grain"></div>
+  <div class="container">
+    <div class="day-header reveal">
+      <div class="day-number">III</div>
+      <div class="day-title-block">
+        <span class="eyebrow">Day Three · The Dragon's Spine &amp; Olympic Spirit</span>
+        <h2>The Great Wall at <em>Badaling</em></h2>
+        <div class="subtitle">Badaling — the most celebrated stretch · then Olympic Park, the Bird's Nest and the Water Cube</div>
+        <div class="date-badge">Tuesday · 26 May 2026</div>
+      </div>
+      <div class="day-arabic">سور الصين العظيم<br/><span style="font-size: 1rem; opacity: 0.7;">The Great Wall</span></div>
+    </div>
+
+    <div class="day-visual has-photo" data-photo="photos/great-wall.jpg">
+      <div class="photo loaded" style="background-image: url('photos/great-wall.jpg');"></div>
+      <div class="scene">
+        <svg viewBox="0 0 1200 320" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+          <defs>
+            <linearGradient id="d2sky" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#8B2C2C" stop-opacity="0.4"/>
+              <stop offset="100%" stop-color="#15131B" stop-opacity="1"/>
+            </linearGradient>
+          </defs>
+          <rect width="1200" height="320" fill="url(#d2sky)"/>
+          <g fill="#C9A961" opacity="0.9">
+            <rect x="450" y="200" width="300" height="80" />
+            <polygon points="430,200 770,200 740,160 460,160" />
+            <polygon points="460,160 740,160 720,130 480,130" />
+            <polygon points="480,130 720,130 700,105 500,105" />
+            <polygon points="590,105 610,105 600,85" />
+            <rect x="200" y="220" width="180" height="60"/>
+            <polygon points="180,220 400,220 380,190 200,190" />
+            <polygon points="200,190 380,190 360,165 220,165" />
+            <rect x="820" y="220" width="180" height="60"/>
+            <polygon points="800,220 1020,220 1000,190 820,190" />
+            <polygon points="820,190 1000,190 980,165 840,165" />
+            <polygon points="380,280 820,280 880,300 320,300" opacity="0.6"/>
+          </g>
+          <g fill="#8B2C2C" opacity="0.8">
+            <rect x="470" y="210" width="6" height="65"/><rect x="500" y="210" width="6" height="65"/>
+            <rect x="540" y="210" width="6" height="65"/><rect x="580" y="210" width="6" height="65"/>
+            <rect x="620" y="210" width="6" height="65"/><rect x="660" y="210" width="6" height="65"/>
+            <rect x="700" y="210" width="6" height="65"/><rect x="730" y="210" width="6" height="65"/>
+          </g>
+        </svg>
+      </div>
+      <div class="caption">"Badaling — where the Wall first opened to the world in 1957"</div>
+    </div>
+
+    <div class="gallery reveal">
+      <div class="gallery-item" data-wiki="Badaling">
+        <div class="gallery-photo"></div>
+        <div class="gallery-caption">Badaling · restored Ming watchtowers</div>
+      </div>
+      <div class="gallery-item" data-wiki="Beijing_National_Stadium">
+        <div class="gallery-photo"></div>
+        <div class="gallery-caption">The Bird's Nest · Olympic Stadium</div>
+      </div>
+      <div class="gallery-item" data-wiki="Beijing_National_Aquatics_Center">
+        <div class="gallery-photo"></div>
+        <div class="gallery-caption">The Water Cube · illuminated at night</div>
+      </div>
+    </div>
+
+    <div class="timeline reveal">
+      <div class="time-slot">
+        <div class="marker"></div>
+        <div class="time">08:30</div>
+        <div class="activity">Scenic Drive North</div>
+        <div class="place">Private Mercedes V-Class through the Jundu Mountains — 75 minutes from the city to Badaling</div>
+      </div>
+      <div class="time-slot">
+        <div class="marker"></div>
+        <div class="time">10:00</div>
+        <div class="activity">The Great Wall · Badaling</div>
+        <div class="place">Cable car to Tower 8 · walk between the watchtowers · the most celebrated and finely restored stretch of the Ming Dynasty wall</div>
+      </div>
+      <div class="time-slot">
+        <div class="marker"></div>
+        <div class="time">13:30</div>
+        <div class="activity">Mountain Halal Lunch</div>
+        <div class="place">A Hui Muslim family-run restaurant at the foot of the Wall · hand-pulled noodles and lamb skewers</div>
+      </div>
+      <div class="time-slot">
+        <div class="marker"></div>
+        <div class="time">16:00</div>
+        <div class="activity">Olympic Park</div>
+        <div class="place">Olympic Green · exterior viewing of the Bird's Nest and Water Cube · golden-hour photography · open space for the children to play</div>
+      </div>
+    </div>
+
+    <div class="day-cards reveal delay-1">
+      <div class="info-card">
+        <div class="label">Halal Lunch</div>
+        <h5>Xiao Lu Halal Restaurant</h5>
+        <p>Hui Muslim family-owned, in the village below the Wall. Hand-pulled noodles, lamb skewers, traditional flatbread.</p>
+      </div>
+      <div class="info-card">
+        <div class="label">Prayer Provision</div>
+        <h5>Mats in the Vehicle</h5>
+        <p>The V-Class carries prayer mats and a qibla compass. The driver knows quiet, clean spots for Dhuhr along the route.</p>
+      </div>
+      <div class="info-card">
+        <div class="label">For the Children</div>
+        <h5>The Olympic Spirit</h5>
+        <p>The Bird's Nest and the Water Cube — symbols of the 2008 and 2022 Olympics. A chance for the children to stand where the world once gathered.</p>
+      </div>
+      <div class="info-card">
+        <div class="label">Concierge Note</div>
+        <h5>Mountain Layers</h5>
+        <p>The summit of Badaling can be 5-8°C cooler than the city. Light jackets are already in the vehicle. Comfortable walking shoes essential.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     QUOTE — Hadith
+     ============================================ -->
+<section class="quote-section" id="quote1">
+  <div class="grain"></div>
+  <div class="container">
+    <div class="reveal">
+      <div class="quote-mark">"</div>
+      <div class="quote-text">Seek knowledge,<br/>even unto China.</div>
+      <div class="quote-author">— Hadith of the Prophet Muhammad ﷺ</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     DAY IV — HUTONGS · BEIHAI · 27 May
+     ============================================ -->
+<section class="day-section bg-4" id="day4">
+  <div class="grain"></div>
+  <div class="container">
+    <div class="day-header reveal">
+      <div class="day-number">IV</div>
+      <div class="day-title-block">
+        <span class="eyebrow">Day Four · Old Beijing</span>
+        <h2><em>Hutongs &amp; Lakes</em></h2>
+        <div class="subtitle">Prince Gong's Mansion · the lanes of Shichahai · Beihai Park — the most poetic day of the week</div>
+        <div class="date-badge">Wednesday · 27 May 2026</div>
+      </div>
+      <div class="day-arabic">الحارات القديمة<br/><span style="font-size: 1rem; opacity: 0.7;">The Old Lanes</span></div>
+    </div>
+
+    <div class="day-visual has-photo" data-photo="photos/beihai-park.jpg">
+      <div class="photo loaded" style="background-image: url('photos/beihai-park.jpg');"></div>
+      <div class="scene">
+        <svg viewBox="0 0 1200 320" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+          <defs>
+            <linearGradient id="d6sky" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#C9A961" stop-opacity="0.2"/>
+              <stop offset="100%" stop-color="#15131B" stop-opacity="1"/>
+            </linearGradient>
+          </defs>
+          <rect width="1200" height="320" fill="url(#d6sky)"/>
+          <!-- Universal-style globe arch on left -->
+          <g transform="translate(150,160)" stroke="#C9A961" stroke-width="2" fill="none" opacity="0.8">
+            <circle cx="60" cy="60" r="55"/>
+            <ellipse cx="60" cy="60" rx="55" ry="20"/>
+            <ellipse cx="60" cy="60" rx="55" ry="35"/>
+            <ellipse cx="60" cy="60" rx="20" ry="55"/>
+            <ellipse cx="60" cy="60" rx="35" ry="55"/>
+          </g>
+          <!-- Park silhouette -->
+          <g fill="#C9A961" opacity="0.7">
+            <!-- Castle / themed buildings -->
+            <polygon points="500,200 540,160 580,200"/>
+            <rect x="500" y="200" width="80" height="80"/>
+            <polygon points="495,170 545,170 540,160 500,160"/>
+            <!-- Tower -->
+            <rect x="620" y="150" width="20" height="130"/>
+            <polygon points="615,150 645,150 630,120"/>
+            <circle cx="630" cy="115" r="3"/>
+            <!-- Roller coaster loops -->
+            <path d="M700,250 Q750,170 800,250 Q850,330 900,250 Q950,170 1000,250" stroke="#C9A961" stroke-width="2" fill="none"/>
+            <line x1="700" y1="250" x2="700" y2="280"/>
+            <line x1="800" y1="250" x2="800" y2="280"/>
+            <line x1="900" y1="250" x2="900" y2="280"/>
+            <line x1="1000" y1="250" x2="1000" y2="280"/>
+          </g>
+          <!-- Stars -->
+          <g fill="#E6C77E" opacity="0.5">
+            <circle cx="200" cy="60" r="1.5"/><circle cx="300" cy="40" r="1"/>
+            <circle cx="400" cy="80" r="1.5"/><circle cx="850" cy="50" r="1"/>
+            <circle cx="950" cy="70" r="1.5"/><circle cx="1050" cy="40" r="1"/>
+          </g>
+        </svg>
+      </div>
+      <div class="caption">"Beihai Park · the lake where emperors once took their rest"</div>
+    </div>
+
+    <div class="gallery reveal">
+      <div class="gallery-item" data-wiki="Prince_Gong_Mansion">
+        <div class="gallery-photo"></div>
+        <div class="gallery-caption">Prince Gong's Mansion · residence of Heshen</div>
+      </div>
+      <div class="gallery-item loaded" data-photo="photos/hutong.jpg">
+        <div class="gallery-photo loaded" style="background-image: url('photos/hutong.jpg');"></div>
+        <div class="gallery-caption">The hutongs of Shichahai</div>
+      </div>
+      <div class="gallery-item loaded" data-photo="photos/beihai-park.jpg">
+        <div class="gallery-photo loaded" style="background-image: url('photos/beihai-park.jpg');"></div>
+        <div class="gallery-caption">Beihai Park · the White Dagoba</div>
+      </div>
+    </div>
+
+    <div class="timeline reveal">
+      <div class="time-slot">
+        <div class="marker"></div>
+        <div class="time">09:30</div>
+        <div class="activity">Prince Gong's Mansion</div>
+        <div class="place">The best-preserved Qing-era estate · former residence of Heshen, "the richest man of the Qing" · gardens in classical style</div>
+      </div>
+      <div class="time-slot">
+        <div class="marker"></div>
+        <div class="time">11:30</div>
+        <div class="activity">Shichahai &amp; the Hutongs</div>
+        <div class="place">A walk through the lanes around the three lakes · the Silver Ingot Bridge · a rickshaw ride along the guide's favourite stretches · no bar quarter</div>
+      </div>
+      <div class="time-slot">
+        <div class="marker"></div>
+        <div class="time">13:30</div>
+        <div class="activity">Halal Lunch in the Hutongs</div>
+        <div class="place">Halal Pearl Hutong Restaurant — traditional Beijing cuisine in halal preparation · a quiet inner courtyard</div>
+      </div>
+      <div class="time-slot">
+        <div class="marker"></div>
+        <div class="time">15:30</div>
+        <div class="activity">Beihai Park</div>
+        <div class="place">An imperial garden of the 8th century · the lake · the White Dagoba on Qionghua Island · optional boat ride · the golden hour for photographs</div>
+      </div>
+    </div>
+
+    <div class="day-cards reveal delay-1">
+      <div class="info-card">
+        <div class="label">Halal Lunch</div>
+        <h5>In the Hutongs</h5>
+        <p>A beloved family halal restaurant in the hutongs near Shichahai · a quiet courtyard · classic Beijing cuisine in halal preparation.</p>
+      </div>
+      <div class="info-card">
+        <div class="label">Prayer Provision</div>
+        <h5>Houhai Mosque</h5>
+        <p>The small Houhai Mosque sits within walking distance of Shichahai · convenient for Dhuhr or Asr in the middle of the day.</p>
+      </div>
+      <div class="info-card">
+        <div class="label">For the Children</div>
+        <h5>A Rickshaw Through the Hutongs</h5>
+        <p>The pedicab ride is a living page of Beijing life · the long-time drivers tell the stories of every lane.</p>
+      </div>
+      <div class="info-card">
+        <div class="label">Concierge Note</div>
+        <h5>A Respectful Route</h5>
+        <p>The hutong route is chosen to skirt the bar streets of Houhai · only the quiet residential lanes and gardens.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     DAY V — MUSEUMS + TEMPLE OF HEAVEN · 28 May
+     ============================================ -->
+<section class="day-section bg-1" id="day5">
+  <div class="grain"></div>
+  <div class="container">
+    <div class="day-header reveal">
+      <div class="day-number">V</div>
+      <div class="day-title-block">
+        <span class="eyebrow">Day Five · Museums &amp; the Heavens</span>
+        <h2>Knowledge <em>and the Sky</em></h2>
+        <div class="subtitle">National Museum of China · Science &amp; Technology Museum · the Temple of Heaven in golden hour</div>
+        <div class="date-badge">Thursday · 28 May 2026</div>
+      </div>
+      <div class="day-arabic">معبد السماء<br/><span style="font-size: 1rem; opacity: 0.7;">Temple of Heaven</span></div>
+    </div>
+
+    <div class="day-visual has-photo" data-photo="photos/temple-of-heaven.jpg">
+      <div class="photo loaded" style="background-image: url('photos/temple-of-heaven.jpg');"></div>
+      <div class="scene">
+        <svg viewBox="0 0 1200 320" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+          <defs>
+            <linearGradient id="d4sky" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#2C5F5A" stop-opacity="0.4"/>
+              <stop offset="100%" stop-color="#15131B" stop-opacity="1"/>
+            </linearGradient>
+          </defs>
+          <rect width="1200" height="320" fill="url(#d4sky)"/>
+          <g fill="#C9A961" opacity="0.9">
+            <ellipse cx="600" cy="290" rx="350" ry="30" opacity="0.5"/>
+            <ellipse cx="600" cy="270" rx="280" ry="22"/>
+            <ellipse cx="600" cy="255" rx="220" ry="18"/>
+            <rect x="450" y="230" width="300" height="30"/>
+            <ellipse cx="600" cy="225" rx="160" ry="20"/>
+            <polygon points="440,225 760,225 720,195 480,195"/>
+            <rect x="500" y="170" width="200" height="25"/>
+            <ellipse cx="600" cy="170" rx="120" ry="15"/>
+            <polygon points="490,170 710,170 680,145 520,145"/>
+            <rect x="540" y="125" width="120" height="20"/>
+            <ellipse cx="600" cy="125" rx="80" ry="10"/>
+            <polygon points="540,125 660,125 640,95 560,95"/>
+            <circle cx="600" cy="80" r="8" fill="#E6C77E"/>
+            <polygon points="595,80 605,80 600,55" fill="#E6C77E"/>
+          </g>
+          <g fill="#E6C77E" opacity="0.6">
+            <circle cx="200" cy="60" r="1.5"/><circle cx="300" cy="40" r="1"/>
+            <circle cx="400" cy="80" r="1.5"/><circle cx="850" cy="50" r="1"/>
+            <circle cx="950" cy="70" r="1.5"/><circle cx="1050" cy="40" r="1"/>
+          </g>
+        </svg>
+      </div>
+      <div class="caption">"Temple of Heaven · where emperors prayed for good harvest"</div>
+    </div>
+
+    <div class="gallery reveal">
+      <div class="gallery-item loaded" data-photo="photos/temple-of-heaven.jpg">
+        <div class="gallery-photo loaded" style="background-image: url('photos/temple-of-heaven.jpg');"></div>
+        <div class="gallery-caption">Hall of Prayer for Good Harvests</div>
+      </div>
+      <div class="gallery-item" data-wiki="National_Museum_of_China">
+        <div class="gallery-photo"></div>
+        <div class="gallery-caption">National Museum · facade on Tian'anmen</div>
+      </div>
+      <div class="gallery-item" data-wiki="China_Science_and_Technology_Museum">
+        <div class="gallery-photo"></div>
+        <div class="gallery-caption">Science &amp; Technology Museum · interactive halls</div>
+      </div>
+    </div>
+
+    <div class="timeline reveal">
+      <div class="time-slot">
+        <div class="marker"></div>
+        <div class="time">09:30</div>
+        <div class="activity">National Museum of China</div>
+        <div class="place">The largest museum in the world by floor area · from Shang bronzes to the Qing Dynasty · the "Ancient China" permanent gallery · 2 hours with a guide</div>
+      </div>
+      <div class="time-slot">
+        <div class="marker"></div>
+        <div class="time">12:00</div>
+        <div class="activity">Halal Lunch</div>
+        <div class="place">Beijing Hai Wan Ju Halal — traditional zhajiangmian noodles in halal preparation</div>
+      </div>
+      <div class="time-slot">
+        <div class="marker"></div>
+        <div class="time">14:00</div>
+        <div class="activity">Science &amp; Technology Museum</div>
+        <div class="place">The interactive "Wonders of Science" hall · galleries on space and the great inventions of ancient China · ideal for the ages of 8 and 13</div>
+      </div>
+      <div class="time-slot">
+        <div class="marker"></div>
+        <div class="time">16:30</div>
+        <div class="activity">Temple of Heaven</div>
+        <div class="place">The circular Hall of Prayer for Good Harvest · the Altar of Heaven · the evening light upon the cobalt-blue roofs</div>
+      </div>
+    </div>
+
+    <div class="day-cards reveal delay-1">
+      <div class="info-card">
+        <div class="label">Halal Lunch</div>
+        <h5>Hai Wan Ju Halal</h5>
+        <p>A beloved Beijing institution serving zhajiangmian (noodles with savoury sauce) in halal preparation. Traditional atmosphere, close to the Temple of Heaven.</p>
+      </div>
+      <div class="info-card">
+        <div class="label">Halal Dinner</div>
+        <h5>Turpan Restaurant</h5>
+        <p>Authentic Uyghur halal cuisine · lamb on charcoal · Silk Road spices · close to Arab palates · live music in the evenings.</p>
+      </div>
+      <div class="info-card">
+        <div class="label">For the Children</div>
+        <h5>The Science Museum</h5>
+        <p>Interactive exhibits, simulators, Tesla coils and a fine space section — the finest "hands-on" experience for children in Beijing.</p>
+      </div>
+      <div class="info-card">
+        <div class="label">Prayer Time</div>
+        <h5>Dhuhr · Asr · Maghrib</h5>
+        <p>Dhuhr — before lunch · Asr — a dedicated prayer room is available at the Science Museum · Maghrib — already at the Temple of Heaven or on the way to the hotel.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     DAY VI — SUMMER PALACE + UNIVERSITIES · FRIDAY 29 May
+     ============================================ -->
+<section class="day-section bg-2" id="day6">
+  <div class="grain"></div>
+  <div class="container">
+    <div class="day-header reveal">
+      <div class="day-number">VI</div>
+      <div class="day-title-block">
+        <span class="eyebrow">Day Six · Imperial Gardens · Jumu'ah</span>
+        <h2>The <em>Summer Palace</em></h2>
+        <div class="subtitle">Summer Palace · ruins of Yuanmingyuan · exterior view of Tsinghua and Peking University · Jumu'ah at Haidian</div>
+        <div class="date-badge">Friday · 29 May 2026</div>
+      </div>
+      <div class="day-arabic">يوم الجمعة<br/><span style="font-size: 1rem; opacity: 0.7;">Jumu'ah Day</span></div>
+    </div>
+
+    <div class="day-visual has-photo" data-photo="photos/summer-palace.jpg">
+      <div class="photo loaded" style="background-image: url('photos/summer-palace.jpg');"></div>
+      <div class="scene">
+        <svg viewBox="0 0 1200 320" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+          <defs>
+            <linearGradient id="d6mosque" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#2C5F5A" stop-opacity="0.4"/>
+              <stop offset="100%" stop-color="#0B0A0E" stop-opacity="1"/>
+            </linearGradient>
+          </defs>
+          <rect width="1200" height="320" fill="url(#d6mosque)"/>
+          <!-- Mosque with minaret and dome (Chinese-style) -->
+          <g fill="#C9A961" opacity="0.85">
+            <!-- Main hall with Chinese pagoda style -->
+            <rect x="400" y="200" width="400" height="100"/>
+            <polygon points="380,200 820,200 790,160 410,160"/>
+            <polygon points="410,160 790,160 770,130 430,130"/>
+            <!-- Crescent at top -->
+            <circle cx="600" cy="105" r="4" fill="none" stroke="#E6C77E" stroke-width="1.5"/>
+            <path d="M597,103 Q594,108 597,113" fill="none" stroke="#E6C77E" stroke-width="1.5"/>
+            <!-- Side minaret -->
+            <rect x="280" y="180" width="30" height="120"/>
+            <polygon points="275,180 315,180 295,150"/>
+            <circle cx="295" cy="150" r="3" fill="none" stroke="#E6C77E"/>
+            <rect x="880" y="180" width="30" height="120"/>
+            <polygon points="875,180 915,180 895,150"/>
+            <circle cx="895" cy="150" r="3" fill="none" stroke="#E6C77E"/>
+            <!-- Doorways -->
+            <path d="M540,300 L540,250 Q540,235 555,235 L595,235 Q610,235 610,250 L610,300 Z" fill="#0B0A0E" opacity="0.7"/>
+            <path d="M620,300 L620,250 Q620,235 635,235 L675,235 Q690,235 690,250 L690,300 Z" fill="#0B0A0E" opacity="0.7"/>
+            <!-- Windows -->
+            <circle cx="450" cy="240" r="12" fill="none" stroke="#C9A961"/>
+            <circle cx="450" cy="240" r="6" fill="#0B0A0E" opacity="0.7"/>
+            <circle cx="750" cy="240" r="12" fill="none" stroke="#C9A961"/>
+            <circle cx="750" cy="240" r="6" fill="#0B0A0E" opacity="0.7"/>
+          </g>
+          <!-- Arabic calligraphy-style accent -->
+          <text x="600" y="60" text-anchor="middle" font-family="Amiri, serif" font-size="36" fill="#C9A961" opacity="0.5">بسم الله</text>
+        </svg>
+      </div>
+      <div class="caption">"Kunming Lake — three quarters of the Summer Palace is water"</div>
+    </div>
+
+    <div class="gallery reveal">
+      <div class="gallery-item loaded" data-photo="photos/kunming-lake.jpg">
+        <div class="gallery-photo loaded" style="background-image: url('photos/kunming-lake.jpg');"></div>
+        <div class="gallery-caption">Kunming Lake · imperial waters</div>
+      </div>
+      <div class="gallery-item" data-wiki="Old_Summer_Palace">
+        <div class="gallery-photo"></div>
+        <div class="gallery-caption">Yuanmingyuan · ruins of the European pavilions</div>
+      </div>
+      <div class="gallery-item" data-wiki="Tsinghua_University">
+        <div class="gallery-photo"></div>
+        <div class="gallery-caption">Tsinghua · the Qinghua Yuan gate</div>
+      </div>
+    </div>
+
+    <div class="timeline reveal">
+      <div class="time-slot">
+        <div class="marker"></div>
+        <div class="time">09:00</div>
+        <div class="activity">The Summer Palace</div>
+        <div class="place">The Long Corridor (728 m of painted ceilings) · Longevity Hill · the Marble Boat · a boat across Kunming Lake</div>
+      </div>
+      <div class="time-slot">
+        <div class="marker"></div>
+        <div class="time">12:30</div>
+        <div class="activity">Jumu'ah Prayer</div>
+        <div class="place">Haidian Mosque — just 15 minutes from the Summer Palace · a Yuan-era mosque with an active Hui community · women's section confirmed</div>
+      </div>
+      <div class="time-slot">
+        <div class="marker"></div>
+        <div class="time">14:00</div>
+        <div class="activity">Halal Lunch</div>
+        <div class="place">Halal Yang Ji in the Haidian district · traditional Hui Beijing cuisine · 5 minutes from the mosque</div>
+      </div>
+      <div class="time-slot">
+        <div class="marker"></div>
+        <div class="time">15:30</div>
+        <div class="activity">Universities &amp; Yuanmingyuan</div>
+        <div class="place">Exterior view of the gates of Tsinghua and Peking University (Beida) · onward to Yuanmingyuan Park — the ruins of the Old Summer Palace, in a quiet hour</div>
+      </div>
+    </div>
+
+    <div class="day-cards reveal delay-1">
+      <div class="info-card">
+        <div class="label">Halal Lunch</div>
+        <h5>Halal Yang Ji</h5>
+        <p>A family-run Hui restaurant in Haidian · minutes from the mosque · traditional charcoal-grilled lamb, noodles, flatbreads.</p>
+      </div>
+      <div class="info-card">
+        <div class="label">Friday Prayer</div>
+        <h5>Haidian Mosque</h5>
+        <p>A Yuan-era mosque beside the Summer Palace · an active Hui community · convenient for Jumu'ah right in the middle of the day · women's section confirmed.</p>
+      </div>
+      <div class="info-card">
+        <div class="label">Cultural Insight</div>
+        <h5>Tsinghua &amp; Beida</h5>
+        <p>China's two most prestigious universities · their campuses are models of serene, scholarly architecture in the green Haidian district.</p>
+      </div>
+      <div class="info-card">
+        <div class="label">Concierge Note</div>
+        <h5>Yuanmingyuan</h5>
+        <p>The ruins of the European pavilions · a moving page of history · fewer tourists in the evening · a quiet walk before sunset.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     QUOTE
+     ============================================ -->
+<section class="quote-section" id="quote2">
+  <div class="grain"></div>
+  <div class="container">
+    <div class="reveal">
+      <div class="quote-mark">"</div>
+      <div class="quote-text">He who has not climbed the Great Wall<br/>is not a true man.</div>
+      <div class="quote-author">— Mao Zedong · 不到长城非好汉</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     DAY VII — UNIVERSAL STUDIOS · 30 May
+     ============================================ -->
+<section class="day-section bg-3" id="day7">
+  <div class="grain"></div>
+  <div class="container">
+    <div class="day-header reveal">
+      <div class="day-number">VII</div>
+      <div class="day-title-block">
+        <span class="eyebrow">Day Seven · A Family Day</span>
+        <h2>For the <em>Children</em></h2>
+        <div class="subtitle">Universal Studios Beijing · VIP fast-pass · halal dining inside the park</div>
+        <div class="date-badge">Saturday · 30 May 2026</div>
+      </div>
+      <div class="day-arabic">يوم العائلة<br/><span style="font-size: 1rem; opacity: 0.7;">Family Day</span></div>
+    </div>
+
+    <div class="day-visual has-photo" data-photo="photos/universal-transformers-arch.jpg">
+      <div class="photo loaded" style="background-image: url('photos/universal-transformers-arch.jpg');"></div>
+      <div class="scene">
+        <svg viewBox="0 0 1200 320" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+          <defs>
+            <linearGradient id="d5water" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#2C5F5A" stop-opacity="0.5"/>
+              <stop offset="100%" stop-color="#0B0A0E" stop-opacity="1"/>
+            </linearGradient>
+          </defs>
+          <rect width="1200" height="320" fill="url(#d5water)"/>
+          <path d="M0,180 L150,140 L300,160 L450,120 L600,140 L750,110 L900,130 L1050,100 L1200,120 L1200,200 L0,200 Z" fill="#1E1A26" opacity="0.8"/>
+          <g fill="#C9A961" opacity="0.85">
+            <rect x="100" y="180" width="1000" height="6"/>
+            <g>
+              <rect x="180" y="155" width="60" height="30"/>
+              <polygon points="170,155 250,155 240,135 180,135"/>
+              <polygon points="180,135 240,135 230,115 190,115"/>
+            </g>
+            <g>
+              <rect x="450" y="145" width="80" height="40"/>
+              <polygon points="440,145 540,145 525,120 455,120"/>
+              <polygon points="455,120 525,120 510,95 470,95"/>
+              <polygon points="485,95 495,95 490,80"/>
+            </g>
+            <g>
+              <rect x="780" y="155" width="60" height="30"/>
+              <polygon points="770,155 850,155 840,135 780,135"/>
+              <polygon points="780,135 840,135 830,115 790,115"/>
+            </g>
+            <g transform="translate(900,210)">
+              <path d="M0,0 L150,0 L140,20 L10,20 Z" />
+              <rect x="30" y="-30" width="90" height="30"/>
+              <polygon points="20,-30 130,-30 110,-50 40,-50"/>
+            </g>
+          </g>
+          <g stroke="#C9A961" stroke-width="0.5" opacity="0.3">
+            <line x1="100" y1="220" x2="200" y2="220"/>
+            <line x1="300" y1="240" x2="500" y2="240"/>
+            <line x1="600" y1="260" x2="800" y2="260"/>
+            <line x1="50" y1="280" x2="250" y2="280"/>
+          </g>
+          <g fill="#C9A961" opacity="0.7">
+            <path d="M250,250 L320,250 L310,260 L260,260 Z"/>
+            <rect x="275" y="240" width="20" height="10"/>
+            <path d="M600,275 L680,275 L670,285 L610,285 Z"/>
+          </g>
+        </svg>
+      </div>
+      <div class="caption">"Kung Fu Panda Land · Transformers · Minion Land — a day of pure joy"</div>
+    </div>
+
+    <div class="gallery reveal">
+      <div class="gallery-item loaded" data-photo="photos/universal-entrance.jpg">
+        <div class="gallery-photo loaded" style="background-image: url('photos/universal-entrance.jpg');"></div>
+        <div class="gallery-caption">Universal Studios Beijing</div>
+      </div>
+      <div class="gallery-item loaded" data-photo="photos/giant-panda.jpg">
+        <div class="gallery-photo loaded" style="background-image: url('photos/giant-panda.jpg');"></div>
+        <div class="gallery-caption">Kung Fu Panda Land</div>
+      </div>
+      <div class="gallery-item loaded" data-photo="photos/universal-transformers-optimus.jpg">
+        <div class="gallery-photo loaded" style="background-image: url('photos/universal-transformers-optimus.jpg');"></div>
+        <div class="gallery-caption">Transformers Metrobase</div>
+      </div>
+    </div>
+
+    <div class="timeline reveal">
+      <div class="time-slot">
+        <div class="marker"></div>
+        <div class="time">09:30</div>
+        <div class="activity">VIP Park Entry</div>
+        <div class="place">Universal Studios Beijing · VIP fast-pass · personal escort, no queues</div>
+      </div>
+      <div class="time-slot">
+        <div class="marker"></div>
+        <div class="time">11:00</div>
+        <div class="activity">Kung Fu Panda Land</div>
+        <div class="place">World's first Kung Fu Panda themed land — perfect for the 8-year-old · gentle thrills, magical theming</div>
+      </div>
+      <div class="time-slot">
+        <div class="marker"></div>
+        <div class="time">14:30</div>
+        <div class="activity">Transformers &amp; Jurassic</div>
+        <div class="place">Transformers Metrobase &amp; Jurassic World Adventure — for the 13-year-old · immersive 3D experiences</div>
+      </div>
+      <div class="time-slot">
+        <div class="marker"></div>
+        <div class="time">19:30</div>
+        <div class="activity">Farewell Dinner In-Park</div>
+        <div class="place">Halal dining outlet inside Universal · pre-reserved · Waterworld show after dinner · the final evening in Beijing</div>
+      </div>
+    </div>
+
+    <div class="day-cards reveal delay-1">
+      <div class="info-card">
+        <div class="label">Halal Lunch</div>
+        <h5>Universal Halal Outlet</h5>
+        <p>Universal Studios Beijing has designated halal-certified outlets · pre-selected family table.</p>
+      </div>
+      <div class="info-card">
+        <div class="label">Prayer Provision</div>
+        <h5>Multi-faith Prayer Rooms</h5>
+        <p>Universal provides clean multi-faith prayer rooms near each park zone · the guide maps them in advance.</p>
+      </div>
+      <div class="info-card">
+        <div class="label">For the Son (8)</div>
+        <h5>Kung Fu Panda</h5>
+        <p>Perfect ride heights for his age · Po, Tigress and Master Shifu meet-and-greets · Skadoosh!</p>
+      </div>
+      <div class="info-card">
+        <div class="label">For the Daughter (13)</div>
+        <h5>Transformers Metrobase</h5>
+        <p>The full Transformers experience · she is exactly the right age for the high-energy 3D thrill rides.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     DAY VIII — DEPARTURE · 31 May
+     ============================================ -->
+<section class="day-section bg-4" id="day8">
+  <div class="grain"></div>
+  <div class="container">
+    <div class="day-header reveal">
+      <div class="day-number">VIII</div>
+      <div class="day-title-block">
+        <span class="eyebrow">Day Eight · The Farewell</span>
+        <h2>A <em>Gentle Finale</em></h2>
+        <div class="subtitle">A quiet morning at the hotel · farewell luncheon · VIP transfer to PKX · Saudia 20:05 flight to Riyadh</div>
+        <div class="date-badge">Sunday · 31 May 2026</div>
+      </div>
+      <div class="day-arabic">يوم الوداع<br/><span style="font-size: 1rem; opacity: 0.7;">Day of Farewell</span></div>
+    </div>
+
+    <div class="day-visual has-photo" data-photo="photos/daxing-airport.jpg">
+      <div class="photo loaded" style="background-image: url('photos/daxing-airport.jpg');"></div>
+      <div class="scene">
+        <svg viewBox="0 0 1200 320" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+          <defs>
+            <linearGradient id="d8sky" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#8B2C2C" stop-opacity="0.25"/>
+              <stop offset="100%" stop-color="#0B0A0E" stop-opacity="1"/>
+            </linearGradient>
+          </defs>
+          <rect width="1200" height="320" fill="url(#d8sky)"/>
+          <!-- Market stalls -->
+          <g fill="#C9A961" opacity="0.8">
+            <!-- Rows of stalls with red roofs -->
+            <g transform="translate(100,150)">
+              <rect x="0" y="40" width="120" height="80"/>
+              <polygon points="-15,40 135,40 120,20 0,20" fill="#8B2C2C" opacity="0.7"/>
+              <rect x="20" y="60" width="80" height="40" fill="#0B0A0E" opacity="0.5"/>
+            </g>
+            <g transform="translate(250,150)">
+              <rect x="0" y="40" width="120" height="80"/>
+              <polygon points="-15,40 135,40 120,20 0,20" fill="#8B2C2C" opacity="0.7"/>
+              <rect x="20" y="60" width="80" height="40" fill="#0B0A0E" opacity="0.5"/>
+            </g>
+            <g transform="translate(400,150)">
+              <rect x="0" y="40" width="120" height="80"/>
+              <polygon points="-15,40 135,40 120,20 0,20" fill="#8B2C2C" opacity="0.7"/>
+              <rect x="20" y="60" width="80" height="40" fill="#0B0A0E" opacity="0.5"/>
+            </g>
+            <g transform="translate(550,150)">
+              <rect x="0" y="40" width="120" height="80"/>
+              <polygon points="-15,40 135,40 120,20 0,20" fill="#8B2C2C" opacity="0.7"/>
+              <rect x="20" y="60" width="80" height="40" fill="#0B0A0E" opacity="0.5"/>
+            </g>
+            <g transform="translate(700,150)">
+              <rect x="0" y="40" width="120" height="80"/>
+              <polygon points="-15,40 135,40 120,20 0,20" fill="#8B2C2C" opacity="0.7"/>
+              <rect x="20" y="60" width="80" height="40" fill="#0B0A0E" opacity="0.5"/>
+            </g>
+            <g transform="translate(850,150)">
+              <rect x="0" y="40" width="120" height="80"/>
+              <polygon points="-15,40 135,40 120,20 0,20" fill="#8B2C2C" opacity="0.7"/>
+              <rect x="20" y="60" width="80" height="40" fill="#0B0A0E" opacity="0.5"/>
+            </g>
+            <g transform="translate(1000,150)">
+              <rect x="0" y="40" width="120" height="80"/>
+              <polygon points="-15,40 135,40 120,20 0,20" fill="#8B2C2C" opacity="0.7"/>
+              <rect x="20" y="60" width="80" height="40" fill="#0B0A0E" opacity="0.5"/>
+            </g>
+          </g>
+          <!-- Lanterns hanging above -->
+          <g opacity="0.7">
+            <circle cx="200" cy="60" r="10" fill="#E6C77E"/>
+            <circle cx="400" cy="50" r="10" fill="#E6C77E"/>
+            <circle cx="600" cy="60" r="10" fill="#E6C77E"/>
+            <circle cx="800" cy="50" r="10" fill="#E6C77E"/>
+            <circle cx="1000" cy="60" r="10" fill="#E6C77E"/>
+          </g>
+        </svg>
+      </div>
+      <div class="caption">"Daxing — a final glance at Beijing before the journey home"</div>
+    </div>
+
+    <div class="gallery reveal">
+      <div class="gallery-item loaded" data-photo="photos/waldorf.jpg">
+        <div class="gallery-photo loaded" style="background-image: url('photos/waldorf.jpg');"></div>
+        <div class="gallery-caption">Waldorf Astoria · the final morning</div>
+      </div>
+      <div class="gallery-item loaded" data-photo="photos/vclass.jpg">
+        <div class="gallery-photo loaded" style="background-image: url('photos/vclass.jpg');"></div>
+        <div class="gallery-caption">Mercedes V-Class · transfer to PKX</div>
+      </div>
+      <div class="gallery-item loaded" data-photo="photos/daxing-airport.jpg">
+        <div class="gallery-photo loaded" style="background-image: url('photos/daxing-airport.jpg');"></div>
+        <div class="gallery-caption">Daxing Airport · VIP departure</div>
+      </div>
+    </div>
+
+    <div class="timeline reveal">
+      <div class="time-slot">
+        <div class="marker"></div>
+        <div class="time">10:00</div>
+        <div class="activity">A Quiet Morning at the Hotel</div>
+        <div class="place">A late breakfast · packing · a last chance to refresh · the Waldorf spa available on request</div>
+      </div>
+      <div class="time-slot">
+        <div class="marker"></div>
+        <div class="time">12:30</div>
+        <div class="activity">Farewell Halal Luncheon</div>
+        <div class="place">Najia Xiaoguan, or a return to one of the favourites of the week · the last meal of the journey in Beijing</div>
+      </div>
+      <div class="time-slot">
+        <div class="marker"></div>
+        <div class="time">14:30</div>
+        <div class="activity">Hotel Check-Out</div>
+        <div class="place">Return to Waldorf · the concierge assists with luggage, express check-out, and VAT refund</div>
+      </div>
+      <div class="time-slot">
+        <div class="marker"></div>
+        <div class="time">15:30</div>
+        <div class="activity">PKX Departure Transfer</div>
+        <div class="place">Mercedes V-Class to Daxing · arrival 16:45 · VIP departure assistance · 20:05 Saudia flight to Riyadh</div>
+      </div>
+    </div>
+
+    <div class="day-cards reveal delay-1">
+      <div class="info-card">
+        <div class="label">Farewell Luncheon</div>
+        <h5>Najia Xiaoguan</h5>
+        <p>One of Beijing's finest halal restaurants · imperial Manchu cuisine in halal preparation · a worthy farewell to the capital.</p>
+      </div>
+      <div class="info-card">
+        <div class="label">VIP Departure</div>
+        <h5>PKX Fast-Track</h5>
+        <p>Pre-arranged VIP check-in · priority security · escort to the Saudia lounge · onboard within minutes of boarding.</p>
+      </div>
+      <div class="info-card">
+        <div class="label">Prayer Time</div>
+        <h5>Dhuhr &amp; Asr</h5>
+        <p>Dhuhr — before lunch at the hotel · Asr — en route or at the mosque in Daxing · a prayer room is available in the PKX departure hall.</p>
+      </div>
+      <div class="info-card">
+        <div class="label">Concierge Note</div>
+        <h5>Three Hours Pre-Flight</h5>
+        <p>Generous timing for international departure · 75 min drive accounted for · VAT refund processed by our representative right at check-in.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     HALAL GUIDE
+     ============================================ -->
+<section id="halal">
+  <div class="grain"></div>
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">The Halal Guide</span>
+      <h2>Where the Family <em>Dines with Confidence</em></h2>
+      <p class="lede">Every restaurant on this list has been personally inspected. Each holds proper halal certification from China's recognised Islamic associations.</p>
+    </div>
+
+    <div class="halal-grid">
+      <div class="restaurant-card reveal">
+        <div class="cert">✓ Halal Certified</div>
+        <h4>Hong Shun Xuan</h4>
+        <div class="cuisine">Traditional Hui · Niujie</div>
+        <p class="desc">A Niujie institution since 1948. Hand-pulled noodles, lamb dumplings, sesame flatbread — recipes unchanged in three generations.</p>
+        <div class="details">
+          <span><strong>Best for</strong>Authentic Niujie experience</span>
+          <span><strong>Day</strong>Flexible · on request</span>
+        </div>
+      </div>
+
+      <div class="restaurant-card reveal delay-1">
+        <div class="cert">✓ Halal Certified</div>
+        <h4>Najia Xiaoguan</h4>
+        <div class="cuisine">Royal Manchu · Dongcheng</div>
+        <p class="desc">Imperial recipes recreated in halal preparation. Quiet, refined, with private rooms in late-Qing style. Favoured by visiting GCC royalty.</p>
+        <div class="details">
+          <span><strong>Best for</strong>Refined dinner / farewell lunch</span>
+          <span><strong>Day</strong>Days I &amp; VIII</span>
+        </div>
+      </div>
+
+      <div class="restaurant-card reveal delay-2">
+        <div class="cert">✓ Halal Certified</div>
+        <h4>Siji Minfu</h4>
+        <div class="cuisine">Halal Peking Duck · Qianmen</div>
+        <p class="desc">The most acclaimed Peking duck in Beijing, prepared in a fully halal kitchen. Wood-fired oven, hand-rolled pancakes, perfect crispy skin.</p>
+        <div class="details">
+          <span><strong>Best for</strong>The signature dish of Beijing</span>
+          <span><strong>Day</strong>Optional · on request</span>
+        </div>
+      </div>
+
+      <div class="restaurant-card reveal">
+        <div class="cert">✓ Halal Certified</div>
+        <h4>Manfulou Halal Hotpot</h4>
+        <div class="cuisine">Imperial Hotpot · Wangfujing</div>
+        <p class="desc">Imperial-style halal hotpot since 1985. Quiet private dining rooms, children love the at-table preparation. Beijing classic.</p>
+        <div class="details">
+          <span><strong>Best for</strong>Family lunch / hotpot experience</span>
+          <span><strong>Day</strong>Day II — Forbidden City</span>
+        </div>
+      </div>
+
+      <div class="restaurant-card reveal delay-1">
+        <div class="cert">✓ Halal Certified</div>
+        <h4>Turpan Restaurant</h4>
+        <div class="cuisine">Uyghur · Sanlitun</div>
+        <p class="desc">Authentic Uyghur Muslim cuisine — lamb on charcoal, hand-pulled laghman, Silk Road spices. Close to Arab palates · live music in evenings.</p>
+        <div class="details">
+          <span><strong>Best for</strong>Cultural dinner with character</span>
+          <span><strong>Day</strong>Day V — evening</span>
+        </div>
+      </div>
+
+      <div class="restaurant-card reveal delay-2">
+        <div class="cert">✓ Halal Certified</div>
+        <h4>Tingliguan Halal Branch</h4>
+        <div class="cuisine">Imperial · Summer Palace</div>
+        <p class="desc">Imperial-style cuisine in halal preparation, inside the Summer Palace grounds. Window-side tables overlooking Kunming Lake.</p>
+        <div class="details">
+          <span><strong>Best for</strong>Scenic lakeside lunch</span>
+          <span><strong>Day</strong>Day VI — Summer Palace</span>
+        </div>
+      </div>
+
+      <div class="restaurant-card reveal">
+        <div class="cert">✓ Halal Certified</div>
+        <h4>Xiao Lu Halal</h4>
+        <div class="cuisine">Hui Village · Mutianyu</div>
+        <p class="desc">Family-owned by Hui Muslims in the village below the Great Wall. Hand-pulled noodles, lamb skewers, traditional flatbread.</p>
+        <div class="details">
+          <span><strong>Best for</strong>Mountain village lunch</span>
+          <span><strong>Day</strong>Day III — Great Wall</span>
+        </div>
+      </div>
+
+      <div class="restaurant-card reveal delay-1">
+        <div class="cert">✓ Halal Certified</div>
+        <h4>Hai Wan Ju Halal</h4>
+        <div class="cuisine">Old Beijing · Tiantan</div>
+        <p class="desc">Beloved Beijing institution serving zhajiangmian (savoury noodles) in halal preparation. Authentic atmosphere, traditional service.</p>
+        <div class="details">
+          <span><strong>Best for</strong>Classic Beijing lunch</span>
+          <span><strong>Day</strong>Day V — Temple of Heaven</span>
+        </div>
+      </div>
+
+      <div class="restaurant-card reveal delay-2">
+        <div class="cert">✓ Halal Certified</div>
+        <h4>Crystal Jade Halal</h4>
+        <div class="cuisine">Cantonese · Wangfujing</div>
+        <p class="desc">The Singapore luxury chain's halal Beijing branch. Dim sum, roasted meats, silk-noodle soups. Modern, calm, gentle on the palate.</p>
+        <div class="details">
+          <span><strong>Best for</strong>Alternate lunch / light dining</span>
+          <span><strong>Day</strong>Flexible</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     MOSQUES
+     ============================================ -->
+<section id="mosques">
+  <div class="grain"></div>
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Places of Prayer</span>
+      <h2>The <em>Mosques of Beijing</em></h2>
+      <p class="lede">Islam has a thousand-year history in Beijing. These mosques welcome the family for daily prayers throughout the week.</p>
+    </div>
+
+    <div class="mosques-grid">
+      <div class="mosque-card reveal">
+        <svg class="mosque-icon" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M32 4 L32 12"/><circle cx="32" cy="14" r="2" fill="currentColor"/>
+          <path d="M20 20 Q32 8 44 20"/><path d="M14 30 L14 56 L50 56 L50 30"/>
+          <path d="M14 30 Q32 14 50 30"/><path d="M28 56 L28 42 Q32 36 36 42 L36 56"/>
+          <line x1="8" y1="56" x2="56" y2="56"/>
+          <circle cx="22" cy="38" r="2"/><circle cx="42" cy="38" r="2"/>
+        </svg>
+        <h4>Dongsi Mosque</h4>
+        <div class="arabic-name">مسجد دونغسي</div>
+        <div class="est">Established 1356 CE · Yuan Dynasty</div>
+        <p class="desc">The primary mosque for the family — only 8 min by car from Waldorf Astoria. Serene Yuan Dynasty architecture, reliably open for prayer, including Jumu'ah on Friday 29 May.</p>
+        <div class="address">Dongsi South Street, Dongcheng District</div>
+      </div>
+
+      <div class="mosque-card reveal delay-1" style="border-color: var(--gold);">
+        <svg class="mosque-icon" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M32 4 L32 12"/><circle cx="32" cy="14" r="2" fill="currentColor"/>
+          <path d="M20 20 Q32 8 44 20"/><path d="M14 30 L14 56 L50 56 L50 30"/>
+          <path d="M14 30 Q32 14 50 30"/><path d="M28 56 L28 42 Q32 36 36 42 L36 56"/>
+          <line x1="8" y1="56" x2="56" y2="56"/>
+          <circle cx="22" cy="38" r="2"/><circle cx="42" cy="38" r="2"/>
+        </svg>
+        <h4>Niujie Mosque</h4>
+        <div class="arabic-name">مسجد نيوجيه</div>
+        <div class="est">Established 996 CE · Liao Dynasty</div>
+        <p class="desc">The oldest and largest mosque in Beijing, founded over a thousand years ago. The heart of Muslim Beijing, surrounded by the city's most beloved halal restaurants and shops.</p>
+        <div class="address">Niujie Street 88, Xicheng District</div>
+      </div>
+
+      <div class="mosque-card reveal delay-2">
+        <svg class="mosque-icon" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M32 4 L32 12"/><circle cx="32" cy="14" r="2" fill="currentColor"/>
+          <path d="M20 20 Q32 8 44 20"/><path d="M14 30 L14 56 L50 56 L50 30"/>
+          <path d="M14 30 Q32 14 50 30"/><path d="M28 56 L28 42 Q32 36 36 42 L36 56"/>
+          <line x1="8" y1="56" x2="56" y2="56"/>
+          <circle cx="22" cy="38" r="2"/><circle cx="42" cy="38" r="2"/>
+        </svg>
+        <h4>Haidian Mosque</h4>
+        <div class="arabic-name">مسجد هايديان</div>
+        <div class="est">Established 1283 CE · Yuan Dynasty</div>
+        <p class="desc">Conveniently located near the Summer Palace · this is where the family performs Jumu'ah on Friday 29 May (Day VI). A Yuan-era mosque with an active Hui community, welcoming and well-maintained.</p>
+        <div class="address">Haidian District, near Summer Palace</div>
+      </div>
+    </div>
+
+    <div style="margin-top: 4rem; padding: 2rem; border: 1px solid var(--border); border-radius: 2px; text-align: center; background: rgba(44, 95, 90, 0.05);">
+      <div style="font-family: 'Amiri', serif; font-size: 1.5rem; color: var(--gold); margin-bottom: 1rem;">في كل مكان</div>
+      <p style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.2rem; color: var(--text);">
+        Beyond these three, Beijing is home to <strong style="color: var(--gold); font-weight: 500;">over 70 mosques</strong>. The Mercedes V-Class is equipped with prayer mats, qibla compass, and refreshed water for wudu &mdash; the driver assists at the appropriate times each day.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     PRACTICAL
+     ============================================ -->
+<section id="practical">
+  <div class="grain"></div>
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Essential Information</span>
+      <h2>The <em>Practical Details</em></h2>
+      <p class="lede">Everything you need to know — handled, arranged, taken care of.</p>
+    </div>
+
+    <div class="practical-grid">
+      <div class="practical-card reveal">
+        <div class="head">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="10" r="3"/>
+            <path d="M12 2a8 8 0 0 0-8 8c0 1.892.402 3.13 1.5 4.5L12 22l6.5-7.5c1.098-1.37 1.5-2.608 1.5-4.5a8 8 0 0 0-8-8z"/>
+          </svg>
+          <h4>Logistics</h4>
+        </div>
+        <ul>
+          <li><strong>Vehicle</strong><span>Mercedes-Benz V-Class V260L (Exclusive) — private throughout</span></li>
+          <li><strong>Driver</strong><span>English-speaking, vetted, available 06:00&ndash;23:00 + on-call</span></li>
+          <li><strong>Guide</strong><span>Licensed Beijing guide · English or Arabic-speaking on request</span></li>
+          <li><strong>Concierge</strong><span>Arabic / English on WhatsApp 24/7</span></li>
+          <li><strong>SIM Card</strong><span>Unlimited 5G SIM cards prepared on arrival</span></li>
+          <li><strong>Hotel</strong><span>Waldorf Astoria Beijing · Jinyu Hutong, Wangfujing</span></li>
+        </ul>
+      </div>
+
+      <div class="practical-card reveal delay-1">
+        <div class="head">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+          <h4>Climate · Late May 2026</h4>
+        </div>
+        <ul>
+          <li><strong>Day temp</strong><span>22&ndash;28°C — pleasant, mostly clear</span></li>
+          <li><strong>Night temp</strong><span>14&ndash;18°C — light jacket in evenings</span></li>
+          <li><strong>Rain</strong><span>Occasional, low — umbrellas always in vehicle</span></li>
+          <li><strong>Air quality</strong><span>Generally good in late May — monitored daily</span></li>
+          <li><strong>Sun</strong><span>Strong midday sun — SPF50 recommended for children</span></li>
+          <li><strong>Hydration</strong><span>Premium bottled water always available in the vehicle</span></li>
+        </ul>
+      </div>
+
+      <div class="practical-card reveal delay-2">
+        <div class="head">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+          <h4>Prayer Times · Late May</h4>
+        </div>
+        <ul>
+          <li><strong>Fajr</strong><span>≈ 03:30 — in the suite at Waldorf</span></li>
+          <li><strong>Dhuhr</strong><span>≈ 12:20 — accommodated mid-itinerary daily</span></li>
+          <li><strong>Asr</strong><span>≈ 16:10 — quiet pause built into each day</span></li>
+          <li><strong>Maghrib</strong><span>≈ 19:35 — usually back at hotel or restaurant</span></li>
+          <li><strong>Isha</strong><span>≈ 21:10 — in the suite</span></li>
+          <li><strong>Jumu'ah</strong><span>≈ 13:00 Fri 29 May · Haidian Mosque (beside the Summer Palace)</span></li>
+        </ul>
+      </div>
+
+      <div class="practical-card reveal delay-3">
+        <div class="head">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/>
+            <line x1="12" y1="6" x2="12" y2="12"/>
+            <line x1="12" y1="12" x2="16" y2="14"/>
+          </svg>
+          <h4>Flight Schedule</h4>
+        </div>
+        <ul>
+          <li><strong>Arrival</strong><span>Saudia · Riyadh → Beijing Daxing (PKX)</span></li>
+          <li><strong>Lands</strong><span>17:05 · Sunday 24 May 2026</span></li>
+          <li><strong>To hotel</strong><span>75 min Mercedes V-Class · arrival ≈ 19:30</span></li>
+          <li><strong>Departure</strong><span>Saudia · Beijing Daxing (PKX) → Riyadh</span></li>
+          <li><strong>Departs</strong><span>20:05 · Sunday 31 May 2026</span></li>
+          <li><strong>To airport</strong><span>Leave Waldorf 15:30 · arrive PKX 16:45</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     FAREWELL
+     ============================================ -->
+<section class="farewell" id="farewell">
+  <div class="grain"></div>
+  <div class="pattern-overlay"></div>
+  <div class="container">
+    <div class="reveal">
+      <div class="farewell-arabic">مع السلامة<br/>ورحلة آمنة إلى الديار</div>
+      <div class="eyebrow">Safe travels home</div>
+    </div>
+    <h2 class="reveal delay-1">Until we meet <em>again</em></h2>
+    <p class="closing reveal delay-2">
+      It has been our honour to host your family in the Imperial Capital.<br/>
+      May the memories of these eight days remain as treasured as the gold<br/>
+      that crowns the Forbidden City roofs.
+    </p>
+    <div class="signature reveal delay-3">
+      <div class="name">Your Beijing Concierge Team</div>
+      <div class="title">Curated · Discreet · Devoted</div>
+    </div>
+    <div style="margin-top: 4rem; opacity: 0.4;">
+      <div class="hero-divider">
+        <div class="line"></div>
+        <div class="ornament">◆</div>
+        <div class="line"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // ============================================
+  // PROGRESS BAR
+  // ============================================
+  const progressBar = document.getElementById('progressBar');
+  window.addEventListener('scroll', () => {
+    const scrolled = window.scrollY;
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    progressBar.style.width = ((scrolled / max) * 100) + '%';
+  });
+
+  // ============================================
+  // REVEAL ON SCROLL
+  // ============================================
+  const reveals = document.querySelectorAll('.reveal');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -80px 0px' });
+  reveals.forEach(el => revealObserver.observe(el));
+
+  // ============================================
+  // SIDE NAV ACTIVE STATE
+  // ============================================
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.side-nav a');
+  const navObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute('id');
+        navLinks.forEach(link => {
+          link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+        });
+      }
+    });
+  }, { threshold: 0.5 });
+  sections.forEach(section => navObserver.observe(section));
+
+  // ============================================
+  // SMOOTH ANCHOR SCROLL
+  // ============================================
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
+  // ============================================
+  // KEYBOARD NAVIGATION
+  // ============================================
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowDown' || e.key === 'PageDown') {
+      e.preventDefault();
+      const current = [...sections].reverse().find(s => s.getBoundingClientRect().top <= 50);
+      if (current && current.nextElementSibling?.tagName === 'SECTION') {
+        current.nextElementSibling.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+    if (e.key === 'ArrowUp' || e.key === 'PageUp') {
+      e.preventDefault();
+      const current = [...sections].find(s => s.getBoundingClientRect().bottom > 50);
+      if (current && current.previousElementSibling?.tagName === 'SECTION') {
+        current.previousElementSibling.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  });
+
+  // ============================================
+  // LOAD PHOTOS — HIGH RESOLUTION
+  // Priority: data-photo (direct URL) > data-wiki (Wikipedia API)
+  // Wikimedia direct URLs always succeed; thumb URLs only work for pre-cached sizes.
+  // ============================================
+  function applyPhoto(el, url) {
+    let target;
+    if (el.classList.contains('photo-bg') || el.classList.contains('v-photo')) {
+      target = el;
+    } else if (el.classList.contains('gallery-item')) {
+      target = el.querySelector('.gallery-photo');
+    } else {
+      target = el.querySelector('.photo');
+    }
+    if (!target) return;
+    const img = new Image();
+    img.onload = () => {
+      // For IMG elements, set src directly (object-fit handles sizing).
+      // For DIVs, use background-image.
+      if (target.tagName === 'IMG') {
+        target.src = url;
+      } else {
+        target.style.backgroundImage = `url("${url}")`;
+      }
+      target.classList.add('loaded');
+      if (el.classList.contains('day-visual')) el.classList.add('has-photo');
+      if (el.classList.contains('gallery-item')) el.classList.add('loaded');
+      // V-Class hero: lift the parent so SVG silhouette hides behind real photo
+      if (el.classList.contains('v-photo') && el.parentElement) {
+        el.parentElement.classList.add('has-photo');
+      }
+    };
+    img.onerror = () => {
+      console.warn('[photo] failed to load:', url);
+    };
+    img.src = url;
+  }
+
+  async function loadPhoto(el) {
+    // Direct URL takes priority — skip Wikipedia API
+    const directUrl = el.dataset.photo;
+    if (directUrl) {
+      applyPhoto(el, directUrl);
+      return;
+    }
+    const slug = el.dataset.wiki;
+    if (!slug) return;
+    try {
+      const r = await fetch(
+        `https://en.wikipedia.org/w/api.php?action=query&titles=${slug}&prop=pageimages&pithumbsize=2560&format=json&origin=*`
+      );
+      const data = await r.json();
+      const pages = data.query?.pages;
+      if (!pages) return;
+      const page = Object.values(pages)[0];
+      const url = page?.thumbnail?.source || page?.original?.source;
+      if (!url) return;
+      applyPhoto(el, url);
+    } catch (e) {
+      console.warn('[photo] Wikipedia API failed for slug:', slug, e);
+    }
+  }
+
+  document.querySelectorAll('[data-wiki], [data-photo]').forEach(loadPhoto);
+</script>
+
+</body>
+</html>
